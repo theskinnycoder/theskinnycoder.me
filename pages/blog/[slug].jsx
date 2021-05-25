@@ -1,21 +1,21 @@
-import { useRouter } from "next/router"
-import ReactMarkdown from "react-markdown"
-import gfm from "remark-gfm"
-import { ArticleSkeleton } from "../../components/Articles"
+import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
+import { ArticleSkeleton } from "../../components/Articles";
 import {
   CodeBlock,
   CoverPic,
   DateAndTimeTaken,
   ImageComponent,
   SocialShareButtons
-} from "../../components/Blog"
-import client from "../../utils/client"
+} from "../../components/Blog";
+import client from "../../utils/client";
 
 const BlogDetails = ({ post }) => {
-  if (!post) return <ArticleSkeleton />
-  const router = useRouter()
+  if (!post) return <ArticleSkeleton />;
+  const router = useRouter();
 
-  const { title, excerpt, content, publishedAt, coverPic } = post.fields
+  const { title, excerpt, content, publishedAt, coverPic } = post.fields;
 
   return (
     <article className="container flex flex-col max-w-5xl px-2 mx-auto mt-10 text-center">
@@ -45,7 +45,7 @@ const BlogDetails = ({ post }) => {
 
         {/* The Content */}
         <ReactMarkdown
-          className="prose-tuna sm:prose lg:prose-lg xl:prose-xl mx-auto mt-8 prose-sm prose text-left"
+          className="prose-tuna lg:prose-lg xl:prose-xl mx-auto mt-8 prose-sm prose text-left"
           renderers={{
             code: CodeBlock,
             image: ImageComponent,
@@ -57,29 +57,29 @@ const BlogDetails = ({ post }) => {
         </ReactMarkdown>
       </div>
     </article>
-  )
-}
+  );
+};
 
 export const getStaticPaths = async () => {
-  const response = await client.getEntries({ content_type: "article" })
+  const response = await client.getEntries({ content_type: "article" });
 
   const paths = response.items.map(item => {
     return {
       params: { slug: item.fields.slug }
-    }
-  })
+    };
+  });
 
   return {
     paths,
     fallback: true
-  }
-}
+  };
+};
 
 export const getStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
     content_type: "article",
     "fields.slug": params.slug
-  })
+  });
 
   if (!items.length) {
     return {
@@ -87,13 +87,13 @@ export const getStaticProps = async ({ params }) => {
         destination: "/",
         permanent: false
       }
-    }
+    };
   }
 
   return {
     props: { post: items[0] },
     revalidate: 3600
-  }
-}
+  };
+};
 
-export default BlogDetails
+export default BlogDetails;
