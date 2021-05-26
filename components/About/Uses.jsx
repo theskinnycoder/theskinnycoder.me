@@ -1,6 +1,6 @@
-import { FaFigma, FaTerminal } from "react-icons/fa"
-import { FcGoogle } from "react-icons/fc"
-import { RiFileGifFill } from "react-icons/ri"
+import { FaFigma, FaTerminal } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { RiFileGifFill } from "react-icons/ri";
 import {
   SiAsus,
   SiAudacity,
@@ -11,7 +11,7 @@ import {
   SiPexels,
   SiUnsplash,
   SiVisualstudiocode
-} from "react-icons/si"
+} from "react-icons/si";
 
 const Uses = () => {
   return (
@@ -158,7 +158,7 @@ const Uses = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Uses
+export default Uses;

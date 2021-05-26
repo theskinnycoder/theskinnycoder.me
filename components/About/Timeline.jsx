@@ -131,7 +131,7 @@ const Timeline = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

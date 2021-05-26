@@ -19,6 +19,6 @@ const navLinks = [
     name: "Projects",
     href: "/projects"
   }
-]
+];
 
-export default navLinks
+export default navLinks;

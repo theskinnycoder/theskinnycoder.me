@@ -1,4 +1,4 @@
-import { formatDistance } from "date-fns"
+import { formatDistance } from "date-fns";
 
 const VideoItem = ({ video }) => {
   return (
@@ -35,7 +35,7 @@ const VideoItem = ({ video }) => {
         </div>
       </article>
     </div>
-  )
-}
+  );
+};
 
-export default VideoItem
+export default VideoItem;

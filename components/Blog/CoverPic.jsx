@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/image";
 
 const CoverPic = ({ fields }) => {
   return (
@@ -8,7 +8,7 @@ const CoverPic = ({ fields }) => {
       width={fields.file.details.image.width}
       height={fields.file.details.image.height}
     />
-  )
-}
+  );
+};
 
-export default CoverPic
+export default CoverPic;

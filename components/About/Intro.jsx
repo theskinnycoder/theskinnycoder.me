@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa"
+import Image from "next/image";
+import { FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Intro = () => {
   return (
@@ -68,7 +68,7 @@ const Intro = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Intro
+export default Intro;

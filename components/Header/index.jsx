@@ -1,12 +1,12 @@
-import Link from "next/link"
-import { HiMenuAlt3, HiX } from "react-icons/hi"
-import useStore from "../../utils/store"
-import ActiveLink from "../ActiveLink"
-import links from "../navLinks"
+import Link from "next/link";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
+import useStore from "../../utils/store";
+import ActiveLink from "../ActiveLink";
+import links from "../navLinks";
 
 const Header = () => {
-  const sidebar = useStore(state => state.sidebar)
-  const toggleSidebar = useStore(state => state.toggleSidebar)
+  const sidebar = useStore(state => state.sidebar);
+  const toggleSidebar = useStore(state => state.toggleSidebar);
 
   return (
     <header className="lg:px-8 fixed inset-x-0 top-0 z-10 flex items-center justify-between px-4 py-6 font-semibold bg-white shadow-2xl">
@@ -43,7 +43,7 @@ const Header = () => {
         )}
       </button>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

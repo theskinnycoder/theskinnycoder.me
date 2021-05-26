@@ -1,6 +1,6 @@
-import { formatDistance } from "date-fns"
-import Image from "next/image"
-import Link from "next/link"
+import { formatDistance } from "date-fns";
+import Image from "next/image";
+import Link from "next/link";
 
 const ArticleItem = ({ post }) => {
   return (
@@ -37,7 +37,7 @@ const ArticleItem = ({ post }) => {
         </a>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default ArticleItem
+export default ArticleItem;

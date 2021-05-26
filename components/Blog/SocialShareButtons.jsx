@@ -1,6 +1,6 @@
-import { FaTelegramPlane } from "react-icons/fa"
-import { RiWhatsappFill } from "react-icons/ri"
-import { SiFacebook, SiLinkedin, SiReddit, SiTwitter } from "react-icons/si"
+import { FaTelegramPlane } from "react-icons/fa";
+import { RiWhatsappFill } from "react-icons/ri";
+import { SiFacebook, SiLinkedin, SiReddit, SiTwitter } from "react-icons/si";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -8,7 +8,7 @@ import {
   TelegramShareButton,
   TwitterShareButton,
   WhatsappShareButton
-} from "react-share"
+} from "react-share";
 
 const SocialShareButtons = ({ path, title, hashtag }) => {
   return (
@@ -70,7 +70,7 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
         <FaTelegramPlane className="w-8 h-8 rounded text-[#24A2E0] hover:text-opacity-80" />
       </TelegramShareButton>
     </div>
-  )
-}
+  );
+};
 
-export default SocialShareButtons
+export default SocialShareButtons;

@@ -1,7 +1,7 @@
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
-import "../styles/globals.css"
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
     </div>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

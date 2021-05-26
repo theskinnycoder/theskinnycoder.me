@@ -15,7 +15,7 @@ const ArticleSkeleton = () => {
       <div className="bg-tuna-100 bg-opacity-20 h-48 p-5 my-1 rounded shadow-lg"></div>
       <div className="bg-tuna-100 bg-opacity-20 h-48 p-5 my-1 rounded shadow-lg"></div>
     </div>
-  )
-}
+  );
+};
 
-export default ArticleSkeleton
+export default ArticleSkeleton;

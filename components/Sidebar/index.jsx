@@ -1,10 +1,10 @@
-import useStore from "../../utils/store"
-import ActiveLink from "../ActiveLink"
-import links from "../navLinks"
+import useStore from "../../utils/store";
+import ActiveLink from "../ActiveLink";
+import links from "../navLinks";
 
 const Sidebar = () => {
-  const sidebar = useStore(state => state.sidebar)
-  const toggleSidebar = useStore(state => state.toggleSidebar)
+  const sidebar = useStore(state => state.sidebar);
+  const toggleSidebar = useStore(state => state.toggleSidebar);
 
   return (
     <aside
@@ -22,7 +22,7 @@ const Sidebar = () => {
         ))}
       </ul>
     </aside>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

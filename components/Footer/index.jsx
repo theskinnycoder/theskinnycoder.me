@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { FaRegCopyright } from "react-icons/fa"
-import { IoLogoVercel } from "react-icons/io5"
-import { SiNextDotJs, SiTailwindcss } from "react-icons/si"
+import Link from "next/link";
+import { FaRegCopyright } from "react-icons/fa";
+import { IoLogoVercel } from "react-icons/io5";
+import { SiNextDotJs, SiTailwindcss } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
       </h5>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -164,10 +164,10 @@ class MainClass {
 - To get syntax-highlighting, we can specify the name of the language after the first 3 back-ticks.
 
 ```javascript
-const add = (num1, num2) => num1 + num2
+const add = (num1, num2) => num1 + num2;
 
-if (add(1, 2)) console.log("The sum is a number")
-else console.log("The sum is zero")
+if (add(1, 2)) console.log("The sum is a number");
+else console.log("The sum is zero");
 ```
 
 - Some Other Examples :

@@ -1,4 +1,4 @@
-import { ArticleItem } from "../Articles/"
+import { ArticleItem } from "../Articles/";
 
 const RecentArticles = ({ articles }) => {
   return (
@@ -17,7 +17,7 @@ const RecentArticles = ({ articles }) => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default RecentArticles
+export default RecentArticles;

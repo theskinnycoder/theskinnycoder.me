@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/defaultTheme")
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
@@ -35,4 +35,4 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography")
   ]
-}
+};

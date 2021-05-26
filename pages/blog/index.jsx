@@ -1,5 +1,5 @@
-import { ArticleItem } from "../../components/Articles"
-import client from "../../utils/client"
+import { ArticleItem } from "../../components/Articles";
+import client from "../../utils/client";
 
 const Blog = ({ articles }) => {
   return (
@@ -9,7 +9,7 @@ const Blog = ({ articles }) => {
           <h2 className="text-6xl text-center">
             The <span className="font-bold uppercase">Blog</span>
           </h2>
-          <h4 className="mt-2 text-2xl leading-tight text-center">
+          <h4 className="px-3 mt-2 text-2xl leading-tight text-center">
             Here is where I post & publish my technical articles, cheatsheets,
             YouTube supplements & rants...
           </h4>
@@ -21,18 +21,18 @@ const Blog = ({ articles }) => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
 export const getStaticProps = async () => {
-  const response = await client.getEntries({ content_type: "article" })
+  const response = await client.getEntries({ content_type: "article" });
 
   return {
     props: {
       articles: response.items
     },
     revalidate: 3600
-  }
-}
+  };
+};
 
-export default Blog
+export default Blog;

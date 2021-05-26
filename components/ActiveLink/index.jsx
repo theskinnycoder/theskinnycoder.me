@@ -1,16 +1,16 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import { Children, cloneElement } from "react"
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Children, cloneElement } from "react";
 
 const ActiveLink = ({ children, activeClassName, ...props }) => {
-  const { asPath } = useRouter()
-  const child = Children.only(children)
-  const childClassName = child.props.className || ""
+  const { asPath } = useRouter();
+  const child = Children.only(children);
+  const childClassName = child.props.className || "";
 
   const className =
     asPath === props.href || asPath === props.as
       ? `${childClassName} ${activeClassName}`.trim()
-      : childClassName
+      : childClassName;
 
   return (
     <Link {...props}>
@@ -18,7 +18,7 @@ const ActiveLink = ({ children, activeClassName, ...props }) => {
         className: className || null
       })}
     </Link>
-  )
-}
+  );
+};
 
-export default ActiveLink
+export default ActiveLink;

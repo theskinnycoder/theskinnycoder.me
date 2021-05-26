@@ -1,5 +1,5 @@
-import { formatDistance } from "date-fns"
-import readingTime from "reading-time"
+import { formatDistance } from "date-fns";
+import readingTime from "reading-time";
 
 const DateAndTimeTaken = ({ publishedAt, content }) => {
   return (
@@ -14,7 +14,7 @@ const DateAndTimeTaken = ({ publishedAt, content }) => {
         {readingTime(content).text}
       </p>
     </>
-  )
-}
+  );
+};
 
-export default DateAndTimeTaken
+export default DateAndTimeTaken;

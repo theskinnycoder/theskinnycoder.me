@@ -1,4 +1,5 @@
-import { Intro, Timeline, Uses } from "../../components/About"
+import { Intro, Timeline, Uses } from "../../components/About";
+
 const About = () => {
   return (
     <>
@@ -6,7 +7,7 @@ const About = () => {
       <Uses />
       <Timeline />
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;
