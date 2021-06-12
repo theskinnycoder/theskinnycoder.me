@@ -5,45 +5,62 @@
 @layer base {
   @font-face {
     font-weight: 400;
-    font-family: "GT-Walsheim-Pro";
-    src: url("../fonts/GT-Walsheim-Pro-Regular.woff2") format("woff2");
+    font-family: 'GT-Walsheim-Pro';
+    src: url('../fonts/GT-Walsheim-Pro-Regular.woff2') format('woff2');
   }
+
   @font-face {
     font-weight: 600;
-    font-family: "GT-Walsheim-Pro";
-    src: url("../fonts/GT-Walsheim-Pro-Medium.woff2") format("woff2");
+    font-family: 'GT-Walsheim-Pro';
+    src: url('../fonts/GT-Walsheim-Pro-Medium.woff2') format('woff2');
   }
+
   @font-face {
     font-weight: 700;
-    font-family: "GT-Walsheim-Pro";
-    src: url("../fonts/GT-Walsheim-Pro-Bold.woff2") format("woff2");
+    font-family: 'GT-Walsheim-Pro';
+    src: url('../fonts/GT-Walsheim-Pro-Bold.woff2') format('woff2');
   }
+
   @font-face {
-    font-weight: 500;
-    font-family: "IBM Plex Mono";
-    src: url("../fonts/ibm-plex-mono-regular.woff2") format("woff2");
-  }
-  @font-face {
-    font-weight: 600;
-    font-family: "IBM Plex Mono";
-    src: url("../fonts/ibm-plex-mono-bold.woff2") format("woff2");
-  }
-  @font-face {
-    font-weight: 500;
+    font-family: 'Inter';
     font-style: normal;
-    font-family: "IBM Plex Mono";
-    src: url("../fonts/ibm-plex-mono-regular.woff2") format("woff2");
+    font-weight: 400;
+    src: url('../fonts/inter.ttf') format('truetype');
   }
+
   @font-face {
-    font-weight: 600;
+    font-family: 'Inter';
     font-style: normal;
-    font-family: "IBM Plex Mono";
-    src: url("../fonts/ibm-plex-mono-bold.woff2") format("woff2");
+    font-weight: 600;
+    src: url('../fonts/inter.ttf') format('truetype');
   }
+
   @font-face {
-    font-weight: 500;
-    font-style: italic;
-    font-family: "IBM Plex Mono";
-    src: url("../fonts/ibm-plex-mono-bold-italic.woff2") format("woff2");
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/inter.ttf') format('truetype');
   }
+
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/JetBrainsMono.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/JetBrainsMono.ttf') format('truetype');
+  }
+}
+
+.prose code::before {
+  content: '';
+}
+
+.prose code::after {
+  content: '';
 }
