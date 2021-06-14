@@ -1,8 +1,10 @@
-import create from "zustand";
+import create from 'zustand';
 
 const useStore = create((set, get) => ({
   sidebar: false,
-  toggleSidebar: () => set({ sidebar: !get().sidebar })
+  darkmode: true,
+  toggleSidebar: () => set({ sidebar: !get().sidebar }),
+  toggleDarkmode: () => set({ darkmode: !get().darkmode }),
 }));
 
 export default useStore;

@@ -4,45 +4,6 @@
 
 @layer base {
   @font-face {
-    font-weight: 400;
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GT-Walsheim-Pro-Regular.woff2') format('woff2');
-  }
-
-  @font-face {
-    font-weight: 600;
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GT-Walsheim-Pro-Medium.woff2') format('woff2');
-  }
-
-  @font-face {
-    font-weight: 700;
-    font-family: 'GT-Walsheim-Pro';
-    src: url('../fonts/GT-Walsheim-Pro-Bold.woff2') format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/inter.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../fonts/inter.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    src: url('../fonts/inter.ttf') format('truetype');
-  }
-
-  @font-face {
     font-family: 'JetBrains Mono';
     font-style: normal;
     font-weight: 400;

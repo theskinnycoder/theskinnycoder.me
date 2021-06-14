@@ -2,7 +2,7 @@ import { ArticleItem } from '../Articles/';
 
 const RecentArticles = ({ articles }) => {
   return (
-    <div className='bg-tuna-100 bg-opacity-20 min-h-screen'>
+    <div className='dark:bg-dark dark:text-light min-h-screen'>
       <section className='flex flex-col items-center justify-center w-full py-20 mx-auto text-left'>
         <div className='container mx-auto'>
           <h2 className='md:text-6xl px-3 text-5xl text-center'>
