@@ -13,7 +13,7 @@ const Header = () => {
   const toggleDarkmode = useStore((state) => state.toggleDarkmode);
 
   return (
-    <header className='dark:bg-dark dark:text-light fixed inset-x-0 top-0 z-10 p-4 font-semibold text-black bg-white shadow-2xl'>
+    <header className='dark:bg-dark dark:text-light dark:border-b-[1px] dark:border-light fixed inset-x-0 top-0 z-10 p-4 font-semibold text-black bg-white shadow-2xl'>
       <div className='flex items-center justify-between max-w-5xl mx-auto'>
         <h3 className='lg:text-2xl text-xl'>
           <Link href='/'>

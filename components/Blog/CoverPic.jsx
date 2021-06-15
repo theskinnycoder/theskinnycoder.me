@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const CoverPic = ({ fields }) => {
   return (
-    <div className='dark:border-white dark:border-2'>
+    <div className='dark:ring-1 dark:ring-light'>
       <Image
         src={`https:${fields.file.url}`}
         alt={fields.title}

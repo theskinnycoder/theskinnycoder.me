@@ -10,7 +10,7 @@ const Intro = () => {
       <h1 className='md:text-6xl sm:text-5xl py-4 mt-10 text-4xl text-center'>
         About <span className='font-bold'>Me</span>
       </h1>
-      <div className='container flex max-w-5xl p-2 mx-auto'>
+      <div className='container flex max-w-5xl p-2 mx-auto space-x-20'>
         <section className='lg:m-0 lg:text-left flex flex-col justify-center w-3/5 m-auto mt-10 space-y-4 font-normal text-center'>
           <h1 className='md:text-4xl sm:text-3xl text-2xl'>
             Hello, There! This is <span className='font-bold'>Rahul SriRam</span>.
@@ -51,7 +51,7 @@ const Intro = () => {
             </a>
           </div>
         </section>
-        <div className='lg:block hidden w-2/5 ml-auto'>
+        <div className='lg:block hidden w-2/5'>
           <Image
             className='rounded-full'
             src='https://avatars.githubusercontent.com/u/64031854?v=4'

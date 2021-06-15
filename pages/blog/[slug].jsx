@@ -1,15 +1,16 @@
 import Markdown from 'markdown-to-jsx';
 import { useRouter } from 'next/router';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import nord from 'react-syntax-highlighter/dist/cjs/styles/prism/nord';
-import prism from 'react-syntax-highlighter/dist/cjs/styles/prism/prism';
 import { ArticleSkeleton } from '../../components/Articles';
-import { CoverPic, DateAndTimeTaken, SocialShareButtons } from '../../components/Blog';
+import {
+  CodeBlock,
+  CoverPic,
+  DateAndTimeTaken,
+  ImageComponent,
+  SocialShareButtons,
+} from '../../components/Blog';
 import client from '../../utils/client';
-import useStore from '../../utils/store';
 
 const BlogDetails = ({ post }) => {
-  const darkmode = useStore((state) => state.darkmode);
   if (!post) return <ArticleSkeleton />;
   const router = useRouter();
 
@@ -23,7 +24,7 @@ const BlogDetails = ({ post }) => {
           <h1 className='md:text-7xl text-6xl font-bold capitalize'>{title}</h1>
 
           {/* Excerpt */}
-          <p className='md:text-xl dark:text-light my-4 text-lg font-semibold text-center text-black'>
+          <p className='md:text-xl dark:text-gray-400 my-4 text-lg font-medium text-center text-gray-600'>
             {excerpt}
           </p>
 
@@ -47,23 +48,17 @@ const BlogDetails = ({ post }) => {
             className='xl:prose-xl lg:prose-lg dark:text-light mx-auto mt-8 prose-sm prose text-left text-black'
             options={{
               overrides: {
+                image: (props) => <ImageComponent {...props} />,
+                img: (props) => <ImageComponent {...props} />,
                 h1: (props) => <h1 {...props} className='dark:text-light' />,
                 h2: (props) => <h2 {...props} className='dark:text-light' />,
                 h3: (props) => <h3 {...props} className='dark:text-light' />,
                 h4: (props) => <h4 {...props} className='dark:text-light' />,
                 blockquote: (props) => <blockquote {...props} className='dark:text-light' />,
                 pre: (props) => (
-                  <SyntaxHighlighter
-                    codeTagProps={{
-                      style: { fontSize: '16px', fontFamily: 'JetBrains Mono, monospace' },
-                    }}
-                    lineProps={{
-                      style: { wordBreak: 'break-word', whiteSpace: 'pre-wrap' },
-                    }}
-                    className='dark:text-light'
-                    children={props.children.props.children}
+                  <CodeBlock
+                    content={props.children.props.children}
                     language={props.children.props.className?.slice(5)}
-                    style={darkmode ? nord : prism}
                   />
                 ),
                 code: (props) => (
