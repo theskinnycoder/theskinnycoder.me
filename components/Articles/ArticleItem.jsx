@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const ArticleItem = ({ post }) => {
   return (
-    <div className='group hover:-translate-y-1 hover:shadow-2xl dark:bg-dark dark:ring-1 dark:ring-light dark:text-light dark:shadow-none dark:hover:shadow-2xl bg-light w-10/12 h-auto mx-auto transition duration-300 ease-in-out transform rounded shadow-xl'>
+    <div className='group hover:-translate-y-1 hover:shadow-2xl dark:bg-dark dark:ring-1 dark:ring-light dark:text-light dark:shadow-none dark:hover:shadow-2xl bg-light w-10/12 h-auto mx-auto transition duration-300 ease-in-out transform rounded-lg rounded-t-none shadow-xl'>
       <Link href={`/blog/${post.fields.slug}`}>
         <a>
           <article className='flex flex-col'>

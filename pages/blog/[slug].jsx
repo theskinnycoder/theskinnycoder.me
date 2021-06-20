@@ -8,6 +8,7 @@ import {
   ImageComponent,
   SocialShareButtons,
 } from '../../components/Blog';
+import Comments from '../../components/Comments';
 import client from '../../utils/client';
 
 const BlogDetails = ({ post }) => {
@@ -71,6 +72,7 @@ const BlogDetails = ({ post }) => {
           >
             {content}
           </Markdown>
+          <Comments />
         </div>
       </article>
     </div>
