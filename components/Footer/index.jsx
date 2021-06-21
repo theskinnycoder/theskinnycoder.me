@@ -9,7 +9,7 @@ const Footer = () => {
       <h5>
         Copyright <FaRegCopyright className='inline-block mb-1' /> {new Date().getFullYear()},{' '}
         <Link href='/'>
-          <a className='hover:underline font-bold'>TheSkinnyCoder</a>
+          <a className='hover:underline font-medium'>TheSkinnyCoder</a>
         </Link>
         . All Right Reserved
       </h5>
