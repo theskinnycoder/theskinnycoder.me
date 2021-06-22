@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { FaMoon } from 'react-icons/fa';
 import { FiSun } from 'react-icons/fi';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiX } from 'react-icons/hi';
+import { RiMenu3Fill } from 'react-icons/ri';
 import useStore from '../../utils/store';
 import ActiveLink from '../ActiveLink';
 import links from '../navLinks';
@@ -14,8 +15,8 @@ const Header = () => {
 
   return (
     <header className='dark:bg-dark dark:text-light dark:border-b-[1px] dark:border-light fixed inset-x-0 top-0 z-10 p-4 font-semibold text-black bg-white shadow-2xl'>
-      <div className='flex items-center justify-between max-w-5xl mx-auto'>
-        <h3 className='lg:text-2xl text-xl'>
+      <div className='flex items-center justify-between max-w-5xl px-4 mx-auto'>
+        <h3 className='md:text-xl text-lg'>
           <Link href='/'>
             <a className='font-bold uppercase'>TSC</a>
           </Link>
@@ -28,7 +29,7 @@ const Header = () => {
             {darkmode ? <FiSun className='w-4 h-4' /> : <FaMoon className='w-4 h-4' />}
           </button>
 
-          <ul className='md:flex md:text-base lg:text-lg xl:text-xl items-center justify-center hidden pl-10 ml-auto space-x-6 text-sm'>
+          <ul className='sm:flex md:text-sm lg:text-base xl:text-md items-center justify-center hidden pl-10 ml-auto space-x-6 text-xs'>
             {links?.map((link) => (
               <li key={link.id} className='group'>
                 <ActiveLink
@@ -45,11 +46,14 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <button className='focus:outline-none ml-2 outline-none' onClick={toggleSidebar}>
+          <button
+            className='focus:outline-none sm:hidden ml-3.5 outline-none'
+            onClick={toggleSidebar}
+          >
             {sidebar ? (
-              <HiX className='md:hidden w-8 h-8' />
+              <HiX className='sm:w-8 sm:h-8 w-6 h-6' />
             ) : (
-              <HiMenuAlt3 className='md:hidden w-8 h-8' />
+              <RiMenu3Fill className='sm:w-8 sm:h-8 w-6 h-6' />
             )}
           </button>
         </div>

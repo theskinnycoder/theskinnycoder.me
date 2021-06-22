@@ -1,2 +1,2 @@
-export { default as client } from "./client";
-export { default as store } from "./store";
+export { default as graphcms } from './graphcms';
+export { default as store } from './store';

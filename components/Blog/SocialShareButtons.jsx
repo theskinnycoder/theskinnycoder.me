@@ -16,58 +16,58 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
       {/* Twitter */}
       <TwitterShareButton
         className='focus:outline-none outline-none'
-        url={`https://theskinnycoder.vercel.app${path}`}
+        url={`https://theskinnycoder.me${path}`}
         title={title}
       >
-        <SiTwitter className='w-8 h-8 rounded text-[#49a1eb] hover:text-opacity-80' />
+        <SiTwitter className='w-6 h-6 rounded text-[#49a1eb] hover:text-opacity-80' />
       </TwitterShareButton>
 
       {/* FaceBook */}
       <FacebookShareButton
         className='focus:outline-none outline-none'
-        url={`https://theskinnycoder.vercel.app${path}`}
+        url={`https://theskinnycoder.me${path}`}
         quote={title}
         hashtag={hashtag}
       >
-        <SiFacebook className='w-8 h-8 rounded text-[#3A5998] hover:text-opacity-80' />
+        <SiFacebook className='w-6 h-6 rounded text-[#3A5998] hover:text-opacity-80' />
       </FacebookShareButton>
 
       {/* Reddit */}
       <RedditShareButton
-        url={`https://theskinnycoder.vercel.app${path}`}
+        url={`https://theskinnycoder.me${path}`}
         className='focus:outline-none outline-none'
         title={title}
       >
-        <SiReddit className='w-8 h-8 rounded text-[#FF4500] hover:text-opacity-80' />
+        <SiReddit className='w-6 h-6 rounded text-[#FF4500] hover:text-opacity-80' />
       </RedditShareButton>
 
       {/* WhatsApp */}
       <WhatsappShareButton
-        url={`https://theskinnycoder.vercel.app${path}`}
+        url={`https://theskinnycoder.me${path}`}
         className='focus:outline-none outline-none'
         title={title}
         separator='-'
       >
-        <RiWhatsappFill className='w-8 h-8 rounded text-[#22CC65] hover:text-opacity-80' />
+        <RiWhatsappFill className='w-6 h-6 rounded text-[#22CC65] hover:text-opacity-80' />
       </WhatsappShareButton>
 
       {/* LinkedIn */}
       <LinkedinShareButton
-        source={`https://theskinnycoder.vercel.app${path}`}
+        source={`https://theskinnycoder.me${path}`}
         className='focus:outline-none outline-none'
         title={title}
         summary='Do check out other articles on this blog!'
       >
-        <SiLinkedin className='w-8 h-8 rounded text-[#0177B5] hover:text-opacity-80' />
+        <SiLinkedin className='w-6 h-6 rounded text-[#0177B5] hover:text-opacity-80' />
       </LinkedinShareButton>
 
       {/* Telegram */}
       <TelegramShareButton
-        url={`https://theskinnycoder.vercel.app${path}`}
+        url={`https://theskinnycoder.me${path}`}
         className='focus:outline-none outline-none'
         title={title}
       >
-        <FaTelegramPlane className='w-8 h-8 rounded text-[#24A2E0] hover:text-opacity-80' />
+        <FaTelegramPlane className='w-6 h-6 rounded text-[#24A2E0] hover:text-opacity-80' />
       </TelegramShareButton>
     </div>
   );

@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['images.ctfassets.net', 'avatars.githubusercontent.com', 'i.ytimg.com'],
+    domains: ['media.graphcms.com', 'avatars.githubusercontent.com', 'i.ytimg.com'],
   },
 };

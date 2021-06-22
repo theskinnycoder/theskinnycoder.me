@@ -5,7 +5,7 @@ const Timeline = () => {
   return (
     <div className='dark:bg-dark min-h-screen'>
       <div className='p-2 pt-10'>
-        <h3 className='md:text-6xl dark:text-light text-4xl text-center'>
+        <h3 className='md:text-5xl dark:text-light text-3xl text-center'>
           My <span className='font-semibold'>Timeline</span>
         </h3>
         <div className='container w-full h-full mx-auto'>

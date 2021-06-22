@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const VideoItem = ({ video }) => {
   return (
-    <div className='group hover:-translate-y-1 hover:shadow-2xl dark:bg-dark dark:ring-1 dark:ring-light dark:text-light bg-light w-10/12 h-auto mx-auto transition duration-300 ease-in-out transform rounded-lg rounded-t-none shadow-xl'>
+    <div className='group hover:-translate-y-1 hover:shadow-2xl dark:bg-dark dark:ring-1 dark:ring-light dark:text-light dark:shadow-none dark:hover:shadow-2xl bg-light w-10/12 h-auto mx-auto text-left transition duration-300 ease-in-out transform rounded-lg rounded-t-none shadow-xl'>
       <Link href={`https://www.youtube.com/watch?v=${video.id.videoId}`}>
         <a target='_blank'>
           <article className='flex flex-col'>
@@ -15,10 +15,10 @@ const VideoItem = ({ video }) => {
               width={video.snippet.thumbnails.high.width}
             />
             <div className='flex flex-col p-4'>
-              <h1 className='line-clamp-2 text-3xl font-semibold capitalize'>
+              <h1 className='line-clamp-2 text-2xl font-semibold capitalize'>
                 {video.snippet.title}
               </h1>
-              <p className='dark:text-gray-400 my-2 text-sm font-medium text-gray-600'>
+              <p className='dark:text-gray-400 my-2 text-xs font-medium text-gray-600'>
                 Published{' '}
                 {formatDistanceToNow(new Date(video.snippet.publishedAt), {
                   addSuffix: true,

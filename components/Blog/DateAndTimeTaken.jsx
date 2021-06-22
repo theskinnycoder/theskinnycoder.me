@@ -1,12 +1,12 @@
 import { formatDistanceToNow } from 'date-fns';
 import readingTime from 'reading-time';
 
-const DateAndTimeTaken = ({ publishedAt, content }) => {
+const DateAndTimeTaken = ({ updatedAt, content }) => {
   return (
     <>
-      <p className='dark:text-text-600 md:text-lg my-4 text-base font-medium text-gray-400'>
+      <p className='md:text-md my-4 text-sm font-medium text-gray-600'>
         Published{' '}
-        {formatDistanceToNow(new Date(publishedAt.split('-')), {
+        {formatDistanceToNow(new Date(updatedAt), {
           addSuffix: true,
           includeSeconds: true,
         })}

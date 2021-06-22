@@ -16,11 +16,11 @@ const Sidebar = () => {
       ref={domNode}
       className={`${
         sidebar ? '' : '-translate-x-full'
-      } md:hidden fixed inset-y-0 flex items-center justify-center w-3/4 h-screen text-light bg-dark shadow-2xl z-20 transition transform duration-300 ease-in-out`}
+      } sm:hidden fixed inset-y-0 flex items-center justify-center w-3/4 min-h-screen text-light bg-dark shadow-2xl z-20 transition transform duration-300 ease-in-out dark:bg-light dark:text-dark`}
     >
-      <ul className='flex flex-col items-center justify-center space-y-10'>
+      <ul className='flex flex-col space-y-10 font-medium tracking-wide'>
         {links?.map((link) => (
-          <li key={link.id} className='group text-3xl uppercase'>
+          <li key={link.id} className='text-2xl uppercase'>
             <ActiveLink href={link.href} activeClassName='underline'>
               <a onClick={toggleSidebar}>{link.name}</a>
             </ActiveLink>

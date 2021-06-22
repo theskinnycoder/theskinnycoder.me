@@ -1,33 +1,32 @@
 import { ArticleItem } from '../../components/Articles';
-import client from '../../utils/client';
+import { GET_ALL_ARTICLES } from '../../graphql/articles';
+import { graphcms } from '../../utils';
 
 const Blog = ({ articles }) => {
   return (
-    <section className='dark:bg-dark dark:text-light flex flex-col items-center justify-center w-full min-h-screen py-20 mx-auto text-left'>
-      <div className='container mx-auto'>
-        <h2 className='text-6xl text-center'>
-          The <span className='font-bold uppercase'>Blog</span>
-        </h2>
-        <h4 className='px-3 mt-2 text-2xl leading-tight text-center'>
-          Here is where I post & publish my technical articles, cheatsheets, YouTube supplements &
-          rants...
-        </h4>
-        <section className='lg:grid-cols-2 grid max-w-6xl grid-cols-1 gap-8 mx-auto mt-10'>
-          {articles?.map((post, idx) => (
-            <ArticleItem key={idx} post={post} />
-          ))}
-        </section>
-      </div>
+    <section className='dark:bg-dark dark:text-light pt-28 flex flex-col items-center justify-center min-h-screen py-10 text-left'>
+      <h2 className='md:text-4xl text-3xl text-center'>
+        The <span className='font-bold uppercase'>Blog</span>
+      </h2>
+      <h4 className='px-2 mt-2 text-xl leading-tight text-center'>
+        Here is where I post & publish my technical articles, cheatsheets, YouTube supplements &
+        rants...
+      </h4>
+      <section className='sm:grid-cols-2 grid grid-cols-1 gap-5 mt-10'>
+        {articles?.map((article, idx) => (
+          <ArticleItem key={idx} article={article} />
+        ))}
+      </section>
     </section>
   );
 };
 
 export const getStaticProps = async () => {
-  const response = await client.getEntries({ content_type: 'article' });
+  const { articles } = await graphcms.request(GET_ALL_ARTICLES);
 
   return {
     props: {
-      articles: response.items,
+      articles,
     },
     revalidate: 3600,
   };

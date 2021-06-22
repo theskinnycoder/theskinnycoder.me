@@ -1,21 +1,21 @@
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { FaGithub, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Intro = () => {
   return (
     <section
-      className='dark:bg-dark dark:text-light md:pt-0 flex flex-col items-center justify-center min-h-screen p-2 mx-auto text-left'
+      className='dark:bg-dark dark:text-light flex flex-col items-center justify-center min-h-screen space-y-10 text-left'
       id='about'
     >
-      <h1 className='md:text-6xl sm:text-5xl py-4 mt-10 text-4xl text-center'>
+      <h1 className='md:text-6xl sm:text-5xl text-4xl text-center'>
         About <span className='font-bold'>Me</span>
       </h1>
-      <div className='container flex max-w-5xl p-2 mx-auto space-x-20'>
-        <section className='lg:m-0 lg:text-left flex flex-col justify-center w-3/5 m-auto mt-10 space-y-4 font-normal text-center'>
-          <h1 className='md:text-4xl sm:text-3xl text-2xl'>
+      <div className='flex items-center justify-between space-x-5'>
+        <section className='md:text-left md:w-3/5 flex flex-col justify-center p-2 space-y-4 font-normal text-center'>
+          <h1 className='md:text-4xl text-2xl'>
             Hello, There! This is <span className='font-bold'>Rahul SriRam</span>.
           </h1>
-          <p className='md:text-2xl text-lg'>
+          <p className='md:text-xl text-base'>
             I'm a Fullstack Web Developer who's addicted to Bournvita & my laptop. I live by the
             motto <span className='font-semibold'>teach right if it isn't being taught right</span>,
             so I’m excited to share the things I learn with you!
@@ -51,8 +51,8 @@ const Intro = () => {
             </a>
           </div>
         </section>
-        <div className='lg:block hidden w-2/5'>
-          <Image
+        <div className='md:block hidden w-1/4'>
+          <NextImage
             className='rounded-full'
             src='https://avatars.githubusercontent.com/u/64031854?v=4'
             alt='Me'

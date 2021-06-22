@@ -8,11 +8,11 @@ const Uses = () => {
       id='tools'
     >
       <div className='container p-3 mx-auto text-center'>
-        <h3 className='md:text-6xl text-4xl'>
+        <h3 className='md:text-5xl text-3xl'>
           These are the <span className='font-bold'>tools</span> 🔨 I{' '}
           <span className='font-bold'>use</span> to build stuff...
         </h3>
-        <div className='lg:grid-cols-4 lg:w-full grid w-4/5 grid-cols-1 gap-5 mx-auto mt-10'>
+        <div className='md:grid-cols-2 lg:grid-cols-4 grid grid-cols-1 gap-5 mx-auto mt-10'>
           {uses.map((usesSection, idx) => (
             <UsesCard key={idx} usesSection={usesSection} />
           ))}

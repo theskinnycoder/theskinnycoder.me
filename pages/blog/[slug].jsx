@@ -8,31 +8,31 @@ import {
   ImageComponent,
   SocialShareButtons,
 } from '../../components/Blog';
-import Comments from '../../components/Comments';
-import client from '../../utils/client';
+import { GET_ALL_ARTICLES, GET_SINGLE_ARTICLE } from '../../graphql/articles';
+import { graphcms } from '../../utils';
 
-const BlogDetails = ({ post }) => {
-  if (!post) return <ArticleSkeleton />;
+const BlogDetails = ({ article }) => {
+  if (!article) return <ArticleSkeleton />;
   const router = useRouter();
 
-  const { title, excerpt, content, publishedAt, coverPic } = post.fields;
+  const { title, excerpt, content, updatedAt, coverpic } = article;
 
   return (
-    <div className='dark:bg-dark dark:text-light pt-9'>
-      <article className='container flex flex-col max-w-5xl mx-auto text-center'>
+    <div className='dark:bg-dark dark:text-light py-10 pt-20'>
+      <article className='flex flex-col text-center'>
         <div className='flex flex-col p-4'>
           {/* Title */}
-          <h1 className='md:text-7xl text-6xl font-bold capitalize'>{title}</h1>
+          <h1 className='md:text-6xl text-5xl font-bold capitalize'>{title}</h1>
 
           {/* Excerpt */}
-          <p className='md:text-xl dark:text-gray-400 my-4 text-lg font-medium text-center text-gray-600'>
+          <p className='md:text-lg dark:text-gray-400 text-md my-4 font-medium text-center text-gray-600'>
             {excerpt}
           </p>
 
           {/* Flex under the Excerpt */}
           <div className='md:flex-row flex flex-col items-center justify-between mb-6 space-x-5'>
             {/* Date & Time Taken */}
-            <DateAndTimeTaken content={content} publishedAt={publishedAt} />
+            <DateAndTimeTaken content={content} updatedAt={updatedAt} />
             {/* Share Buttons */}
             <SocialShareButtons
               title={`${title} by TSC`}
@@ -42,11 +42,11 @@ const BlogDetails = ({ post }) => {
           </div>
 
           {/* Cover Pic */}
-          <CoverPic fields={coverPic.fields} />
+          <CoverPic pic={coverpic} />
 
           {/* The Content */}
           <Markdown
-            className='xl:prose-xl lg:prose-lg dark:text-light mx-auto mt-8 prose-sm prose text-left text-black'
+            className='lg:prose-xl md:prose-lg dark:text-light max-w-5xl mx-auto mt-8 font-[490] prose text-left text-black'
             options={{
               overrides: {
                 image: (props) => <ImageComponent {...props} />,
@@ -72,7 +72,6 @@ const BlogDetails = ({ post }) => {
           >
             {content}
           </Markdown>
-          <Comments />
         </div>
       </article>
     </div>
@@ -80,11 +79,11 @@ const BlogDetails = ({ post }) => {
 };
 
 export const getStaticPaths = async () => {
-  const response = await client.getEntries({ content_type: 'article' });
+  const { articles } = await graphcms.request(GET_ALL_ARTICLES);
 
-  const paths = response.items.map((item) => {
+  const paths = articles.map(({ slug }) => {
     return {
-      params: { slug: item.fields.slug },
+      params: { slug },
     };
   });
 
@@ -95,12 +94,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { items } = await client.getEntries({
-    content_type: 'article',
-    'fields.slug': params.slug,
-  });
+  const { article } = await graphcms.request(GET_SINGLE_ARTICLE, { slug: params.slug });
 
-  if (!items.length) {
+  if (!article) {
     return {
       redirect: {
         destination: '/',
@@ -110,7 +106,7 @@ export const getStaticProps = async ({ params }) => {
   }
 
   return {
-    props: { post: items[0] },
+    props: { article },
     revalidate: 3600,
   };
 };

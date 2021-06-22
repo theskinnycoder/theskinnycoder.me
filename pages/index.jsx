@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { HeroSection, RecentArticles, YouTubeSection } from '../components/Home';
-import client from '../utils/client';
+import { GET_ALL_ARTICLES } from '../graphql/articles';
+import { graphcms } from '../utils';
 
 const Home = ({ articles, videos }) => {
   return (
-    <div className='dark:bg-dark dark:divide-gray-600 flex-col px-2 bg-white divide-y divide-gray-300'>
+    <div className='dark:bg-dark dark:divide-gray-600 flex-col bg-white divide-y divide-gray-300'>
       <HeroSection />
       <RecentArticles articles={articles} />
       <YouTubeSection videos={videos} />
@@ -14,14 +15,14 @@ const Home = ({ articles, videos }) => {
 };
 
 export const getStaticProps = async () => {
-  const response = await client.getEntries({ content_type: 'article' });
+  const { articles } = await graphcms.request(GET_ALL_ARTICLES);
   const { data } = await axios(
     `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=4`,
   );
 
   return {
     props: {
-      articles: response.items,
+      articles,
       videos: data.items,
     },
     revalidate: 3600,
