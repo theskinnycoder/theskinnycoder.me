@@ -11,7 +11,7 @@ const CodeBlock = ({ language, content }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   return (
-    <div className='relative max-w-[92vw] md:max-w-5xl p-1'>
+    <div className='relative max-w-[92vw] md:max-w-5xl p-1 mx-auto'>
       <div className='top-2 absolute inset-x-0 flex items-center justify-between px-6'>
         <span className='dark:text-light dark:bg-dark px-2 font-medium text-black bg-white'>
           {language ? language : ''}
@@ -19,9 +19,9 @@ const CodeBlock = ({ language, content }) => {
         <CopyToClipboard text={content} onCopy={() => setIsCopied(!isCopied)} className='pt-1'>
           <button className='focus:outline-none outline-none'>
             {isCopied ? (
-              <FaClipboard className='dark:text-light hover:text-gray-700 dark:hover:text-gray-400 inline w-4 h-4 ml-2 text-black' />
+              <FaClipboard className='dark:text-light hover:text-gray-700 dark:hover:text-gray-400 text-dark inline w-4 h-4 ml-2' />
             ) : (
-              <FaCopy className='dark:text-light hover:text-gray-700 dark:hover:text-gray-400 inline w-4 h-4 ml-2 text-black' />
+              <FaCopy className='dark:text-light hover:text-gray-700 dark:hover:text-gray-400 text-dark inline w-4 h-4 ml-2' />
             )}
           </button>
         </CopyToClipboard>
@@ -30,6 +30,7 @@ const CodeBlock = ({ language, content }) => {
         codeTagProps={{
           style: {
             fontFamily: 'JetBrains Mono, monospace',
+            fontSize: '20px',
           },
         }}
         customStyle={{ paddingTop: '40px', padding: '20px' }}

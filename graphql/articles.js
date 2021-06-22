@@ -27,6 +27,9 @@ export const GET_SINGLE_ARTICLE = gql`
       slug
       excerpt
       content
+      body {
+        json
+      }
       coverpic {
         fileName
         url

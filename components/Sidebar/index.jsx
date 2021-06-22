@@ -20,7 +20,7 @@ const Sidebar = () => {
     >
       <ul className='flex flex-col space-y-10 font-medium tracking-wide'>
         {links?.map((link) => (
-          <li key={link.id} className='text-2xl uppercase'>
+          <li key={link.id} className='text-3xl uppercase'>
             <ActiveLink href={link.href} activeClassName='underline'>
               <a onClick={toggleSidebar}>{link.name}</a>
             </ActiveLink>

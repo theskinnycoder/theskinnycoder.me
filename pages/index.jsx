@@ -5,7 +5,7 @@ import { graphcms } from '../utils';
 
 const Home = ({ articles, videos }) => {
   return (
-    <div className='dark:bg-dark dark:divide-gray-600 flex-col bg-white divide-y divide-gray-300'>
+    <div className='dark:bg-dark dark:divide-gray-600 flex-col px-3 bg-white divide-y divide-gray-300'>
       <HeroSection />
       <RecentArticles articles={articles} />
       <YouTubeSection videos={videos} />

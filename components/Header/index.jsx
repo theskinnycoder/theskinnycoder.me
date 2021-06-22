@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { FaMoon } from 'react-icons/fa';
 import { FiSun } from 'react-icons/fi';
-import { HiX } from 'react-icons/hi';
-import { RiMenu3Fill } from 'react-icons/ri';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import useStore from '../../utils/store';
 import ActiveLink from '../ActiveLink';
 import links from '../navLinks';
@@ -53,7 +52,7 @@ const Header = () => {
             {sidebar ? (
               <HiX className='sm:w-8 sm:h-8 w-6 h-6' />
             ) : (
-              <RiMenu3Fill className='sm:w-8 sm:h-8 w-6 h-6' />
+              <HiMenuAlt3 className='sm:w-8 sm:h-8 w-6 h-6' />
             )}
           </button>
         </div>

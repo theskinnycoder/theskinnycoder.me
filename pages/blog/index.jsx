@@ -4,7 +4,7 @@ import { graphcms } from '../../utils';
 
 const Blog = ({ articles }) => {
   return (
-    <section className='dark:bg-dark dark:text-light pt-28 flex flex-col items-center justify-center min-h-screen py-10 text-left'>
+    <section className='dark:bg-dark dark:text-light pt-28 flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left'>
       <h2 className='md:text-4xl text-3xl text-center'>
         The <span className='font-bold uppercase'>Blog</span>
       </h2>

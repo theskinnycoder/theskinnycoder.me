@@ -2,8 +2,8 @@ import TypeWriter from 'react-typing-effect';
 
 const HeroSection = () => {
   return (
-    <section className='dark:bg-dark dark:text-light flex flex-col items-center justify-center min-h-screen mx-auto text-center'>
-      <h1 className='md:text-9xl text-7xl uppercase'>
+    <section className='dark:bg-dark dark:text-light flex flex-col items-center justify-center min-h-screen p-2 mx-auto text-center'>
+      <h1 className='md:text-8xl text-7xl uppercase'>
         The <span className='font-bold'>Skinny</span> Coder
       </h1>
       <h3 className='md:text-5xl mt-12 text-3xl'>
