@@ -5,11 +5,11 @@ import { SiNextDotJs, SiTailwindcss } from 'react-icons/si';
 
 const Footer = () => {
   return (
-    <footer className='dark:bg-dark dark:text-light dark:border-gray-600 sticky flex flex-col items-center justify-center w-full p-4 text-base text-center bg-white border-t-2 border-gray-200'>
+    <footer className='dark:bg-black dark:text-light dark:border-gray-600 sticky flex flex-col items-center justify-center w-full p-4 text-base text-center bg-white border-t-2 border-gray-200'>
       <h5>
         Copyright <FaRegCopyright className='inline-block mb-1' /> {new Date().getFullYear()},{' '}
         <Link href='/'>
-          <a className='hover:underline font-medium'>TheSkinnyCoder</a>
+          <a className='hover:underline font-medium text-pink-600'>TheSkinnyCoder</a>
         </Link>
         . All Right Reserved
       </h5>

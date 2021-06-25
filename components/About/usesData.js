@@ -95,10 +95,10 @@ const uses = [
     category: 'Setup',
     items: [
       {
-        name: 'TUF-Gaming',
+        name: 'TUF FX-504',
         href: '#',
         icon: (
-          <SiAsus className='mr-1.5 w-auto h-14 text-[#15138C] dark:text-[#3d3adf] group-hover:text-light dark:group-hover:text-dark' />
+          <SiAsus className='mr-1.5 w-auto h-14 text-[#15138C] dark:text-[#3d3adf] group-hover:text-light dark:group-hover:text-black' />
         ),
       },
       {

@@ -1,4 +1,4 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
+const { fontFamily, colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -7,15 +7,68 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Inter var', fontFamily.sans],
-        body: ['Inter var', fontFamily.serif],
+        custom: ['Jost', fontFamily.sans],
         mono: ['JetBrains Mono', fontFamily.mono],
       },
       colors: {
-        black: '#161E2E',
-        white: '#FFFFFF',
-        dark: '#111827',
-        light: '#EDEEEE',
+        pink: colors.pink,
+        light: '#FAF5FF',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              color: colors.pink[400],
+              'text-decoration': 'none',
+              '&:hover': {
+                'text-decoration': 'underline',
+                color: colors.pink[600],
+              },
+            },
+            hr: {
+              'border-top': `1px solid ${colors.pink[600]}`,
+            },
+            blockquote: {
+              'border-left': `8px solid ${colors.pink[600]}`,
+              'line-height': 1.6,
+              position: 'relative',
+              '::before': {
+                color: `${colors.pink[500]}`,
+                'font-family': 'Arial',
+                'font-size': '4rem',
+                position: 'absolute',
+                left: '0.4rem',
+                top: '-1rem',
+              },
+            },
+            h1: {
+              'font-weight': 'bold',
+              color: colors.pink[600],
+              'font-size': '3.75rem',
+            },
+            h2: {
+              'font-weight': 'bold',
+              color: colors.pink[600],
+              'font-size': '3rem',
+            },
+            h3: {
+              'font-weight': 'bold',
+              'font-size': '2.25rem',
+            },
+            h4: {
+              'font-weight': 'bold',
+              'font-size': '1.875rem',
+            },
+            h5: {
+              'font-weight': 'bold',
+              'font-size': '1.5rem',
+            },
+            h6: {
+              'font-weight': 'bold',
+              'font-size': '1.125rem',
+            },
+          },
+        },
       },
     },
   },

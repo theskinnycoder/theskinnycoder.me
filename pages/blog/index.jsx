@@ -4,9 +4,9 @@ import { graphcms } from '../../utils';
 
 const Blog = ({ articles }) => {
   return (
-    <section className='dark:bg-dark dark:text-light pt-28 flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left'>
+    <section className='dark:bg-black dark:text-white pt-28 flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left'>
       <h2 className='md:text-4xl text-3xl text-center'>
-        The <span className='font-bold uppercase'>Blog</span>
+        The <span className='font-bold text-pink-600 uppercase'>Blog</span>
       </h2>
       <h4 className='px-2 mt-2 text-xl leading-tight text-center'>
         Here is where I post & publish my technical articles, cheatsheets, YouTube supplements &

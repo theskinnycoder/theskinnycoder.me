@@ -3,18 +3,18 @@ import timelineData from './timelineData';
 
 const Timeline = () => {
   return (
-    <div className='dark:bg-dark min-h-screen'>
+    <div className='dark:bg-black min-h-screen'>
       <div className='p-2 pt-10'>
-        <h3 className='md:text-5xl dark:text-light text-3xl text-center'>
-          My <span className='font-semibold'>Timeline</span>
+        <h3 className='md:text-5xl dark:text-white text-3xl text-center'>
+          My <span className='font-semibold text-pink-600'>Timeline</span>
         </h3>
         <div className='container w-full h-full mx-auto'>
           <div className='wrap relative h-full p-10 overflow-hidden'>
             {/* center-line */}
-            <div className='dark:border-light left-1/2 sm:block absolute hidden h-full border border-black'></div>
+            <div className='left-1/2 sm:block absolute hidden h-full border border-pink-600'></div>
 
             {timelineData.map((event, idx) => (
-              <TimeineCard event={event} key={idx} idx={idx} />
+              <TimeineCard event={event} key={idx} idx={timelineData.length - idx - 1} />
             ))}
           </div>
         </div>

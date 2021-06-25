@@ -11,12 +11,11 @@ const MainLayout = ({ children }) => {
     <>
       <NextHead>
         <title>TheSkinnyCoder</title>
-        <link rel='stylesheet' href='https://rsms.me/inter/inter.css'></link>
       </NextHead>
       <main
         className={`${
-          darkmode ? 'dark bg-dark' : ''
-        } font-display text-black bg-white dark:bg-dark dark:text-light tracking-tighter`}
+          darkmode ? 'dark bg-black' : ''
+        } font-custom text-black bg-white dark:bg-black dark:text-light tracking-tighter`}
       >
         <Header />
         <Sidebar />

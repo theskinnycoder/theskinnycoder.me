@@ -7,11 +7,11 @@ const BlogLayout = ({ article }) => {
   const { title, excerpt, content, updatedAt, coverpic } = article;
 
   return (
-    <div className='dark:bg-dark dark:text-light px-3 py-10 pt-20'>
+    <div className='dark:bg-black dark:text-white pt-28 px-3 py-10'>
       <article className='flex flex-col text-center'>
         <div className='flex flex-col p-4'>
           {/* Title */}
-          <h1 className='md:text-6xl text-5xl font-bold capitalize'>{title}</h1>
+          <h1 className='md:text-5xl text-4xl font-bold text-pink-600 capitalize'>{title}</h1>
 
           {/* Excerpt */}
           <p className='md:text-lg dark:text-gray-400 text-md my-4 font-medium text-center text-gray-600'>
@@ -19,7 +19,7 @@ const BlogLayout = ({ article }) => {
           </p>
 
           {/* Flex under the Excerpt */}
-          <div className='md:flex-row flex flex-col items-center justify-between mb-6 space-x-5'>
+          <div className='md:flex-row flex flex-col items-center justify-between'>
             {/* Date & Time Taken */}
             <DateAndTimeTaken content={content} updatedAt={updatedAt} />
             {/* Share Buttons */}

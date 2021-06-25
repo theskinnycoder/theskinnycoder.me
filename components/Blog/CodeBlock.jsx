@@ -11,31 +11,31 @@ const CodeBlock = ({ language, content }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   return (
-    <div className='relative max-w-[92vw] md:max-w-5xl p-1 mx-auto'>
-      <div className='top-2 absolute inset-x-0 flex items-center justify-between px-6'>
-        <span className='dark:text-light dark:bg-dark px-2 font-medium text-black bg-white'>
-          {language ? language : ''}
-        </span>
-        <CopyToClipboard text={content} onCopy={() => setIsCopied(!isCopied)} className='pt-1'>
-          <button className='focus:outline-none outline-none'>
-            {isCopied ? (
-              <FaClipboard className='dark:text-light hover:text-gray-700 dark:hover:text-gray-400 text-dark inline w-4 h-4 ml-2' />
-            ) : (
-              <FaCopy className='dark:text-light hover:text-gray-700 dark:hover:text-gray-400 text-dark inline w-4 h-4 ml-2' />
-            )}
-          </button>
-        </CopyToClipboard>
-      </div>
+    <div className='max-w-[86vw] md:max-w-5xl mx-auto ring-2 ring-pink-300 dark:ring-pink-600 rounded-md my-10'>
+      {language && (
+        <div className='dark:text-white flex items-center justify-between px-4 text-black'>
+          <span className='mt-3 font-medium text-pink-600'>{language}</span>
+          <CopyToClipboard
+            text={content}
+            onCopy={() => setIsCopied(!isCopied)}
+            className='focus:outline-none focus-within:outline-none md:pt-1 pt-2.5 outline-none'
+          >
+            <button>
+              {isCopied ? (
+                <FaClipboard className='hover:text-pink-600 md:w-4 md:h-4 w-3 h-3 text-pink-500' />
+              ) : (
+                <FaCopy className='hover:text-pink-600 md:w-4 md:h-4 w-3 h-3 text-pink-500' />
+              )}
+            </button>
+          </CopyToClipboard>
+        </div>
+      )}
       <SyntaxHighlighter
-        codeTagProps={{
-          style: {
-            fontFamily: 'JetBrains Mono, monospace',
-            fontSize: '20px',
-          },
+        codeTagProps={{ className: `language-${language}` }}
+        PreTag={(props) => {
+          const { fontFamily, fontSize, borderRadius, textShadow, ...newStyles } = props.style;
+          return <pre {...props} style={newStyles} />;
         }}
-        customStyle={{ paddingTop: '40px', padding: '20px' }}
-        PreTag={(props) => <pre {...props} />}
-        CodeTag={(props) => <code {...props} />}
         wrapLines={true}
         wrapLongLines={true}
         useInlineStyles={true}
