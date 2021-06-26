@@ -3,7 +3,7 @@ import timelineData from './timelineData';
 
 const Timeline = () => {
   return (
-    <div className='dark:bg-black min-h-screen'>
+    <section className='dark:bg-black min-h-screen' id='timeline'>
       <div className='p-2 pt-10'>
         <h3 className='md:text-5xl dark:text-white text-3xl text-center'>
           My <span className='font-semibold text-pink-600'>Timeline</span>
@@ -19,7 +19,7 @@ const Timeline = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,17 +5,13 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   @font-face {
     font-family: 'JetBrains Mono';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/JetBrainsMono.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 600;
     src: url('../fonts/JetBrainsMono.ttf') format('truetype');
   }
 }

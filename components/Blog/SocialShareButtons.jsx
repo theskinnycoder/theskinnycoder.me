@@ -12,7 +12,7 @@ import {
 
 const SocialShareButtons = ({ path, title, hashtag }) => {
   return (
-    <div className='flex items-center justify-center space-x-3'>
+    <div className='flex items-center justify-center pt-2 space-x-3'>
       {/* Twitter */}
       <TwitterShareButton
         className='focus:outline-none outline-none'

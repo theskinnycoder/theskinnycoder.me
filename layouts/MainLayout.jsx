@@ -2,7 +2,7 @@ import NextHead from 'next/head';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import { store as useStore } from '../utils';
+import { useStore } from '../utils';
 
 const MainLayout = ({ children }) => {
   const darkmode = useStore((state) => state.darkmode);
@@ -15,7 +15,7 @@ const MainLayout = ({ children }) => {
       <main
         className={`${
           darkmode ? 'dark bg-black' : ''
-        } font-custom text-black bg-white dark:bg-black dark:text-light tracking-tighter`}
+        } font-custom text-black bg-white dark:bg-black dark:text-white tracking-tighter`}
       >
         <Header />
         <Sidebar />

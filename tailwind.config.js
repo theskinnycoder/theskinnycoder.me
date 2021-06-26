@@ -1,4 +1,4 @@
-const { fontFamily, colors } = require('tailwindcss/defaultTheme');
+const { fontFamily, fontSize, colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -15,8 +15,77 @@ module.exports = {
         light: '#FAF5FF',
       },
       typography: {
+        lg: {
+          css: {
+            h1: {
+              'font-weight': 'bold',
+              color: colors.pink[600],
+              'font-size': fontSize['5xl'],
+            },
+            h2: {
+              'font-weight': 'bold',
+              color: colors.pink[600],
+              'font-size': fontSize['4xl'],
+            },
+            h3: {
+              'font-weight': 'bold',
+              'font-size': fontSize['3xl'],
+            },
+            h4: {
+              'font-weight': 'bold',
+              'font-size': fontSize['2xl'],
+            },
+            h5: {
+              'font-weight': 'bold',
+              'font-size': fontSize['xl'],
+            },
+            h6: {
+              'font-weight': 'bold',
+              'font-size': fontSize['lg'],
+            },
+            pre: {
+              'border-radius': '0px',
+            },
+          },
+        },
+        xl: {
+          css: {
+            h1: {
+              'font-weight': 'bold',
+              color: colors.pink[600],
+              'font-size': fontSize['6xl'],
+            },
+            h2: {
+              'font-weight': 'bold',
+              color: colors.pink[600],
+              'font-size': fontSize['5xl'],
+            },
+            h3: {
+              'font-weight': 'bold',
+              'font-size': fontSize['4xl'],
+            },
+            h4: {
+              'font-weight': 'bold',
+              'font-size': fontSize['3xl'],
+            },
+            h5: {
+              'font-weight': 'bold',
+              'font-size': fontSize['2xl'],
+            },
+            h6: {
+              'font-weight': 'bold',
+              'font-size': fontSize['xl'],
+            },
+            pre: {
+              'border-radius': '0px',
+            },
+          },
+        },
         DEFAULT: {
           css: {
+            pre: {
+              'border-radius': '0px',
+            },
             a: {
               color: colors.pink[400],
               'text-decoration': 'none',
@@ -44,28 +113,28 @@ module.exports = {
             h1: {
               'font-weight': 'bold',
               color: colors.pink[600],
-              'font-size': '3.75rem',
+              'font-size': fontSize['4xl'],
             },
             h2: {
               'font-weight': 'bold',
               color: colors.pink[600],
-              'font-size': '3rem',
+              'font-size': fontSize['3xl'],
             },
             h3: {
               'font-weight': 'bold',
-              'font-size': '2.25rem',
+              'font-size': fontSize['2xl'],
             },
             h4: {
               'font-weight': 'bold',
-              'font-size': '1.875rem',
+              'font-size': fontSize['xl'],
             },
             h5: {
               'font-weight': 'bold',
-              'font-size': '1.5rem',
+              'font-size': fontSize['lg'],
             },
             h6: {
               'font-weight': 'bold',
-              'font-size': '1.125rem',
+              'font-size': fontSize['md'],
             },
           },
         },

@@ -5,7 +5,7 @@ import ImageComponent from './ImageComponent';
 const ContentBlock = ({ content }) => {
   return (
     <Markdown
-      className='lg:prose-xl md:prose-lg dark:text-light prose-pink dark:prose-pink max-w-5xl mx-auto mt-8 font-normal prose text-left text-black'
+      className='lg:prose-xl md:prose-lg dark:text-light prose-pink max-w-5xl mx-auto mt-8 font-normal prose text-left text-black'
       options={{
         overrides: {
           image: (props) => <ImageComponent {...props} />,
@@ -30,7 +30,7 @@ const ContentBlock = ({ content }) => {
             />
           ),
           code: (props) => (
-            <code {...props} className='dark:text-white dark:bg-[#2E3440] bg-pink-100' />
+            <code {...props} className='dark:text-white dark:bg-[#2E3440] bg-pink-100 p-1' />
           ),
           strong: (props) => <strong {...props} className='dark:text-light' />,
         },

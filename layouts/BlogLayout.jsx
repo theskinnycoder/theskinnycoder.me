@@ -11,15 +11,13 @@ const BlogLayout = ({ article }) => {
       <article className='flex flex-col text-center'>
         <div className='flex flex-col p-4'>
           {/* Title */}
-          <h1 className='md:text-5xl text-4xl font-bold text-pink-600 capitalize'>{title}</h1>
+          <h1 className='md:text-6xl text-4xl font-bold text-pink-600 capitalize'>{title}</h1>
 
           {/* Excerpt */}
-          <p className='md:text-lg dark:text-gray-400 text-md my-4 font-medium text-center text-gray-600'>
-            {excerpt}
-          </p>
+          <p className='md:text-lg text-md my-4 font-medium text-center text-gray-500'>{excerpt}</p>
 
           {/* Flex under the Excerpt */}
-          <div className='md:flex-row flex flex-col items-center justify-between'>
+          <div className='sm:flex-row flex flex-col items-center justify-between py-6'>
             {/* Date & Time Taken */}
             <DateAndTimeTaken content={content} updatedAt={updatedAt} />
             {/* Share Buttons */}
