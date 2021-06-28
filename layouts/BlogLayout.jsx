@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { CoverPic, DateAndTimeTaken, SocialShareButtons } from '../components/Blog';
 import ContentBlock from '../components/Blog/ContentBlock';
+import Comments from '../components/Comments';
 
 const BlogLayout = ({ article }) => {
   const router = useRouter();
@@ -33,6 +34,8 @@ const BlogLayout = ({ article }) => {
 
           {/* The Content */}
           <ContentBlock content={content} />
+
+          <Comments article={article} />
         </div>
       </article>
     </div>
