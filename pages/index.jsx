@@ -1,15 +1,18 @@
-import { HeroSection, RecentArticles, YouTubeSection } from '../components/Home';
+import { HeroSection, RecentArticles, SnowAnimation, YouTubeSection } from '../components/Home';
 import { GET_ALL_ARTICLES } from '../graphql/articles';
-import { graphcms } from '../utils';
+import { graphcms, useStore } from '../utils';
 
 const Home = ({ articles, videos }) => {
+  const darkmode = useStore((state) => state.darkmode);
   return (
-    <div className='dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300'>
-      <HeroSection />
-      <RecentArticles articles={articles} />
-      <YouTubeSection videos={videos} />
-      {/* <ContactSection /> */}
-    </div>
+    <>
+      {darkmode && <SnowAnimation />}
+      <div className='dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300'>
+        <HeroSection />
+        <RecentArticles articles={articles} />
+        <YouTubeSection videos={videos} />
+      </div>
+    </>
   );
 };
 

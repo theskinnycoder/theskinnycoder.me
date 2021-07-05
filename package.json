@@ -20,6 +20,7 @@
     "next": "^10.2.3",
     "postcss": "^8.3.5",
     "react": "^17.0.1",
+    "react-canvas-confetti": "^1.2.0",
     "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",

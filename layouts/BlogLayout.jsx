@@ -35,7 +35,7 @@ const BlogLayout = ({ article }) => {
           {/* The Content */}
           <ContentBlock content={content} />
 
-          <Comments article={article} />
+          <Comments />
         </div>
       </article>
     </div>
