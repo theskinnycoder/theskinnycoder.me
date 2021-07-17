@@ -1,15 +1,20 @@
 import { ArticleSkeleton } from '../../components/Articles';
+import { BlogSEO } from '../../components/Blog';
 import { GET_ALL_ARTICLES, GET_SINGLE_ARTICLE } from '../../graphql/articles';
 import BlogLayout from '../../layouts/BlogLayout';
 import { graphcms } from '../../utils';
 
-const BlogDetails = ({ article }) => {
+export default function BlogDetails({ article }) {
   if (!article) return <ArticleSkeleton />;
+  return (
+    <>
+      <BlogSEO article={article} />
+      <BlogLayout article={article} />
+    </>
+  );
+}
 
-  return <BlogLayout article={article} />;
-};
-
-export const getStaticPaths = async () => {
+export async function getStaticPaths() {
   const { articles } = await graphcms.request(GET_ALL_ARTICLES);
 
   const paths = articles.map(({ slug }) => {
@@ -22,9 +27,9 @@ export const getStaticPaths = async () => {
     paths,
     fallback: true,
   };
-};
+}
 
-export const getStaticProps = async ({ params }) => {
+export async function getStaticProps({ params }) {
   const { article } = await graphcms.request(GET_SINGLE_ARTICLE, { slug: params.slug });
 
   if (!article) {
@@ -40,6 +45,4 @@ export const getStaticProps = async ({ params }) => {
     props: { article },
     revalidate: 3600,
   };
-};
-
-export default BlogDetails;
+}

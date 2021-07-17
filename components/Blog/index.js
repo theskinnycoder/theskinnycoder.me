@@ -1,3 +1,4 @@
+export { default as BlogSEO } from './BlogSEO';
 export { default as CodeBlock } from './CodeBlock';
 export { default as CoverPic } from './CoverPic';
 export { default as DateAndTimeTaken } from './DateAndTimeTaken';
