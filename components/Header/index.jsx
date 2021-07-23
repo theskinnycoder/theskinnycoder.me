@@ -5,7 +5,7 @@ import ActiveLink from '../ActiveLink';
 import { navLinks } from '../links';
 import ThemeSwitch from '../Switch';
 
-const Header = () => {
+export default function Header() {
   const sidebar = useStore((state) => state.sidebar);
   const toggleSidebar = useStore((state) => state.toggleSidebar);
 
@@ -23,7 +23,10 @@ const Header = () => {
           <ul className='sm:flex md:text-md lg:text-lg xl:text-xl items-center justify-center hidden pl-10 ml-auto space-x-6 text-base'>
             {navLinks?.map((link, idx) => (
               <li key={idx} className='group'>
-                <ActiveLink href={link.href} activeClassName='bg-pink-600 text-light rounded'>
+                <ActiveLink
+                  href={link.href}
+                  activeClassName='bg-pink-600 text-light rounded'
+                >
                   <a className='p-2'>
                     <span className='relative'>
                       {link.name}
@@ -48,6 +51,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

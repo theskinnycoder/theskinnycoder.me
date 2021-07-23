@@ -8,7 +8,7 @@ import prism from 'react-syntax-highlighter/dist/cjs/styles/prism/prism';
 import { useStore } from '../../utils';
 import CopyCode from './CopyCode';
 
-const CodeBlock = ({ language, content }) => {
+export default function CodeBlock({ language, content }) {
   const darkmode = useStore((state) => state.darkmode);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -21,13 +21,23 @@ const CodeBlock = ({ language, content }) => {
       {language && (
         <div className='dark:text-white flex items-center justify-between px-4 text-black'>
           <span className='mt-3 font-medium text-pink-600'>{language}</span>
-          <CopyCode content={content} isCopied={isCopied} setIsCopied={setIsCopied} />
+          <CopyCode
+            content={content}
+            isCopied={isCopied}
+            setIsCopied={setIsCopied}
+          />
         </div>
       )}
       <SyntaxHighlighter
         codeTagProps={{ className: `language-${language}` }}
         PreTag={(props) => {
-          const { fontFamily, fontSize, borderRadius, textShadow, ...newStyles } = props.style;
+          const {
+            fontFamily,
+            fontSize,
+            borderRadius,
+            textShadow,
+            ...newStyles
+          } = props.style;
           if (darkmode) {
             delete newStyles.background;
           }
@@ -35,7 +45,11 @@ const CodeBlock = ({ language, content }) => {
             <pre
               {...props}
               style={newStyles}
-              className={`${language ? 'border-t-[1px] dark:border-pink-600 border-pink-300' : ''}`}
+              className={`${
+                language
+                  ? 'border-t-[1px] dark:border-pink-600 border-pink-300'
+                  : ''
+              }`}
             />
           );
         }}
@@ -50,6 +64,4 @@ const CodeBlock = ({ language, content }) => {
       </SyntaxHighlighter>
     </div>
   );
-};
-
-export default CodeBlock;
+}

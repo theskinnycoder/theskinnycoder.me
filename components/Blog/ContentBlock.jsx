@@ -2,7 +2,7 @@ import Markdown from 'markdown-to-jsx';
 import CodeBlock from './CodeBlock';
 import ImageComponent from './ImageComponent';
 
-const ContentBlock = ({ content }) => {
+export default function ContentBlock({ content }) {
   return (
     <Markdown
       className='lg:prose-xl md:prose-lg dark:text-light prose-pink max-w-5xl mx-auto mt-8 mb-5 font-normal prose text-left text-black'
@@ -30,7 +30,10 @@ const ContentBlock = ({ content }) => {
             />
           ),
           code: (props) => (
-            <code {...props} className='dark:text-white dark:bg-[#2E3440] bg-pink-100 p-1' />
+            <code
+              {...props}
+              className='dark:text-white dark:bg-[#2E3440] bg-pink-100 p-1'
+            />
           ),
           strong: (props) => <strong {...props} className='dark:text-light' />,
         },
@@ -39,6 +42,4 @@ const ContentBlock = ({ content }) => {
       {content}
     </Markdown>
   );
-};
-
-export default ContentBlock;
+}

@@ -3,7 +3,7 @@ import { useStore } from '../../utils';
 import ActiveLink from '../ActiveLink';
 import { allNavLinks } from '../links';
 
-const Sidebar = () => {
+export default function Sidebar() {
   const sidebar = useStore((state) => state.sidebar);
   const toggleSidebar = useStore((state) => state.toggleSidebar);
 
@@ -34,6 +34,4 @@ const Sidebar = () => {
       </ul>
     </aside>
   );
-};
-
-export default Sidebar;
+}

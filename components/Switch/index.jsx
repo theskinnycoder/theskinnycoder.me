@@ -3,7 +3,7 @@ import { FaMoon } from 'react-icons/fa';
 import { FiSun } from 'react-icons/fi';
 import { useStore } from '../../utils';
 
-const ThemeSwitch = () => {
+export default function ThemeSwitch() {
   const darkmode = useStore((state) => state.darkmode);
   const toggleDarkmode = useStore((state) => state.toggleDarkmode);
 
@@ -16,7 +16,9 @@ const ThemeSwitch = () => {
       <span className='sr-only'>Toggle Light/Dark Mode</span>
       <span
         className={`${
-          darkmode ? 'md:translate-x-9 translate-x-7' : 'md:translate-x-1 translate-x-1'
+          darkmode
+            ? 'md:translate-x-9 translate-x-7'
+            : 'md:translate-x-1 translate-x-1'
         } inline-block md:w-6 md:h-6 w-4 h-4 transform bg-white transition ease-in-out duration-200 rounded-full group-hover:ring-4 ring-pink-600`}
       />
       {darkmode ? (
@@ -26,6 +28,4 @@ const ThemeSwitch = () => {
       )}
     </Switch>
   );
-};
-
-export default ThemeSwitch;
+}

@@ -8,7 +8,7 @@ function capitalize(text) {
     .join(' ');
 }
 
-export default function BlogSeo({ article }) {
+export default function BlogSEO({ article }) {
   const { slug, excerpt, updatedAt, coverpic } = article;
 
   const url = `https://theskinnycoder.me/blog/${slug}`;

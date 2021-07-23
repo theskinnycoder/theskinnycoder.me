@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react';
 import { useStore } from '../../utils';
 
-const Comments = () => {
+export default function Comments() {
   const darkmode = useStore((state) => state.darkmode);
   const commentsBox = useRef(null);
   useEffect(() => {
     let scriptEl = document.createElement('script');
     scriptEl.setAttribute('src', 'https://giscus.app/client.js');
-    scriptEl.setAttribute('data-repo', 'theskinnycoder/portfolio-blog-comments');
+    scriptEl.setAttribute(
+      'data-repo',
+      'theskinnycoder/portfolio-blog-comments',
+    );
     scriptEl.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkzNzg2Nzc1MDk=');
     scriptEl.setAttribute('data-mapping', 'pathname');
     scriptEl.setAttribute('data-category', 'Q&A');
@@ -28,6 +31,4 @@ const Comments = () => {
       </div>
     </>
   );
-};
-
-export default Comments;
+}

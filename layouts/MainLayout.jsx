@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import { useStore } from '../utils';
 
-const MainLayout = ({ children }) => {
+export default function MainLayout({ children }) {
   const darkmode = useStore((state) => state.darkmode);
 
   return (
@@ -24,6 +24,4 @@ const MainLayout = ({ children }) => {
       </main>
     </>
   );
-};
-
-export default MainLayout;
+}

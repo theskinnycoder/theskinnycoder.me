@@ -1,6 +1,15 @@
-import { ArticleItem } from '../Articles/';
+import dynamic from 'next/dynamic';
+import useInView from 'react-cool-inview';
+const ArticleItem = dynamic(() =>
+  import('../../components/Articles/ArticleItem'),
+);
 
-const RecentArticles = ({ articles }) => {
+export default function RecentArticles({ articles }) {
+  const { observe, inView } = useInView({
+    onEnter: ({ unobserve }) => {
+      unobserve();
+    },
+  });
   return (
     <div className='dark:bg-black dark:text-light min-h-screen'>
       <section className='flex flex-col items-center justify-center w-full py-10 mx-auto text-center'>
@@ -10,12 +19,12 @@ const RecentArticles = ({ articles }) => {
         </h2>
         <section className='lg:grid-cols-2 grid grid-cols-1 gap-8 mx-auto mt-10'>
           {articles?.map((article, idx) => (
-            <ArticleItem key={idx} article={article} />
+            <div ref={observe} key={idx}>
+              {inView && <ArticleItem article={article} />}
+            </div>
           ))}
         </section>
       </section>
     </div>
   );
-};
-
-export default RecentArticles;
+}

@@ -10,9 +10,9 @@ import {
   WhatsappShareButton,
 } from 'react-share';
 
-const SocialShareButtons = ({ path, title, hashtag }) => {
+export default function SocialShareButtons({ path, title, hashtag }) {
   return (
-    <div className='flex items-center justify-center pt-2 space-x-3'>
+    <div className='inline-flex items-center justify-center pt-2 space-x-3'>
       {/* Twitter */}
       <TwitterShareButton
         className='focus:outline-none outline-none'
@@ -71,6 +71,4 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
       </TelegramShareButton>
     </div>
   );
-};
-
-export default SocialShareButtons;
+}

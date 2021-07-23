@@ -1,9 +1,20 @@
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { CoverPic, DateAndTimeTaken, SocialShareButtons } from '../components/Blog';
-import ContentBlock from '../components/Blog/ContentBlock';
-import Comments from '../components/Comments';
+import useInView from 'react-cool-inview';
+import {
+  ContentBlock,
+  CoverPic,
+  DateAndTimeTaken,
+  SocialShareButtons,
+} from '../components/Blog';
+const Comments = dynamic(() => import('../components/Blog/Comments'));
 
-const BlogLayout = ({ article }) => {
+export default function BlogLayout({ article }) {
+  const { observe, inView } = useInView({
+    onEnter: ({ unobserve }) => {
+      unobserve();
+    },
+  });
   const router = useRouter();
   const { title, excerpt, content, updatedAt, coverpic } = article;
 
@@ -12,10 +23,14 @@ const BlogLayout = ({ article }) => {
       <article className='flex flex-col text-center'>
         <div className='flex flex-col p-4'>
           {/* Title */}
-          <h1 className='md:text-6xl text-4xl font-bold text-pink-600 capitalize'>{title}</h1>
+          <h1 className='md:text-6xl text-4xl font-bold text-pink-600 capitalize'>
+            {title}
+          </h1>
 
           {/* Excerpt */}
-          <p className='md:text-lg text-md my-4 font-medium text-center text-gray-500'>{excerpt}</p>
+          <p className='md:text-lg text-md my-4 font-medium text-center text-gray-500'>
+            {excerpt}
+          </p>
 
           {/* Flex under the Excerpt */}
           <div className='sm:flex-row flex flex-col items-center justify-between py-6'>
@@ -35,11 +50,9 @@ const BlogLayout = ({ article }) => {
           {/* The Content */}
           <ContentBlock content={content} />
 
-          <Comments />
+          <div ref={observe}>{inView && <Comments />}</div>
         </div>
       </article>
     </div>
   );
-};
-
-export default BlogLayout;
+}

@@ -1,9 +1,18 @@
 import { NextSeo } from 'next-seo';
-import { ArticleItem } from '../../components/Articles';
+import dynamic from 'next/dynamic';
+import useInView from 'react-cool-inview';
 import { GET_ALL_ARTICLES } from '../../graphql/articles';
 import { graphcms } from '../../utils';
+const ArticleItem = dynamic(() =>
+  import('../../components/Articles/ArticleItem'),
+);
 
 export default function Blog({ articles }) {
+  const { observe, inView } = useInView({
+    onEnter: ({ unobserve }) => {
+      unobserve();
+    },
+  });
   const url = 'https://theskinnycoder.me/blog';
   const title = 'Blog | TheSkinnyCoder';
   const description =
@@ -26,12 +35,14 @@ export default function Blog({ articles }) {
           The <span className='font-bold text-pink-600 uppercase'>Blog</span>
         </h2>
         <h4 className='px-2 mt-2 text-xl leading-tight text-center'>
-          Here is where I post & publish my technical articles, cheatsheets, YouTube supplements &
-          rants...
+          Here is where I post & publish my technical articles, cheatsheets,
+          YouTube supplements & rants...
         </h4>
         <section className='sm:grid-cols-2 grid grid-cols-1 gap-5 mt-10'>
           {articles?.map((article, idx) => (
-            <ArticleItem key={idx} article={article} />
+            <div ref={observe} key={idx}>
+              {inView && <ArticleItem article={article} />}
+            </div>
           ))}
         </section>
       </section>

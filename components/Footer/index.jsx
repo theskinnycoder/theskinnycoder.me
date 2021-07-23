@@ -3,13 +3,16 @@ import { FaRegCopyright } from 'react-icons/fa';
 import { IoLogoVercel } from 'react-icons/io5';
 import { SiNextDotJs, SiTailwindcss } from 'react-icons/si';
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className='dark:bg-black dark:text-light border-pink-600 sticky flex flex-col items-center justify-center w-full p-4 text-base text-center bg-white border-t-[1px]'>
       <h5>
-        Copyright <FaRegCopyright className='inline-block mb-1' /> {new Date().getFullYear()},{' '}
+        Copyright <FaRegCopyright className='inline-block mb-1' />{' '}
+        {new Date().getFullYear()},{' '}
         <Link href='/'>
-          <a className='hover:underline font-medium text-pink-600'>TheSkinnyCoder</a>
+          <a className='hover:underline font-medium text-pink-600'>
+            TheSkinnyCoder
+          </a>
         </Link>
         . All Right Reserved
       </h5>
@@ -38,6 +41,4 @@ const Footer = () => {
       </h5>
     </footer>
   );
-};
-
-export default Footer;
+}
