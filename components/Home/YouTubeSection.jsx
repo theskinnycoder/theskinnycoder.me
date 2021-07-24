@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import useInView from 'react-cool-inview';
-const VideoItem = dynamic(() => import('../../components/Videos/VideoItem'));
+const VideoItem = dynamic(() => import('@components/Videos/VideoItem'));
 
 export default function YouTubeSection({ videos }) {
   const { observe, inView } = useInView({

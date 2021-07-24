@@ -1,21 +1,21 @@
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import useInView from 'react-cool-inview';
 import {
   ContentBlock,
   CoverPic,
   DateAndTimeTaken,
   SocialShareButtons,
-} from '../components/Blog';
-const Comments = dynamic(() => import('../components/Blog/Comments'));
+} from '@components/Blog';
+import useRouter from '@hooks/useRouter';
+import dynamic from 'next/dynamic';
+import useInView from 'react-cool-inview';
+const Comments = dynamic(() => import('@components/Blog/Comments'));
 
 export default function BlogLayout({ article }) {
+  const { path } = useRouter();
   const { observe, inView } = useInView({
     onEnter: ({ unobserve }) => {
       unobserve();
     },
   });
-  const router = useRouter();
   const { title, excerpt, content, updatedAt, coverpic } = article;
 
   return (
@@ -40,7 +40,7 @@ export default function BlogLayout({ article }) {
             <SocialShareButtons
               title={`${title} by TSC`}
               hashtag='theskinnycoder'
-              path={router.asPath}
+              path={path}
             />
           </div>
 

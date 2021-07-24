@@ -1,3 +1,4 @@
+import useDarkMode from '@hooks/useDarkMode';
 import { useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
@@ -5,11 +6,10 @@ import diff from 'react-syntax-highlighter/dist/cjs/languages/prism/diff';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
 import nord from 'react-syntax-highlighter/dist/cjs/styles/prism/nord';
 import prism from 'react-syntax-highlighter/dist/cjs/styles/prism/prism';
-import { useStore } from '../../utils';
 import CopyCode from './CopyCode';
 
 export default function CodeBlock({ language, content }) {
-  const darkmode = useStore((state) => state.darkmode);
+  const { darkMode } = useDarkMode();
   const [isCopied, setIsCopied] = useState(false);
 
   SyntaxHighlighter.registerLanguage('python', python);
@@ -38,7 +38,7 @@ export default function CodeBlock({ language, content }) {
             textShadow,
             ...newStyles
           } = props.style;
-          if (darkmode) {
+          if (darkMode) {
             delete newStyles.background;
           }
           return (
@@ -58,7 +58,7 @@ export default function CodeBlock({ language, content }) {
         useInlineStyles={true}
         className='dark:text-light'
         language={language}
-        style={darkmode ? nord : prism}
+        style={darkMode ? nord : prism}
       >
         {content}
       </SyntaxHighlighter>

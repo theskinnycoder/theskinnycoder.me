@@ -1,14 +1,20 @@
+import {
+  HeroSection,
+  RecentArticles,
+  SnowAnimation,
+  YouTubeSection,
+} from '@components/Home';
+import useDarkMode from '@hooks/useDarkMode';
+import graphcms from '@utils/graphcms';
+import { GET_ALL_ARTICLES } from '@utils/queries';
 import { NextSeo } from 'next-seo';
-import { HeroSection, RecentArticles, SnowAnimation, YouTubeSection } from '../components/Home';
-import { GET_ALL_ARTICLES } from '../graphql/articles';
-import { graphcms, useStore } from '../utils';
 
 export default function Home({ articles, videos }) {
   const url = 'https://theskinnycoder.me/';
   const title = 'Home | TheSkinnyCoder';
   const description = 'Full-Stack Web Developer';
 
-  const darkmode = useStore((state) => state.darkmode);
+  const { darkMode } = useDarkMode();
   return (
     <>
       <NextSeo
@@ -21,7 +27,7 @@ export default function Home({ articles, videos }) {
           description,
         }}
       />
-      {darkmode && <SnowAnimation />}
+      {darkMode && <SnowAnimation />}
       <div className='dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300'>
         <HeroSection />
         <RecentArticles articles={articles} />

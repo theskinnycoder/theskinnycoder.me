@@ -1,5 +1,10 @@
 import NextImage from 'next/image';
-import { FaGithub, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import {
+  GithubIcon,
+  InstagramIcon,
+  TwitterFilledIcon,
+  YoutubeIcon,
+} from '../Icons';
 
 export default function Intro() {
   return (
@@ -30,28 +35,28 @@ export default function Intro() {
               target='_blank'
               className='hover:-translate-y-1 transition duration-300 ease-in-out transform'
             >
-              <FaYoutube className='w-8 h-8 md:w-16 md:h-16 text-[#FF0000] dark:text-[#dd3939]' />
+              <YoutubeIcon className='w-8 h-8 md:w-16 md:h-16 text-[#FF0000] dark:text-[#dd3939]' />
             </a>
             <a
               href='https://twitter.com/theskinnycoder'
               target='_blank'
               className='hover:-translate-y-1 transition duration-300 ease-in-out transform'
             >
-              <FaTwitter className='text-[#49a1eb] dark:text-[#0d8af0] md:w-14 md:h-14 w-7 h-7' />
+              <TwitterFilledIcon className='text-[#49a1eb] dark:text-[#0d8af0] md:w-14 md:h-14 w-7 h-7' />
             </a>
             <a
               href='https://www.instagram.com/_theskinnycoder_/'
               target='_blank'
               className='hover:-translate-y-1 transition duration-300 ease-in-out transform'
             >
-              <FaInstagram className='md:w-14 md:h-14 w-7 h-7 text-[#9D09A6] dark:text-[#cf40d6]' />
+              <InstagramIcon className='md:w-14 md:h-14 w-7 h-7 text-[#9D09A6] dark:text-[#cf40d6]' />
             </a>
             <a
               href='https://github.com/theskinnycoder'
               target='_blank'
               className='hover:-translate-y-1 transition duration-300 ease-in-out transform'
             >
-              <FaGithub className='md:w-14 md:h-14 w-[1.78rem] h-[1.78rem]' />
+              <GithubIcon className='md:w-14 md:h-14 w-[1.78rem] h-[1.78rem]' />
             </a>
           </div>
         </section>

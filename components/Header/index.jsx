@@ -1,13 +1,12 @@
+import useSideBar from '@hooks/useSideBar';
 import NextLink from 'next/link';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { useStore } from '../../utils';
 import ActiveLink from '../ActiveLink';
+import { CrossIcon, HamburgerIcon } from '../Icons';
 import { navLinks } from '../links';
 import ThemeSwitch from '../Switch';
 
 export default function Header() {
-  const sidebar = useStore((state) => state.sidebar);
-  const toggleSidebar = useStore((state) => state.toggleSidebar);
+  const { sideBar, togglesideBar } = useSideBar();
 
   return (
     <header className='dark:bg-transparent dark:text-white dark:border-b-[1px] dark:border-pink-600 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white dark:backdrop-filter dark:backdrop-blur-3xl dark:backdrop-saturate-50'>
@@ -39,12 +38,12 @@ export default function Header() {
           </ul>
           <button
             className='focus:outline-none sm:hidden ml-3.5 outline-none'
-            onClick={toggleSidebar}
+            onClick={togglesideBar}
           >
-            {sidebar ? (
-              <HiX className='sm:w-8 sm:h-8 w-6 h-6' />
+            {sideBar ? (
+              <CrossIcon className='sm:w-8 sm:h-8 w-6 h-6' />
             ) : (
-              <HiMenuAlt3 className='sm:w-8 sm:h-8 w-6 h-6' />
+              <HamburgerIcon className='sm:w-8 sm:h-8 w-6 h-6' />
             )}
           </button>
         </div>

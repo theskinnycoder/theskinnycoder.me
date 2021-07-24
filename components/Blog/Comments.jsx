@@ -1,9 +1,10 @@
+import useDarkMode from '@hooks/useDarkMode';
 import { useEffect, useRef } from 'react';
-import { useStore } from '../../utils';
 
 export default function Comments() {
-  const darkmode = useStore((state) => state.darkmode);
+  const { darkMode } = useDarkMode();
   const commentsBox = useRef(null);
+
   useEffect(() => {
     let scriptEl = document.createElement('script');
     scriptEl.setAttribute('src', 'https://giscus.app/client.js');
@@ -16,12 +17,12 @@ export default function Comments() {
     scriptEl.setAttribute('data-category', 'Q&A');
     scriptEl.setAttribute('data-category-id', 'DIC_kwDOFpIpBc4B-NzB');
     scriptEl.setAttribute('data-reactions-enabled', '1');
-    if (darkmode) scriptEl.setAttribute('data-theme', 'dark');
+    if (darkMode) scriptEl.setAttribute('data-theme', 'dark');
     else scriptEl.setAttribute('data-theme', 'light');
     scriptEl.setAttribute('crossorigin', 'anonymous');
     scriptEl.setAttribute('async', true);
     commentsBox.current.appendChild(scriptEl);
-  }, [darkmode]);
+  }, [darkMode]);
 
   return (
     <>

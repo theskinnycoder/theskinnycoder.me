@@ -1,6 +1,3 @@
-import { FaTelegramPlane } from 'react-icons/fa';
-import { RiWhatsappFill } from 'react-icons/ri';
-import { SiFacebook, SiLinkedin, SiReddit, SiTwitter } from 'react-icons/si';
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -9,6 +6,14 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from 'react-share';
+import {
+  FacebookIcon,
+  LinkedinIcon,
+  RedditIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from '../Icons';
 
 export default function SocialShareButtons({ path, title, hashtag }) {
   return (
@@ -19,7 +24,7 @@ export default function SocialShareButtons({ path, title, hashtag }) {
         url={`https://theskinnycoder.me${path}`}
         title={title}
       >
-        <SiTwitter className='w-6 h-6 rounded text-[#49a1eb] hover:text-opacity-80' />
+        <TwitterIcon className='w-6 h-6 rounded text-[#49a1eb] hover:text-opacity-80' />
       </TwitterShareButton>
 
       {/* FaceBook */}
@@ -29,7 +34,7 @@ export default function SocialShareButtons({ path, title, hashtag }) {
         quote={title}
         hashtag={hashtag}
       >
-        <SiFacebook className='w-6 h-6 rounded text-[#3A5998] hover:text-opacity-80' />
+        <FacebookIcon className='w-6 h-6 rounded text-[#3A5998] hover:text-opacity-80' />
       </FacebookShareButton>
 
       {/* Reddit */}
@@ -38,7 +43,7 @@ export default function SocialShareButtons({ path, title, hashtag }) {
         className='focus:outline-none outline-none'
         title={title}
       >
-        <SiReddit className='w-6 h-6 rounded text-[#FF4500] hover:text-opacity-80' />
+        <RedditIcon className='w-6 h-6 rounded text-[#FF4500] hover:text-opacity-80' />
       </RedditShareButton>
 
       {/* WhatsApp */}
@@ -48,7 +53,7 @@ export default function SocialShareButtons({ path, title, hashtag }) {
         title={title}
         separator='-'
       >
-        <RiWhatsappFill className='w-6 h-6 rounded text-[#22CC65] hover:text-opacity-80' />
+        <WhatsappIcon className='w-6 h-6 rounded text-[#22CC65] hover:text-opacity-80' />
       </WhatsappShareButton>
 
       {/* LinkedIn */}
@@ -58,7 +63,7 @@ export default function SocialShareButtons({ path, title, hashtag }) {
         title={title}
         summary='Do check out other articles on this blog!'
       >
-        <SiLinkedin className='w-6 h-6 rounded text-[#0177B5] hover:text-opacity-80' />
+        <LinkedinIcon className='w-6 h-6 rounded text-[#0177B5] hover:text-opacity-80' />
       </LinkedinShareButton>
 
       {/* Telegram */}
@@ -67,7 +72,7 @@ export default function SocialShareButtons({ path, title, hashtag }) {
         className='focus:outline-none outline-none'
         title={title}
       >
-        <FaTelegramPlane className='w-6 h-6 rounded text-[#24A2E0] hover:text-opacity-80' />
+        <TelegramIcon className='w-6 h-6 rounded text-[#24A2E0] hover:text-opacity-80' />
       </TelegramShareButton>
     </div>
   );

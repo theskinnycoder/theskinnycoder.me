@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic';
 import useInView from 'react-cool-inview';
-const ArticleItem = dynamic(() =>
-  import('../../components/Articles/ArticleItem'),
-);
+const ArticleItem = dynamic(() => import('@components/Articles/ArticleItem'));
 
 export default function RecentArticles({ articles }) {
   const { observe, inView } = useInView({

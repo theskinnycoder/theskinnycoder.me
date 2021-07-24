@@ -1,11 +1,9 @@
+import graphcms from '@utils/graphcms';
+import { GET_ALL_ARTICLES } from '@utils/queries';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import useInView from 'react-cool-inview';
-import { GET_ALL_ARTICLES } from '../../graphql/articles';
-import { graphcms } from '../../utils';
-const ArticleItem = dynamic(() =>
-  import('../../components/Articles/ArticleItem'),
-);
+const ArticleItem = dynamic(() => import('@components/Articles/ArticleItem'));
 
 export default function Blog({ articles }) {
   const { observe, inView } = useInView({

@@ -1,8 +1,8 @@
-import { ArticleSkeleton } from '../../components/Articles';
-import { BlogSEO } from '../../components/Blog';
-import { GET_ALL_ARTICLES, GET_SINGLE_ARTICLE } from '../../graphql/articles';
-import BlogLayout from '../../layouts/BlogLayout';
-import { graphcms } from '../../utils';
+import { ArticleSkeleton } from '@components/Articles';
+import { BlogSEO } from '@components/Blog';
+import BlogLayout from '@layouts/BlogLayout';
+import graphcms from '@utils/graphcms';
+import { GET_ALL_ARTICLES, GET_SINGLE_ARTICLE } from '@utils/queries';
 
 export default function BlogDetails({ article }) {
   if (!article) return <ArticleSkeleton />;
@@ -30,7 +30,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { article } = await graphcms.request(GET_SINGLE_ARTICLE, { slug: params.slug });
+  const { article } = await graphcms.request(GET_SINGLE_ARTICLE, {
+    slug: params.slug,
+  });
 
   if (!article) {
     return {

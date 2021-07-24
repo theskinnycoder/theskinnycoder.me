@@ -1,22 +1,22 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import useRouter from '@hooks/useRouter';
+import NextLink from 'next/link';
 import { Children, cloneElement } from 'react';
 
 export default function ActiveLink({ children, activeClassName, ...props }) {
-  const { asPath } = useRouter();
+  const { path } = useRouter();
   const child = Children.only(children);
   const childClassName = child.props.className || '';
 
   const className =
-    asPath === props.href || asPath === props.as
+    path === props.href || path === props.as
       ? `${childClassName} ${activeClassName}`.trim()
       : childClassName;
 
   return (
-    <Link {...props}>
+    <NextLink {...props}>
       {cloneElement(child, {
         className: className || null,
       })}
-    </Link>
+    </NextLink>
   );
 }

@@ -1,5 +1,5 @@
+import MainLayout from '@layouts/MainLayout';
 import { DefaultSeo } from 'next-seo';
-import MainLayout from '../layouts/MainLayout';
 import SEO from '../next-seo.config';
 import '../styles/globals.css';
 

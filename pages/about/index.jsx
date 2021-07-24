@@ -1,5 +1,5 @@
+import { Intro, Timeline, Uses } from '@components/About';
 import { NextSeo } from 'next-seo';
-import { Intro, Timeline, Uses } from '../../components/About';
 
 export default function About() {
   const url = 'https://theskinnycoder.me/about';
