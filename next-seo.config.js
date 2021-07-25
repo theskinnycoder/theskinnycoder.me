@@ -1,19 +1,20 @@
 const title = 'TheSkinnyCoder - Developer | YouTuber | Tutor';
 const description = 'Full-Stack Web Developer';
+const url = 'https://theskinnycoder.me';
 
 const SEO = {
   title,
   description,
-  canonical: 'https://theskinnycoder.me',
+  canonical: url,
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://theskinnycoder.me',
+    url,
     title,
     description,
     images: [
       {
-        url: 'https://theskinnycoder.me/favicon.ico',
+        url: `${url}/favicon.ico`,
         alt: title,
       },
     ],

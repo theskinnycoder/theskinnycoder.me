@@ -1,14 +1,10 @@
+import useView from '@hooks/useView';
 import dynamic from 'next/dynamic';
-import useInView from 'react-cool-inview';
 import uses from './usesData';
 const UsesCard = dynamic(() => import('./UsesCard'));
 
 export default function Uses() {
-  const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => {
-      unobserve();
-    },
-  });
+  const { observe, inView } = useView();
   return (
     <section
       className='dark:text-light dark:bg-black flex items-center justify-center min-h-screen p-2'

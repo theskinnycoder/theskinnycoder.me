@@ -1,4 +1,3 @@
-export { default as BlogSEO } from './BlogSEO';
 export { default as CodeBlock } from './CodeBlock';
 export { default as Comments } from './Comments';
 export { default as ContentBlock } from './ContentBlock';

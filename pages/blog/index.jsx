@@ -1,32 +1,18 @@
-import graphcms from '@utils/graphcms';
+import { PageSEO } from '@components/SEO';
+import useView from '@hooks/useView';
+import getData from '@utils/getData';
 import { GET_ALL_ARTICLES } from '@utils/queries';
-import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import useInView from 'react-cool-inview';
 const ArticleItem = dynamic(() => import('@components/Articles/ArticleItem'));
 
 export default function Blog({ articles }) {
-  const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => {
-      unobserve();
-    },
-  });
-  const url = 'https://theskinnycoder.me/blog';
-  const title = 'Blog | TheSkinnyCoder';
-  const description =
-    'Here is where I post & publish my technical articles, cheatsheets, YouTube supplements & rants...';
+  const { observe, inView } = useView();
 
   return (
     <>
-      <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
-        openGraph={{
-          url,
-          title,
-          description,
-        }}
+      <PageSEO
+        name='blog'
+        description='Here is where I post & publish my technical articles, cheatsheets, YouTube supplements & rants...'
       />
       <section className='dark:bg-black dark:text-white flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left'>
         <h2 className='md:text-4xl text-3xl text-center'>
@@ -49,7 +35,10 @@ export default function Blog({ articles }) {
 }
 
 export async function getStaticProps() {
-  const { articles } = await graphcms.request(GET_ALL_ARTICLES);
+  const { articles } = await getData({
+    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    query: GET_ALL_ARTICLES,
+  });
 
   return {
     props: {

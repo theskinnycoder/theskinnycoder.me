@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { CopyrightIcon, NextjsIcon, TailwindIcon, VercelIcon } from '../Icons';
 
 export default function Footer() {
@@ -7,11 +7,11 @@ export default function Footer() {
       <h5>
         Copyright <CopyrightIcon className='inline-block mb-1' />{' '}
         {new Date().getFullYear()},{' '}
-        <Link href='/'>
+        <NextLink href='/'>
           <a className='hover:underline font-medium text-pink-600'>
             TheSkinnyCoder
           </a>
-        </Link>
+        </NextLink>
         . All Right Reserved
       </h5>
       <h5 className='flex flex-col items-center justify-center'>

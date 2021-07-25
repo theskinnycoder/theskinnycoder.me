@@ -5,17 +5,13 @@ import {
   SocialShareButtons,
 } from '@components/Blog';
 import useRouter from '@hooks/useRouter';
+import useView from '@hooks/useView';
 import dynamic from 'next/dynamic';
-import useInView from 'react-cool-inview';
 const Comments = dynamic(() => import('@components/Blog/Comments'));
 
 export default function BlogLayout({ article }) {
   const { path } = useRouter();
-  const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => {
-      unobserve();
-    },
-  });
+  const { observe, inView } = useView();
   const { title, excerpt, content, updatedAt, coverpic } = article;
 
   return (
@@ -33,7 +29,7 @@ export default function BlogLayout({ article }) {
           </p>
 
           {/* Flex under the Excerpt */}
-          <div className='sm:flex-row flex flex-col items-center justify-between py-6'>
+          <div className='sm:flex-row flex flex-col items-center justify-between py-4'>
             {/* Date & Time Taken */}
             <DateAndTimeTaken content={content} updatedAt={updatedAt} />
             {/* Share Buttons */}

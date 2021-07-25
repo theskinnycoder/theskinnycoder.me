@@ -4,29 +4,16 @@ import {
   SnowAnimation,
   YouTubeSection,
 } from '@components/Home';
+import { PageSEO } from '@components/SEO';
 import useDarkMode from '@hooks/useDarkMode';
-import graphcms from '@utils/graphcms';
+import getData from '@utils/getData';
 import { GET_ALL_ARTICLES } from '@utils/queries';
-import { NextSeo } from 'next-seo';
 
 export default function Home({ articles, videos }) {
-  const url = 'https://theskinnycoder.me/';
-  const title = 'Home | TheSkinnyCoder';
-  const description = 'Full-Stack Web Developer';
-
   const { darkMode } = useDarkMode();
   return (
     <>
-      <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
-        openGraph={{
-          url,
-          title,
-          description,
-        }}
-      />
+      <PageSEO name='home' description='Full-Stack Web Developer' />
       {darkMode && <SnowAnimation />}
       <div className='dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300'>
         <HeroSection />
@@ -38,16 +25,18 @@ export default function Home({ articles, videos }) {
 }
 
 export async function getStaticProps() {
-  const { articles } = await graphcms.request(GET_ALL_ARTICLES);
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=4`,
-  );
-  const data = await res.json();
+  const { articles } = await getData({
+    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    query: GET_ALL_ARTICLES,
+  });
+  const { items: videos } = await getData({
+    url: `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=4`,
+  });
 
   return {
     props: {
       articles,
-      videos: data.items,
+      videos,
     },
     revalidate: 3600,
   };

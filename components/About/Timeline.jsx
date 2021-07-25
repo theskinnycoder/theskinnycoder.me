@@ -1,14 +1,10 @@
+import useView from '@hooks/useView';
 import dynamic from 'next/dynamic';
-import useInView from 'react-cool-inview';
 import timelineData from './timelineData';
 const TimelineCard = dynamic(() => import('./TimelineCard'));
 
 export default function Timeline() {
-  const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => {
-      unobserve();
-    },
-  });
+  const { observe, inView } = useView();
   return (
     <section className='dark:bg-black min-h-screen' id='timeline'>
       <div className='p-2 pt-10'>

@@ -2,16 +2,12 @@ import Footer from '@components/Footer';
 import Header from '@components/Header';
 import SideBar from '@components/Sidebar';
 import useDarkMode from '@hooks/useDarkMode';
-import NextHead from 'next/head';
 
 export default function MainLayout({ children }) {
   const { darkMode } = useDarkMode();
 
   return (
     <>
-      <NextHead>
-        <title>TheSkinnyCoder</title>
-      </NextHead>
       <main
         className={`${
           darkMode ? 'dark bg-black' : ''
