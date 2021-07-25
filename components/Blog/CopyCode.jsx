@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
@@ -34,6 +34,10 @@ export default class CopyCode extends Component {
 
   componentDidMount() {
     window.addEventListener('mousemove', this.getMousePosition);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.getMousePosition);
   }
 
   makeShot = (particleRatio, opts) => {
@@ -86,31 +90,35 @@ export default class CopyCode extends Component {
   };
 
   render() {
+    const { content, isCopied, setIsCopied } = this.props;
     return (
       <>
         <CopyToClipboard
-          text={this.props.content}
+          text={content}
           onCopy={() => {
-            this.props.setIsCopied(!this.props.isCopied);
+            setIsCopied(!isCopied);
             setTimeout(() => {
-              this.props.setIsCopied(false);
+              setIsCopied(false);
             }, 3000);
           }}
-          className='focus:outline-none focus-within:outline-none md:pt-1.5 pt-2.5 outline-none'
+          className="focus:outline-none focus-within:outline-none md:pt-1.5 pt-2.5 outline-none"
         >
           <button onClick={this.handlerFire}>
-            {this.props.isCopied ? (
-              <span className='hover:bg-pink-200 dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded'>
+            {isCopied ? (
+              <span className="hover:bg-pink-200 dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded">
                 Copied!
               </span>
             ) : (
-              <span className='hover:bg-pink-200 dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded'>
+              <span className="hover:bg-pink-200 dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded">
                 Copy
               </span>
             )}
           </button>
         </CopyToClipboard>
-        <ReactCanvasConfetti refConfetti={this.getInstance} style={canvasStyles} />
+        <ReactCanvasConfetti
+          refConfetti={this.getInstance}
+          style={canvasStyles}
+        />
       </>
     );
   }

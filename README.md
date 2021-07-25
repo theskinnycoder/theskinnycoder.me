@@ -166,8 +166,8 @@ class MainClass {
 ```javascript
 const add = (num1, num2) => num1 + num2;
 
-if (add(1, 2)) console.log("The sum is a number");
-else console.log("The sum is zero");
+if (add(1, 2)) console.log('The sum is a number');
+else console.log('The sum is zero');
 ```
 
 - Some Other Examples :
@@ -209,7 +209,7 @@ export default App;
 
 **3. Output :**
 
-![Me](https://avatars.githubusercontent.com/u/64031854?v=4 "TheSkinnyCoder")
+![Me](https://avatars.githubusercontent.com/u/64031854?v=4 'TheSkinnyCoder')
 
 - **`path`** can be local or external.
 - Hover over the image to see the alternate text.
@@ -227,7 +227,7 @@ export default App;
 
 **3. Output :**
 
-[theskinnycoder.com](https://theskinnycoder.com "TheSkinnyCoder")
+[theskinnycoder.com](https://theskinnycoder.com 'TheSkinnyCoder')
 
 - Hover over the link to see the link text.
 - Notice the space between the link's URL and the alternate text.

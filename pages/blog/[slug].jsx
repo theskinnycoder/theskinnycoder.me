@@ -2,7 +2,8 @@ import { ArticleSkeleton } from '@components/Articles';
 import { BlogSEO } from '@components/SEO';
 import BlogLayout from '@layouts/BlogLayout';
 import getData from '@utils/getData';
-import { GET_ALL_ARTICLES, GET_SINGLE_ARTICLE } from '@utils/queries';
+import { getAllPostSlugs } from '@utils/helperFunctions';
+import { GET_SINGLE_ARTICLE } from '@utils/queries';
 
 export default function BlogDetails({ article }) {
   if (!article) return <ArticleSkeleton />;
@@ -15,16 +16,11 @@ export default function BlogDetails({ article }) {
 }
 
 export async function getStaticPaths() {
-  const { articles } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
-    query: GET_ALL_ARTICLES,
-  });
+  const slugs = await getAllPostSlugs();
 
-  const paths = articles.map(({ slug }) => {
-    return {
-      params: { slug },
-    };
-  });
+  const paths = slugs.map((slug) => ({
+    params: { slug },
+  }));
 
   return {
     paths,

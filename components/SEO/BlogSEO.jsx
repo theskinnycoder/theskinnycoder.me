@@ -31,13 +31,13 @@ export default function BlogSEO({ article }) {
         }}
       />
       <ArticleJsonLd
-        authorName='TheSkinnyCoder'
+        authorName="TheSkinnyCoder"
         dateModified={date}
         datePublished={date}
         description={description}
         images={[featuredImage]}
-        publisherLogo='/static/favicons/android-chrome-192x192.png'
-        publisherName='TheSkinnyCoder'
+        publisherLogo="/static/favicons/android-chrome-192x192.png"
+        publisherName="TheSkinnyCoder"
         title={title}
         url={url}
       />

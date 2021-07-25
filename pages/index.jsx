@@ -13,9 +13,9 @@ export default function Home({ articles, videos }) {
   const { darkMode } = useDarkMode();
   return (
     <>
-      <PageSEO name='home' description='Full-Stack Web Developer' />
+      <PageSEO name="home" description="Full-Stack Web Developer" />
       {darkMode && <SnowAnimation />}
-      <div className='dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300'>
+      <div className="dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300">
         <HeroSection />
         <RecentArticles articles={articles} />
         <YouTubeSection videos={videos} />

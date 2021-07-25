@@ -1,9 +1,6 @@
+import { getRandomInRange } from '@utils/helperFunctions';
 import { Component } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
-
-function randomInRange(min, max) {
-  return Math.random() * (max - min) + min;
-}
 
 const canvasStyles = {
   position: 'fixed',
@@ -32,7 +29,7 @@ export default class SnowAnimation extends Component {
     });
   };
 
-  getAnimationSettings() {
+  getAnimationSettings = () => {
     return {
       particleCount: 1,
       startVelocity: 0,
@@ -45,12 +42,13 @@ export default class SnowAnimation extends Component {
       },
       colors: ['#ffffff'],
       shapes: ['circle'],
-      scalar: randomInRange(0.4, 0.5),
+      scalar: getRandomInRange(0.4, 0.5),
     };
-  }
+  };
 
   nextTickAnimation = () => {
-    this.animationInstance && this.animationInstance(this.getAnimationSettings());
+    this.animationInstance &&
+      this.animationInstance(this.getAnimationSettings());
     if (this.isAnimationEnabled) requestAnimationFrame(this.nextTickAnimation);
   };
 
@@ -72,9 +70,15 @@ export default class SnowAnimation extends Component {
 
   componentWillUnmount() {
     this.isAnimationEnabled = false;
+    window.removeEventListener('mousemove', this.getMousePosition);
   }
 
   render() {
-    return <ReactCanvasConfetti refConfetti={this.getInstance} style={canvasStyles} />;
+    return (
+      <ReactCanvasConfetti
+        refConfetti={this.getInstance}
+        style={canvasStyles}
+      />
+    );
   }
 }

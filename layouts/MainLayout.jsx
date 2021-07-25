@@ -15,7 +15,7 @@ export default function MainLayout({ children }) {
       >
         <Header />
         <SideBar />
-        <section className='max-w-5xl p-8 mx-auto'>{children}</section>
+        <section className="max-w-5xl p-8 mx-auto">{children}</section>
         <Footer />
       </main>
     </>

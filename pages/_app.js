@@ -5,7 +5,7 @@ import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <MainLayout className='font-custom'>
+    <MainLayout className="font-custom">
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </MainLayout>

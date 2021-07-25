@@ -3,7 +3,7 @@ export default function ImageComponent({ alt, src }) {
     <img
       src={src}
       alt={alt}
-      className='flex items-center justify-center mx-auto my-3'
+      className="flex items-center justify-center mx-auto my-3"
     />
   );
 }
