@@ -1,6 +1,6 @@
 import { ArticleSkeleton } from '@components/Articles';
 import { BlogSEO } from '@components/SEO';
-import BlogLayout from '@layouts/BlogLayout';
+import ArticleLayout from '@layouts/ArticleLayout';
 import getData from '@utils/getData';
 import { getAllPostSlugs } from '@utils/helperFunctions';
 import { GET_SINGLE_ARTICLE } from '@utils/queries';
@@ -10,7 +10,7 @@ export default function BlogDetails({ article }) {
   return (
     <>
       <BlogSEO article={article} />
-      <BlogLayout article={article} />
+      <ArticleLayout article={article} />
     </>
   );
 }

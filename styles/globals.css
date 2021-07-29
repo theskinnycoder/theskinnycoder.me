@@ -62,6 +62,13 @@
     font-weight: 800;
     src: url('../fonts/jost-800.woff2') format('woff2');
   }
+
+  .searchbar::placeholder {
+    color: #f472b6;
+  }
+  .searchbar::-ms-input-placeholder {
+    color: #f472b6;
+  }
 }
 
 .prose code::before {

@@ -1,13 +1,16 @@
 import { ArticleItem } from '@components/Articles';
-import { PageSEO } from '@components/SEO';
 import useSearch from '@hooks/useSearch';
 import getData from '@utils/getData';
-import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@utils/queries';
+import {
+  GET_ALL_ARTICLES_BY_CATEGORY,
+  GET_ALL_CATEGORIES,
+} from '@utils/queries';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function Blog({ articles, categories }) {
+export default function BlogCategoryPage({ currentCategory, categories }) {
   const { searchText, setSearchText } = useSearch();
+  const { name, color, articles } = currentCategory;
   const [searchedArticles, setSearchedArticles] = useState(articles);
   const isSingular = searchedArticles.length === 1;
 
@@ -24,17 +27,20 @@ export default function Blog({ articles, categories }) {
 
   return (
     <>
-      <PageSEO
-        name="blog"
-        description="Here is where I post & publish my technical articles, cheatsheets, YouTube supplements & rants..."
-      />
       <section className="dark:bg-black dark:text-white flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left">
         <h2 className="md:text-4xl text-3xl text-center">
           The <span className="font-bold text-pink-600 uppercase">Blog</span>
         </h2>
         <h4 className="px-2 mt-2 text-xl leading-tight text-center">
-          Here is where I post & publish my technical articles, cheatsheets,
-          YouTube supplements & rants...
+          Showing {articles.length} {isSingular ? 'article' : 'articles'} about{' '}
+          <span
+            style={{
+              backgroundColor: color.hex,
+            }}
+            className="px-[1.75px] dark:px-[1.5px] font-semibold text-black border-[1px] border-black dark:border-transparent rounded-sm py-0 ml-[1px]"
+          >
+            #{name}
+          </span>
         </h4>
         <div className="w-full px-2 mx-auto my-5 text-center">
           <input
@@ -84,10 +90,27 @@ export default function Blog({ articles, categories }) {
   );
 }
 
-export async function getStaticProps() {
-  const { articles } = await getData({
+export async function getStaticPaths() {
+  const { categories } = await getData({
     url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
-    query: GET_ALL_ARTICLES,
+    query: GET_ALL_CATEGORIES,
+  });
+
+  const paths = categories
+    .map((category) => category.name)
+    .map((name) => ({ params: { name } }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { category: currentCategory } = await getData({
+    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    query: GET_ALL_ARTICLES_BY_CATEGORY,
+    variables: { name: params.name },
   });
 
   const { categories } = await getData({
@@ -97,7 +120,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      articles,
+      currentCategory,
       categories,
     },
     revalidate: 3600,

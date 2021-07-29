@@ -1,54 +1,105 @@
-import {
-  ContentBlock,
-  CoverPic,
-  DateAndTimeTaken,
-  SocialShareButtons,
-} from '@components/Blog';
-import useRouter from '@hooks/useRouter';
-import useView from '@hooks/useView';
-import dynamic from 'next/dynamic';
-const Comments = dynamic(() => import('@components/Blog/Comments'));
+import { ArticleItem } from '@components/Articles';
+import { PageSEO } from '@components/SEO';
+import useSearch from '@hooks/useSearch';
+import getData from '@utils/getData';
+import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@utils/queries';
+import NextLink from 'next/link';
+import { useEffect, useState } from 'react';
 
-export default function BlogLayout({ article }) {
-  const { path } = useRouter();
-  const { observe, inView } = useView();
-  const { title, excerpt, content, updatedAt, coverpic } = article;
+export default function BlogLayout({ articles, categories }) {
+  const { searchText, setSearchText } = useSearch();
+  const isSingular = articles.length === 1;
+  const [searchedArticles, setSearchedArticles] = useState(articles);
+
+  useEffect(() => {
+    const posts = articles?.filter(
+      (article) =>
+        article.title?.toLowerCase().includes(searchText.toLowerCase()) ||
+        article?.categories
+          ?.map((category) => category.name)
+          ?.some((name) => name.includes(searchText.toLowerCase())),
+    );
+    setSearchedArticles(posts);
+  }, [articles, searchText]);
 
   return (
-    <div className="dark:bg-black dark:text-white pt-28 px-3 py-10">
-      <article className="flex flex-col text-center">
-        <div className="flex flex-col p-4">
-          {/* Title */}
-          <h1 className="md:text-6xl text-4xl font-bold text-pink-600 capitalize">
-            {title}
-          </h1>
-
-          {/* Excerpt */}
-          <p className="md:text-lg text-md my-4 font-medium text-center text-gray-500">
-            {excerpt}
-          </p>
-
-          {/* Flex under the Excerpt */}
-          <div className="sm:flex-row flex flex-col items-center justify-between py-4">
-            {/* Date & Time Taken */}
-            <DateAndTimeTaken content={content} updatedAt={updatedAt} />
-            {/* Share Buttons */}
-            <SocialShareButtons
-              title={`${title} by TSC`}
-              hashtag="theskinnycoder"
-              path={path}
-            />
-          </div>
-
-          {/* Cover Pic */}
-          <CoverPic pic={coverpic} />
-
-          {/* The Content */}
-          <ContentBlock content={content} />
-
-          <div ref={observe}>{inView && <Comments />}</div>
+    <>
+      <PageSEO
+        name="blog"
+        description="Here is where I post & publish my technical articles, cheatsheets, YouTube supplements & rants..."
+      />
+      <section className="dark:bg-black dark:text-white flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left">
+        <h2 className="md:text-4xl text-3xl text-center">
+          The <span className="font-bold text-pink-600 uppercase">Blog</span>
+        </h2>
+        <h4 className="px-2 mt-2 text-xl leading-tight text-center">
+          Here is where I post & publish my technical articles, cheatsheets,
+          YouTube supplements & rants...
+        </h4>
+        <div className="w-full px-2 mx-auto my-5 text-center">
+          <input
+            type="text"
+            name="search"
+            value={searchText}
+            autoComplete="off"
+            placeholder="Search for articles..."
+            onChange={(e) => setSearchText(e.target.value)}
+            className="searchbar focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-gray-800 border-[1px] border-pink-600 outline-none focus:border-2 bg-white"
+          />
+          <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg">
+            (Showing {searchedArticles.length}{' '}
+            {isSingular ? 'article' : 'articles'})
+          </span>
         </div>
-      </article>
-    </div>
+        <div className="md:px-5 flex items-start justify-center px-0 py-4 mt-10">
+          <div className="md:w-1/5 md:flex flex-col items-start justify-center hidden w-0 space-y-3">
+            {categories?.map((category, idx) => (
+              <NextLink href={`/blog/categories/${category.name}`} key={idx}>
+                <a
+                  style={{
+                    backgroundColor: category.color.hex,
+                  }}
+                  className="hover:tracking-wider p-[3.25px] dark:p-[3px] font-semibold text-black border-[1px] border-black dark:border-transparent transition-all duration-200 ease-in-out rounded-sm text-sm lg:text-base"
+                  key={idx}
+                >
+                  #{category.name}
+                </a>
+              </NextLink>
+            ))}
+          </div>
+          <section className="sm:grid-cols-2 md:w-4/5 grid w-full grid-cols-1 gap-5">
+            {searchedArticles.length !== 0 ? (
+              searchedArticles.map((article, idx) => (
+                <ArticleItem article={article} key={idx} />
+              ))
+            ) : (
+              <h3 className="block w-full text-4xl text-center">
+                Dude, I didn't write about that yet...
+              </h3>
+            )}
+          </section>
+        </div>
+      </section>
+    </>
   );
+}
+
+export async function getStaticProps() {
+  const { articles } = await getData({
+    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    query: GET_ALL_ARTICLES,
+  });
+
+  const { categories } = await getData({
+    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    query: GET_ALL_CATEGORIES,
+  });
+
+  return {
+    props: {
+      articles,
+      categories,
+    },
+    revalidate: 3600,
+  };
 }
