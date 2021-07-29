@@ -32,7 +32,8 @@ export default function BlogCategoryPage({ currentCategory, categories }) {
           The <span className="font-bold text-pink-600 uppercase">Blog</span>
         </h2>
         <h4 className="px-2 mt-2 text-xl leading-tight text-center">
-          Showing {articles.length} {isSingular ? 'article' : 'articles'} about{' '}
+          Showing {searchedArticles?.length}{' '}
+          {isSingular ? 'article' : 'articles'} about{' '}
           <span
             style={{
               backgroundColor: color.hex,
@@ -52,10 +53,6 @@ export default function BlogCategoryPage({ currentCategory, categories }) {
             onChange={(e) => setSearchText(e.target.value)}
             className="searchbar focus:outline-none w-11/12 md:w-3/4 p-3 text-lg font-medium dark:bg-gray-800 border-[1px] border-pink-600 outline-none focus:border-2 bg-white"
           />
-          <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg">
-            (Showing {searchedArticles.length}{' '}
-            {isSingular ? 'article' : 'articles'})
-          </span>
         </div>
         <div className="md:px-5 flex items-start justify-center px-0 py-4 mt-10">
           <div className="md:w-1/5 md:flex flex-col items-start justify-center hidden w-0 space-y-3">
