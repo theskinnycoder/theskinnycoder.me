@@ -7,7 +7,7 @@ export default function Uses() {
   const { observe, inView } = useView();
   return (
     <section
-      className="dark:text-light dark:bg-black flex items-center justify-center min-h-screen p-2"
+      className="dark:text-light dark:bg-black lg:min-h-screen flex items-center justify-center min-h-full py-5"
       id="gear"
     >
       <div className="container p-3 mx-auto text-center">

@@ -9,7 +9,7 @@ import {
 export default function Intro() {
   return (
     <section
-      className="dark:bg-black dark:text-light flex flex-col items-center justify-center min-h-screen space-y-10 text-left"
+      className="dark:bg-black dark:text-light lg:min-h-screen flex flex-col items-center justify-center min-h-full py-5 space-y-10 text-left"
       id="about"
     >
       <h1 className="md:text-6xl sm:text-5xl text-4xl text-center">

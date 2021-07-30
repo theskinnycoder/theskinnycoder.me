@@ -16,7 +16,7 @@ export default function ArticleLayout({ article }) {
   const { title, excerpt, content, updatedAt, coverpic, categories } = article;
 
   return (
-    <div className="dark:bg-black dark:text-white pt-28 px-3 py-10">
+    <div className="dark:bg-black dark:text-white px-3 pb-10">
       <article className="flex flex-col text-center">
         <div className="flex flex-col p-4">
           {/* Title */}
@@ -29,14 +29,15 @@ export default function ArticleLayout({ article }) {
             {excerpt}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center px-4 pt-4 space-x-3 text-sm text-center">
+          {/* Category Tags */}
+          <div className="flex flex-wrap items-center justify-center px-4 pt-4 text-sm text-center">
             {categories.map((category, idx) => (
               <NextLink href={`/blog/categories/${category.name}`} key={idx}>
                 <a
                   style={{
                     backgroundColor: category.color.hex,
                   }}
-                  className="hover:-translate-y-0.5 p-[3px] font-semibold text-black border-[1px] border-black dark:border-transparent transition duration-300 ease-in-out rounded-sm"
+                  className="hover:-translate-y-0.5 p-[3px] font-semibold text-black border-[1px] border-black dark:border-transparent transition duration-300 ease-in-out rounded-sm m-1"
                 >
                   #{category.name}
                 </a>

@@ -8,7 +8,7 @@ export default function About() {
         name="about"
         description="Here is what tools I use, my developer timeline, my scoial media handles etc."
       />
-      <div className="dark:bg-black flex-col px-3 bg-white divide-y divide-pink-300">
+      <div className="dark:bg-black flex-col bg-white divide-y divide-pink-300">
         <Intro />
         <Uses />
         <Timeline />

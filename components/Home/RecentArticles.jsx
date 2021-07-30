@@ -6,7 +6,7 @@ export default function RecentArticles({ articles }) {
   const { observe, inView } = useView();
 
   return (
-    <div className="dark:bg-black dark:text-light min-h-screen">
+    <div className="dark:bg-black dark:text-light lg:min-h-screen min-h-full">
       <section className="flex flex-col items-center justify-center w-full py-10 mx-auto text-center">
         <h2 className="md:text-5xl text-4xl">
           Recently on my <span className="font-bold text-pink-600">blog</span>

@@ -64,10 +64,10 @@
   }
 
   .searchbar::placeholder {
-    color: #f472b6;
+    color: #db2777;
   }
   .searchbar::-ms-input-placeholder {
-    color: #f472b6;
+    color: #db2777;
   }
 }
 

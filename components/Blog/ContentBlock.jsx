@@ -24,7 +24,7 @@ export default function ContentBlock({ content }) {
           th: (props) => <th {...props} className="text-pink-600" />,
           pre: (props) => (
             <CodeBlock
-              className="flex items-center justify-center mx-auto"
+              className="flex items-center justify-center mx-auto overflow-x-scroll"
               content={props.children.props.children}
               language={props.children.props.className?.slice(5)}
             />
@@ -32,7 +32,7 @@ export default function ContentBlock({ content }) {
           code: (props) => (
             <code
               {...props}
-              className="dark:text-white dark:bg-[#2E3440] bg-pink-100 p-1"
+              className="dark:text-white dark:bg-[#2E3440] bg-pink-100 p-1 mx-auto overflow-x-scroll"
             />
           ),
           strong: (props) => <strong {...props} className="dark:text-light" />,

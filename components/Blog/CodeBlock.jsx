@@ -17,7 +17,7 @@ export default function CodeBlock({ language, content }) {
   SyntaxHighlighter.registerLanguage('bash', bash);
 
   return (
-    <div className="max-w-[86vw] md:max-w-5xl mx-auto ring-1 ring-pink-300 dark:ring-pink-600 my-10">
+    <div className="max-w-[78vw] md:max-w-5xl mx-auto ring-1 ring-pink-300 dark:ring-pink-600 my-10">
       {language && (
         <div className="dark:text-white flex items-center justify-between px-4 text-black">
           <span className="mt-3 font-medium text-pink-600">{language}</span>

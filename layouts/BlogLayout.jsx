@@ -1,15 +1,18 @@
 import { ArticleItem } from '@components/Articles';
-import { PageSEO } from '@components/SEO';
 import useSearch from '@hooks/useSearch';
-import getData from '@utils/getData';
-import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@utils/queries';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function BlogLayout({ articles, categories }) {
+export default function BlogLayout({
+  kind = 'articles',
+  articles,
+  categories,
+  name = null,
+  color = null,
+}) {
   const { searchText, setSearchText } = useSearch();
-  const isSingular = articles.length === 1;
   const [searchedArticles, setSearchedArticles] = useState(articles);
+  const isSingular = searchedArticles.length === 1;
 
   useEffect(() => {
     const posts = articles?.filter(
@@ -24,19 +27,34 @@ export default function BlogLayout({ articles, categories }) {
 
   return (
     <>
-      <PageSEO
-        name="blog"
-        description="Here is where I post & publish my technical articles, cheatsheets, YouTube supplements & rants..."
-      />
-      <section className="dark:bg-black dark:text-white flex flex-col items-center justify-center min-h-screen px-3 py-10 text-left">
+      <section className="dark:bg-black dark:text-white flex flex-col items-center justify-start min-h-screen py-10 text-left">
         <h2 className="md:text-4xl text-3xl text-center">
           The <span className="font-bold text-pink-600 uppercase">Blog</span>
         </h2>
-        <h4 className="px-2 mt-2 text-xl leading-tight text-center">
-          Here is where I post & publish my technical articles, cheatsheets,
-          YouTube supplements & rants...
+        <h4 className="mt-2 text-xl leading-tight text-center">
+          {kind === 'categories' ? (
+            <>
+              Showing {searchedArticles?.length}{' '}
+              {isSingular ? 'article' : 'articles'} about{' '}
+              <span
+                style={{
+                  backgroundColor: color.hex,
+                }}
+                className={`px-[1.75px] dark:px-[1.5px] font-semibold text-black dark:border-transparent rounded-sm py-0 ml-[1px] ${
+                  color.hex === '#ffffff' && 'border-[1px] border-black'
+                }`}
+              >
+                #{name}
+              </span>
+            </>
+          ) : (
+            <>
+              Here is where I post & publish my technical articles, cheatsheets,
+              YouTube supplements & rants...
+            </>
+          )}
         </h4>
-        <div className="w-full px-2 mx-auto my-5 text-center">
+        <div className="w-full mx-auto my-5 text-center">
           <input
             type="text"
             name="search"
@@ -44,12 +62,14 @@ export default function BlogLayout({ articles, categories }) {
             autoComplete="off"
             placeholder="Search for articles..."
             onChange={(e) => setSearchText(e.target.value)}
-            className="searchbar focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-gray-800 border-[1px] border-pink-600 outline-none focus:border-2 bg-white"
+            className="searchbar rounded-sm focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-[#111111] border-[1px] border-pink-600 outline-none bg-white focus:ring-1 ring-pink-600"
           />
-          <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg">
-            (Showing {searchedArticles.length}{' '}
-            {isSingular ? 'article' : 'articles'})
-          </span>
+          {kind !== 'categories' && (
+            <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg font-medium">
+              (Showing {searchedArticles.length}{' '}
+              {isSingular ? 'article' : 'articles'})
+            </span>
+          )}
         </div>
         <div className="md:px-5 flex items-start justify-center px-0 py-4 mt-10">
           <div className="md:w-1/5 md:flex flex-col items-start justify-center hidden w-0 space-y-3">
@@ -59,7 +79,10 @@ export default function BlogLayout({ articles, categories }) {
                   style={{
                     backgroundColor: category.color.hex,
                   }}
-                  className="hover:tracking-wider p-[3.25px] dark:p-[3px] font-semibold text-black border-[1px] border-black dark:border-transparent transition-all duration-200 ease-in-out rounded-sm text-sm lg:text-base"
+                  className={`hover:tracking-wider p-[3px] font-semibold text-black dark:border-transparent transition-all duration-200 ease-in-out rounded-sm text-sm lg:text-base ${
+                    category.color.hex === '#ffffff' &&
+                    'border-[1px] border-black'
+                  }`}
                   key={idx}
                 >
                   #{category.name}
@@ -82,24 +105,4 @@ export default function BlogLayout({ articles, categories }) {
       </section>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const { articles } = await getData({
-    url: process.env.GRAPHCMS_END_POINT',
-    query: GET_ALL_ARTICLES,
-  });
-
-  const { categories } = await getData({
-    url: process.env.GRAPHCMS_END_POINT',
-    query: GET_ALL_CATEGORIES,
-  });
-
-  return {
-    props: {
-      articles,
-      categories,
-    },
-    revalidate: 3600,
-  };
 }
