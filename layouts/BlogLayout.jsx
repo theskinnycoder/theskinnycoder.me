@@ -86,12 +86,12 @@ export default function BlogLayout({ articles, categories }) {
 
 export async function getStaticProps() {
   const { articles } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    url: process.env.GRAPHCMS_END_POINT',
     query: GET_ALL_ARTICLES,
   });
 
   const { categories } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    url: process.env.GRAPHCMS_END_POINT',
     query: GET_ALL_CATEGORIES,
   });
 

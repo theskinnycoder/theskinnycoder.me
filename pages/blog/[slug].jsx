@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { article } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    url: process.env.GRAPHCMS_END_POINT,
     query: GET_SINGLE_ARTICLE,
     variables: { slug: params.slug },
   });

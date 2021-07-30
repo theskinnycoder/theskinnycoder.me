@@ -1,4 +1,4 @@
-import { ArticleItem } from '@components/Articles';
+import { ArticleItem, ArticleSkeleton } from '@components/Articles';
 import useSearch from '@hooks/useSearch';
 import getData from '@utils/getData';
 import {
@@ -9,6 +9,8 @@ import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function BlogCategoryPage({ currentCategory, categories }) {
+  if (!currentCategory) return <ArticleSkeleton />;
+
   const { searchText, setSearchText } = useSearch();
   const { name, color, articles } = currentCategory;
   const [searchedArticles, setSearchedArticles] = useState(articles);
@@ -89,7 +91,7 @@ export default function BlogCategoryPage({ currentCategory, categories }) {
 
 export async function getStaticPaths() {
   const { categories } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_CATEGORIES,
   });
 
@@ -105,13 +107,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { category: currentCategory } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES_BY_CATEGORY,
     variables: { name: params.name },
   });
 
   const { categories } = await getData({
-    url: 'https://api-eu-central-1.graphcms.com/v2/ckq6frt2kcdgb01z00tned1ty/master',
+    url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_CATEGORIES,
   });
 
