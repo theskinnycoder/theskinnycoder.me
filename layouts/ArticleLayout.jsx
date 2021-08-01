@@ -37,7 +37,11 @@ export default function ArticleLayout({ article }) {
                   style={{
                     backgroundColor: category.color.hex,
                   }}
-                  className="hover:-translate-y-0.5 p-[3px] font-semibold text-black border-[1px] border-black dark:border-transparent transition duration-300 ease-in-out rounded-sm m-1"
+                  className={`hover:-translate-y-0.5 p-[3px] font-semibold text-black border-[1px] transition duration-300 ease-in-out rounded-sm m-1 ${
+                    category.color.hex === '#ffffff'
+                      ? 'border-black dark:border-white'
+                      : 'border-transparent'
+                  }`}
                 >
                   #{category.name}
                 </a>
