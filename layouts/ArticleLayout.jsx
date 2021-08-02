@@ -66,6 +66,8 @@ const ArticleLayout = ({ article }) => {
           {/* Cover Pic */}
           <CoverPic pic={coverpic} />
 
+          {/* <AdSense /> */}
+
           {/* The Content */}
           <ContentBlock content={content} />
 
