@@ -1,20 +1,12 @@
-import {
-  HeroSection,
-  RecentArticles,
-  SnowAnimation,
-  YouTubeSection,
-} from '@/components/Home';
+import { HeroSection, RecentArticles, YouTubeSection } from '@/components/Home';
 import { PageSEO } from '@/components/SEO';
-import useDarkMode from '@/hooks/useDarkMode';
 import getData from '@/utils/getData';
 import { GET_ALL_ARTICLES } from '@/utils/queries';
 
 const Home = ({ articles, videos }) => {
-  const { darkMode } = useDarkMode();
   return (
     <>
       <PageSEO name="home" description="Full-Stack Web Developer" />
-      {darkMode && <SnowAnimation />}
       <div className="dark:bg-black flex-col bg-white divide-y divide-pink-300">
         <HeroSection />
         <RecentArticles articles={articles} />

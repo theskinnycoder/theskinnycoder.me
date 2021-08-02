@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "yarn lint --fix && git add -A"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
@@ -42,17 +43,6 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.1",
-    "lint-staged": "^11.1.1",
     "prettier": "^2.3.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json}": [
-      "yarn lint --fix"
-    ]
   }
 }
