@@ -1,23 +1,34 @@
 import getData from './getData';
-import { GET_ALL_ARTICLES } from './queries';
+import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from './queries';
 
-export function capitalize(text) {
-  return text
+export const capitalize = (text) =>
+  text
     .toLowerCase()
     .split(' ')
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
-}
 
-export function getRandomInRange(min, max) {
-  return Math.random() * (max - min) + min;
-}
+export const getRandomInRange = (min, max) => Math.random() * (max - min) + min;
 
-export async function getAllPostSlugs() {
+export const isSingular = (arr) => arr.length === 1;
+
+export const isAnArticle = (path) =>
+  path.includes('blog/') && !path.includes('categories');
+
+export const getAllPostSlugs = async () => {
   const { articles } = await getData({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES,
   });
 
   return articles.map((article) => article.slug);
-}
+};
+
+export const getAllArticleCategories = async () => {
+  const { categories } = await getData({
+    url: process.env.GRAPHCMS_END_POINT,
+    query: GET_ALL_CATEGORIES,
+  });
+
+  return categories.map((category) => category.name);
+};

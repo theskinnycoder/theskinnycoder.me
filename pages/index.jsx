@@ -3,13 +3,13 @@ import {
   RecentArticles,
   SnowAnimation,
   YouTubeSection,
-} from '@components/Home';
-import { PageSEO } from '@components/SEO';
-import useDarkMode from '@hooks/useDarkMode';
-import getData from '@utils/getData';
-import { GET_ALL_ARTICLES } from '@utils/queries';
+} from '@/components/Home';
+import { PageSEO } from '@/components/SEO';
+import useDarkMode from '@/hooks/useDarkMode';
+import getData from '@/utils/getData';
+import { GET_ALL_ARTICLES } from '@/utils/queries';
 
-export default function Home({ articles, videos }) {
+const Home = ({ articles, videos }) => {
   const { darkMode } = useDarkMode();
   return (
     <>
@@ -22,9 +22,9 @@ export default function Home({ articles, videos }) {
       </div>
     </>
   );
-}
+};
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const { articles } = await getData({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES,
@@ -38,6 +38,8 @@ export async function getStaticProps() {
       articles,
       videos,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
-}
+};
+
+export default Home;

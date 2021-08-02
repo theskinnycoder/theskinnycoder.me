@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
 import { CopyrightIcon, NextjsIcon, TailwindIcon, VercelIcon } from '../Icons';
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="dark:bg-black dark:text-light border-pink-600 sticky flex flex-col items-center justify-center w-full p-4 text-base text-center bg-white border-t-[1px]">
       <h5>
@@ -39,4 +39,6 @@ export default function Footer() {
       </h5>
     </footer>
   );
-}
+};
+
+export default Footer;

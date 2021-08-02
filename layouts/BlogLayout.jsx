@@ -1,18 +1,22 @@
-import { ArticleItem } from '@components/Articles';
-import useSearch from '@hooks/useSearch';
+import useSearch from '@/hooks/useSearch';
+import { isSingular } from '@/utils/helperFunctions';
+import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
+const ArticleItem = dynamic(() => import('@/components/Articles/ArticleItem'), {
+  ssr: false,
+});
 
-export default function BlogLayout({
+const BlogLayout = ({
   kind = 'articles',
   articles,
   categories,
   name = null,
   color = null,
-}) {
+}) => {
   const { searchText, setSearchText } = useSearch();
   const [searchedArticles, setSearchedArticles] = useState(articles);
-  const isSingular = searchedArticles.length === 1;
+  const onlyOne = isSingular(searchedArticles);
 
   useEffect(() => {
     const posts = articles?.filter(
@@ -35,7 +39,7 @@ export default function BlogLayout({
           {kind === 'categories' ? (
             <>
               Showing {searchedArticles?.length}{' '}
-              {isSingular ? 'article' : 'articles'} about{' '}
+              {onlyOne ? 'article' : 'articles'} about{' '}
               <span
                 style={{
                   backgroundColor: color.hex,
@@ -62,12 +66,12 @@ export default function BlogLayout({
             autoComplete="off"
             placeholder="Search for articles..."
             onChange={(e) => setSearchText(e.target.value)}
-            className="searchbar rounded-sm focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-[#111111] border-[1px] border-pink-600 outline-none bg-white focus:ring-1 ring-pink-600"
+            className="searchbar rounded-sm focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-[#111111] outline-none bg-white focus:ring-4 ring-pink-600 ring-2"
           />
           {kind !== 'categories' && (
             <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg font-medium">
               (Showing {searchedArticles.length}{' '}
-              {isSingular ? 'article' : 'articles'})
+              {onlyOne ? 'article' : 'articles'})
             </span>
           )}
         </div>
@@ -97,7 +101,7 @@ export default function BlogLayout({
               ))
             ) : (
               <h3 className="block w-full text-4xl text-center">
-                Dude, I didn't write about that yet...
+                Dude, I didn&apos;t write about that yet...
               </h3>
             )}
           </section>
@@ -105,4 +109,6 @@ export default function BlogLayout({
       </section>
     </>
   );
-}
+};
+
+export default BlogLayout;

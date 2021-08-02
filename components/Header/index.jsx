@@ -1,15 +1,28 @@
-import useSideBar from '@hooks/useSideBar';
+import useProgressBar from '@/hooks/useProgressBar';
+import useRouter from '@/hooks/useRouter';
+import useSideBar from '@/hooks/useSideBar';
+import { isAnArticle } from '@/utils/helperFunctions';
 import NextLink from 'next/link';
 import ActiveLink from '../ActiveLink';
 import { CrossIcon, HamburgerIcon } from '../Icons';
 import { navLinks } from '../links';
 import ThemeSwitch from '../Switch';
 
-export default function Header() {
+const Header = () => {
+  const { path } = useRouter();
   const { sideBar, togglesideBar } = useSideBar();
+  const { barLength } = useProgressBar();
 
   return (
     <header className="dark:bg-transparent dark:text-white dark:border-b-[1px] dark:border-pink-600 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white dark:backdrop-filter dark:backdrop-blur-3xl dark:backdrop-saturate-50">
+      {isAnArticle(path) && (
+        <div
+          className="max-w-[100vw] fixed inset-x-0 top-0 dark:mb-0 h-1 rounded-sm bg-white bg-gradient-to-r dark:from-purple-500 via-purple-600 to-pink-600 dark:via-indigo-600 from-indigo-500"
+          style={{
+            width: `${barLength}%`,
+          }}
+        ></div>
+      )}
       <div className="flex items-center justify-between max-w-5xl px-4 mx-auto">
         <h3 className="md:text-2xl text-xl">
           <NextLink href="/">
@@ -50,4 +63,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

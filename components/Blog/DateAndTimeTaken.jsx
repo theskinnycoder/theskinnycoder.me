@@ -1,7 +1,7 @@
 import { formatDistanceToNow } from 'date-fns';
 import readingTime from 'reading-time';
 
-export default function DateAndTimeTaken({ updatedAt, content }) {
+const DateAndTimeTaken = ({ updatedAt, content }) => {
   return (
     <span className="md:text-md inline-block text-sm font-medium text-gray-500">
       Published{' '}
@@ -13,4 +13,6 @@ export default function DateAndTimeTaken({ updatedAt, content }) {
       {readingTime(content).text}
     </span>
   );
-}
+};
+
+export default DateAndTimeTaken;

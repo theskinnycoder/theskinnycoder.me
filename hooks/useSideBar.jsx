@@ -1,4 +1,4 @@
-import useStore from '@utils/useStore';
+import useStore from '@/utils/useStore';
 
 const useSideBar = () => {
   const sideBar = useStore((state) => state.sideBar);

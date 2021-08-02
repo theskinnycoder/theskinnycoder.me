@@ -1,6 +1,6 @@
-export default function UsesCard({ usesSection }) {
+const UsesCard = ({ usesSection }) => {
   return (
-    <div className="dark:bg-black hover:shadow-2xl hover:-translate-y-1 dark:ring-1 dark:ring-light bg-light flex flex-col items-center justify-start h-full p-2 space-y-2 transition duration-300 ease-in-out transform divide-y divide-pink-300 shadow-xl">
+    <div className="dark:bg-black hover:shadow-2xl hover:-translate-y-1 dark:ring-2 dark:ring-light bg-light flex flex-col items-center justify-start h-full p-2 space-y-2 transition duration-300 ease-in-out transform divide-y divide-pink-300 rounded-sm shadow-xl">
       <h4 className="md:text-lg text-md p-2 font-medium text-pink-600 uppercase">
         {usesSection.category}
       </h4>
@@ -11,6 +11,7 @@ export default function UsesCard({ usesSection }) {
             href={item.href}
             target="_blank"
             className="hover:bg-black dark:hover:bg-light dark:hover:text-black hover:text-light group text-md flex items-center p-1 font-semibold rounded"
+            rel="noreferrer"
           >
             {item.icon} {item.name}
           </a>
@@ -18,4 +19,6 @@ export default function UsesCard({ usesSection }) {
       </div>
     </div>
   );
-}
+};
+
+export default UsesCard;

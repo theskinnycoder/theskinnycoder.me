@@ -1,21 +1,21 @@
-import { ArticleSkeleton } from '@components/Articles';
-import { BlogSEO } from '@components/SEO';
-import ArticleLayout from '@layouts/ArticleLayout';
-import getData from '@utils/getData';
-import { getAllPostSlugs } from '@utils/helperFunctions';
-import { GET_SINGLE_ARTICLE } from '@utils/queries';
+import { ArticleSkeleton } from '@/components/Articles';
+import { ArticleSEO } from '@/components/SEO';
+import ArticleLayout from '@/layouts/ArticleLayout';
+import getData from '@/utils/getData';
+import { getAllPostSlugs } from '@/utils/helperFunctions';
+import { GET_SINGLE_ARTICLE } from '@/utils/queries';
 
-export default function BlogDetails({ article }) {
+const BlogDetails = ({ article }) => {
   if (!article) return <ArticleSkeleton />;
   return (
     <>
-      <BlogSEO article={article} />
+      <ArticleSEO article={article} />
       <ArticleLayout article={article} />
     </>
   );
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const slugs = await getAllPostSlugs();
 
   const paths = slugs.map((slug) => ({
@@ -26,9 +26,9 @@ export async function getStaticPaths() {
     paths,
     fallback: true,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const { article } = await getData({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_SINGLE_ARTICLE,
@@ -46,6 +46,8 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { article },
-    revalidate: 3600,
+    revalidate: 86400,
   };
-}
+};
+
+export default BlogDetails;

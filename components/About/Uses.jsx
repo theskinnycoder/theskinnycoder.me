@@ -1,9 +1,9 @@
-import useView from '@hooks/useView';
+import useView from '@/hooks/useView';
 import dynamic from 'next/dynamic';
 import uses from './usesData';
-const UsesCard = dynamic(() => import('./UsesCard'));
+const UsesCard = dynamic(() => import('./UsesCard'), { ssr: false });
 
-export default function Uses() {
+const Uses = () => {
   const { observe, inView } = useView();
   return (
     <section
@@ -30,4 +30,6 @@ export default function Uses() {
       </div>
     </section>
   );
-}
+};
+
+export default Uses;

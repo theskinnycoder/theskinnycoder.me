@@ -1,8 +1,10 @@
-import useView from '@hooks/useView';
+import useView from '@/hooks/useView';
 import dynamic from 'next/dynamic';
-const ArticleItem = dynamic(() => import('@components/Articles/ArticleItem'));
+const ArticleItem = dynamic(() => import('@/components/Articles/ArticleItem'), {
+  ssr: false,
+});
 
-export default function RecentArticles({ articles }) {
+const RecentArticles = ({ articles }) => {
   const { observe, inView } = useView();
 
   return (
@@ -22,4 +24,6 @@ export default function RecentArticles({ articles }) {
       </section>
     </div>
   );
-}
+};
+
+export default RecentArticles;

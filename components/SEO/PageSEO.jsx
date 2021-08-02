@@ -1,7 +1,7 @@
-import { capitalize } from '@utils/helperFunctions';
+import { capitalize } from '@/utils/helperFunctions';
 import { NextSeo } from 'next-seo';
 
-export default function PageSEO({ name, description }) {
+const PageSEO = ({ name, description }) => {
   const url = `https://theskinnycoder.me/${name === 'home' ? '' : name}}`;
   const title = `${capitalize(name)} | TheSkinnyCoder`;
 
@@ -17,4 +17,6 @@ export default function PageSEO({ name, description }) {
       }}
     />
   );
-}
+};
+
+export default PageSEO;

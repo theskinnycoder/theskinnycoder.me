@@ -1,7 +1,7 @@
-import { Intro, Timeline, Uses } from '@components/About';
-import { PageSEO } from '@components/SEO';
+import { Intro, Timeline, Uses } from '@/components/About';
+import { PageSEO } from '@/components/SEO';
 
-export default function About() {
+const About = () => {
   return (
     <>
       <PageSEO
@@ -15,4 +15,6 @@ export default function About() {
       </div>
     </>
   );
-}
+};
+
+export default About;

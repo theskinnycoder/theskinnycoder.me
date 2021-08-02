@@ -1,6 +1,8 @@
 export {
+  FaArrowUp as ArrowUpIcon,
   FaGithub as GithubIcon,
   FaInstagram as InstagramIcon,
+  FaLinkedin as LinkedinFilledIcon,
   FaMoon as MoonIcon,
   FaRegCopyright as CopyrightIcon,
   FaTelegramPlane as TelegramIcon,

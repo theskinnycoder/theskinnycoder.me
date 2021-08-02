@@ -10,6 +10,7 @@ const SEO = {
     type: 'website',
     locale: 'en_IE',
     url,
+    site_name: 'TheSkinnyCoder',
     title,
     description,
     images: [

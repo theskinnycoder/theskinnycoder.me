@@ -2,7 +2,7 @@ import { formatDistanceToNow } from 'date-fns';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 
-export default function VideoItem({ video }) {
+const VideoItem = ({ video }) => {
   return (
     <div className="group hover:-translate-y-1 hover:shadow-2xl dark:bg-pink-600 dark:text-white dark:shadow-none dark:hover:shadow-2xl bg-light dark:ring-1 dark:ring-pink-600 w-10/12 h-full mx-auto text-left transition duration-300 ease-in-out transform rounded-lg rounded-t-none shadow-xl">
       <NextLink href={`https://www.youtube.com/watch?v=${video.id.videoId}`}>
@@ -34,4 +34,6 @@ export default function VideoItem({ video }) {
       </NextLink>
     </div>
   );
-}
+};
+
+export default VideoItem;

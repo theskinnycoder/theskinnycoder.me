@@ -1,4 +1,4 @@
-export default async function getData({ url, query = null, variables = {} }) {
+const getData = async ({ url, query = null, variables = {} }) => {
   if (query) {
     const res = await fetch(url, {
       method: 'POST',
@@ -10,8 +10,9 @@ export default async function getData({ url, query = null, variables = {} }) {
     });
     const { data } = await res.json();
     return data;
-  } else {
-    const res = await fetch(url);
-    return res.json();
   }
-}
+  const res = await fetch(url);
+  return res.json();
+};
+
+export default getData;

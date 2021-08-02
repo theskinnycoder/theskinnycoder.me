@@ -1,4 +1,4 @@
-export default function TimelineCard({ event, idx }) {
+const TimelineCard = ({ event, idx }) => {
   const { title, period, content } = event;
   return (
     <div className="hover:-translate-y-1 even:flex-row-reverse group even:text-white flex items-center justify-between w-full mb-8 text-black transition duration-300 ease-in-out transform">
@@ -8,11 +8,13 @@ export default function TimelineCard({ event, idx }) {
           {idx}
         </h1>
       </div>
-      <div className="sm:w-5/12 hover:shadow-2xl bg-light group-even:bg-black dark:group-even:ring-1 dark:even:ring-pink-600 order-1 w-3/4 px-6 py-4 rounded-lg shadow-xl">
+      <div className="sm:w-5/12 hover:shadow-2xl bg-light group-even:bg-black dark:group-even:ring-2 dark:even:ring-pink-600 ring-light order-1 w-3/4 px-6 py-4 rounded-sm shadow-xl">
         <h3 className="text-xl font-bold text-pink-600">{title}</h3>
         <h4 className="mb-3 text-sm font-semibold">{period}</h4>
         {content}
       </div>
     </div>
   );
-}
+};
+
+export default TimelineCard;

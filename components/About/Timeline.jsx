@@ -1,9 +1,9 @@
-import useView from '@hooks/useView';
+import useView from '@/hooks/useView';
 import dynamic from 'next/dynamic';
 import timelineData from './timelineData';
-const TimelineCard = dynamic(() => import('./TimelineCard'));
+const TimelineCard = dynamic(() => import('./TimelineCard'), { ssr: false });
 
-export default function Timeline() {
+const Timeline = () => {
   const { observe, inView } = useView();
   return (
     <section
@@ -35,4 +35,6 @@ export default function Timeline() {
       </div>
     </section>
   );
-}
+};
+
+export default Timeline;

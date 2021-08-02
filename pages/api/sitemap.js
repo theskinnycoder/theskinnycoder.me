@@ -1,12 +1,15 @@
-import { getAllPostSlugs } from '@utils/helperFunctions';
+import { getAllPostSlugs } from '@/utils/helperFunctions';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { Readable } from 'stream';
+import { getAllArticleCategories } from 'utils/helperFunctions';
 
-export default async function (req, res) {
+const genrateSitemap = async (req, res) => {
   try {
     let links = [];
-    const blogPosts = await getAllPostSlugs();
-    blogPosts.map((slug) => {
+
+    // Blog Articles
+    const articles = await getAllPostSlugs();
+    articles.map((slug) => {
       links.push({
         url: `/blog/${slug}`,
         changefreq: 'weekly',
@@ -14,6 +17,17 @@ export default async function (req, res) {
       });
     });
 
+    // Article Categories
+    const categories = await getAllArticleCategories();
+    categories.map((name) => {
+      links.push({
+        url: `/blog/categories/${name}`,
+        changefreq: 'weekly',
+        priority: 0.9,
+      });
+    });
+
+    // Other Pages
     const pages = ['', '/blog', '/about'];
     pages.map((url) => {
       links.push({
@@ -40,4 +54,6 @@ export default async function (req, res) {
     console.log(error);
     res.send(JSON.stringify(error));
   }
-}
+};
+
+export default genrateSitemap;

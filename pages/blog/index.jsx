@@ -1,9 +1,9 @@
-import { PageSEO } from '@components/SEO';
-import BlogLayout from '@layouts/BlogLayout';
-import getData from '@utils/getData';
-import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@utils/queries';
+import { PageSEO } from '@/components/SEO';
+import BlogLayout from '@/layouts/BlogLayout';
+import getData from '@/utils/getData';
+import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@/utils/queries';
 
-export default function Blog({ articles, categories }) {
+const Blog = ({ articles, categories }) => {
   return (
     <>
       <PageSEO
@@ -13,9 +13,9 @@ export default function Blog({ articles, categories }) {
       <BlogLayout articles={articles} categories={categories} />
     </>
   );
-}
+};
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const { articles } = await getData({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES,
@@ -31,6 +31,8 @@ export async function getStaticProps() {
       articles,
       categories,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
-}
+};
+
+export default Blog;

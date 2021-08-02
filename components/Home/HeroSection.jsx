@@ -1,6 +1,6 @@
 import TypeWriter from 'react-typing-effect';
 
-export default function HeroSection() {
+const HeroSection = () => {
   return (
     <section className="dark:bg-black dark:text-white flex flex-col items-center justify-center min-h-screen p-2 mx-auto text-center">
       <h1 className="md:text-8xl text-7xl uppercase">
@@ -18,4 +18,6 @@ export default function HeroSection() {
       </h3>
     </section>
   );
-}
+};
+
+export default HeroSection;

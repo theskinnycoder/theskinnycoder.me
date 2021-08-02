@@ -2,7 +2,7 @@ import Markdown from 'markdown-to-jsx';
 import CodeBlock from './CodeBlock';
 import ImageComponent from './ImageComponent';
 
-export default function ContentBlock({ content }) {
+const ContentBlock = ({ content }) => {
   return (
     <Markdown
       className="lg:prose-xl md:prose-lg dark:text-light prose-pink max-w-5xl mx-auto mt-8 mb-5 font-normal prose text-left text-black"
@@ -42,4 +42,6 @@ export default function ContentBlock({ content }) {
       {content}
     </Markdown>
   );
-}
+};
+
+export default ContentBlock;

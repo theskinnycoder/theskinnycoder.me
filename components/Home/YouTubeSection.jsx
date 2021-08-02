@@ -1,8 +1,10 @@
-import useView from '@hooks/useView';
+import useView from '@/hooks/useView';
 import dynamic from 'next/dynamic';
-const VideoItem = dynamic(() => import('@components/Videos/VideoItem'));
+const VideoItem = dynamic(() => import('@/components/Videos/VideoItem'), {
+  ssr: false,
+});
 
-export default function YouTubeSection({ videos }) {
+const YouTubeSection = ({ videos }) => {
   const { observe, inView } = useView();
   return (
     <div className="dark:bg-black dark:text-light lg:min-h-screen min-h-full">
@@ -22,4 +24,6 @@ export default function YouTubeSection({ videos }) {
       </section>
     </div>
   );
-}
+};
+
+export default YouTubeSection;

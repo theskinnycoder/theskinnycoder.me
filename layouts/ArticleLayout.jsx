@@ -3,14 +3,16 @@ import {
   CoverPic,
   DateAndTimeTaken,
   SocialShareButtons,
-} from '@components/Blog';
-import useRouter from '@hooks/useRouter';
-import useView from '@hooks/useView';
+} from '@/components/Blog';
+import useRouter from '@/hooks/useRouter';
+import useView from '@/hooks/useView';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
-const Comments = dynamic(() => import('@components/Blog/Comments'));
+const Comments = dynamic(() => import('@/components/Blog/Comments'), {
+  ssr: false,
+});
 
-export default function ArticleLayout({ article }) {
+const ArticleLayout = ({ article }) => {
   const { path } = useRouter();
   const { observe, inView } = useView();
   const { title, excerpt, content, updatedAt, coverpic, categories } = article;
@@ -72,4 +74,6 @@ export default function ArticleLayout({ article }) {
       </article>
     </div>
   );
-}
+};
+
+export default ArticleLayout;

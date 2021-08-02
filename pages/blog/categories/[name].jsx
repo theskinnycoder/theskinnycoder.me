@@ -1,18 +1,21 @@
-import { ArticleSkeleton } from '@components/Articles';
-import BlogLayout from '@layouts/BlogLayout';
-import getData from '@utils/getData';
+import { ArticleSkeleton } from '@/components/Articles';
+import CategorySEO from '@/components/SEO/CategorySEO';
+import BlogLayout from '@/layouts/BlogLayout';
+import getData from '@/utils/getData';
+import { getAllArticleCategories } from '@/utils/helperFunctions';
 import {
   GET_ALL_ARTICLES_BY_CATEGORY,
   GET_ALL_CATEGORIES,
-} from '@utils/queries';
+} from '@/utils/queries';
 
-export default function BlogCategoryPage({ currentCategory, categories }) {
+const BlogCategoryPage = ({ currentCategory, categories }) => {
   if (!currentCategory) return <ArticleSkeleton />;
 
   const { name, color, articles } = currentCategory;
 
   return (
     <>
+      <CategorySEO category={currentCategory} />
       <BlogLayout
         kind="categories"
         name={name}
@@ -22,25 +25,22 @@ export default function BlogCategoryPage({ currentCategory, categories }) {
       />
     </>
   );
-}
+};
 
-export async function getStaticPaths() {
-  const { categories } = await getData({
-    url: process.env.GRAPHCMS_END_POINT,
-    query: GET_ALL_CATEGORIES,
-  });
+export const getStaticPaths = async () => {
+  const names = await getAllArticleCategories();
 
-  const paths = categories
-    .map((category) => category.name)
-    .map((name) => ({ params: { name } }));
+  const paths = names.map((name) => ({
+    params: { name },
+  }));
 
   return {
     paths,
     fallback: true,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const { category: currentCategory } = await getData({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES_BY_CATEGORY,
@@ -57,6 +57,8 @@ export async function getStaticProps({ params }) {
       currentCategory,
       categories,
     },
-    revalidate: 3600,
+    revalidate: 86400,
   };
-}
+};
+
+export default BlogCategoryPage;

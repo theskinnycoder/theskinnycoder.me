@@ -1,12 +1,12 @@
-import useDarkMode from '@hooks/useDarkMode';
+import useDarkMode from '@/hooks/useDarkMode';
 import { useEffect, useRef } from 'react';
 
-export default function Comments() {
+const Comments = () => {
   const { darkMode } = useDarkMode();
   const commentsBox = useRef(null);
 
   useEffect(() => {
-    let scriptEl = document.createElement('script');
+    let scriptEl = document?.createElement('script');
     scriptEl.setAttribute('src', 'https://giscus.app/client.js');
     scriptEl.setAttribute(
       'data-repo',
@@ -32,4 +32,6 @@ export default function Comments() {
       </div>
     </>
   );
-}
+};
+
+export default Comments;

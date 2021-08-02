@@ -1,4 +1,4 @@
-import useStore from '@utils/useStore';
+import useStore from '@/utils/useStore';
 
 const useDarkMode = () => {
   const darkMode = useStore((state) => state.darkMode);

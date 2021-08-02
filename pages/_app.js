@@ -1,13 +1,15 @@
-import MainLayout from '@layouts/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
+import '@/styles/globals.css';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
-import '../styles/globals.css';
 
-export default function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <MainLayout className="font-custom">
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </MainLayout>
   );
-}
+};
+
+export default MyApp;

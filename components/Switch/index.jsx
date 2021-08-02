@@ -1,8 +1,8 @@
+import useDarkMode from '@/hooks/useDarkMode';
 import { Switch } from '@headlessui/react';
-import useDarkMode from '@hooks/useDarkMode';
 import { MoonIcon, SunIcon } from '../Icons';
 
-export default function ThemeSwitch() {
+const ThemeSwitch = () => {
   const { darkMode, toggledarkMode } = useDarkMode();
 
   return (
@@ -26,4 +26,6 @@ export default function ThemeSwitch() {
       )}
     </Switch>
   );
-}
+};
+
+export default ThemeSwitch;

@@ -1,9 +1,10 @@
-import Footer from '@components/Footer';
-import Header from '@components/Header';
-import SideBar from '@components/Sidebar';
-import useDarkMode from '@hooks/useDarkMode';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import ScrollToTop from '@/components/Micros/ScrollToTop';
+import SideBar from '@/components/Sidebar';
+import useDarkMode from '@/hooks/useDarkMode';
 
-export default function MainLayout({ children }) {
+const MainLayout = ({ children }) => {
   const { darkMode } = useDarkMode();
 
   return (
@@ -15,9 +16,12 @@ export default function MainLayout({ children }) {
       >
         <Header />
         <SideBar />
+        <ScrollToTop />
         <section className="max-w-5xl px-3 py-5 mx-auto">{children}</section>
         <Footer />
       </main>
     </>
   );
-}
+};
+
+export default MainLayout;

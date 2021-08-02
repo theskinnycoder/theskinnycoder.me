@@ -1,4 +1,4 @@
-import { getRandomInRange } from '@utils/helperFunctions';
+import { getRandomInRange } from '@/utils/helperFunctions';
 import { Component } from 'react';
 import ReactCanvasConfetti from 'react-canvas-confetti';
 
@@ -25,7 +25,7 @@ export default class SnowAnimation extends Component {
   getMousePosition = (e) => {
     this.setState({
       x: e.clientX,
-      screenCenter: window.innerWidth / 2,
+      screenCenter: window?.innerWidth / 2,
     });
   };
 
@@ -64,13 +64,13 @@ export default class SnowAnimation extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener('mousemove', this.getMousePosition);
+    window?.addEventListener('mousemove', this.getMousePosition);
     this.startAnimation();
   }
 
   componentWillUnmount() {
     this.isAnimationEnabled = false;
-    window.removeEventListener('mousemove', this.getMousePosition);
+    window?.removeEventListener('mousemove', this.getMousePosition);
   }
 
   render() {

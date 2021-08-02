@@ -1,0 +1,7 @@
+{
+  "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
+  "rules": {
+    "react/display-name": [0, { "ignoreTranspilerName": true }],
+    "@next/next/no-img-element": "off"
+  }
+}

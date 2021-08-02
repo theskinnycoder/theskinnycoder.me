@@ -27,17 +27,17 @@ export default class CopyCode extends Component {
     this.setState({
       x: e.clientX,
       y: e.clientY,
-      screenHeight: window.innerHeight,
-      screenWidth: window.innerWidth,
+      screenHeight: window?.innerHeight,
+      screenWidth: window?.innerWidth,
     });
   };
 
   componentDidMount() {
-    window.addEventListener('mousemove', this.getMousePosition);
+    window?.addEventListener('mousemove', this.getMousePosition);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('mousemove', this.getMousePosition);
+    window?.removeEventListener('mousemove', this.getMousePosition);
   }
 
   makeShot = (particleRatio, opts) => {

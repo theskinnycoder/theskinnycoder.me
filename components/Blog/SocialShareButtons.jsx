@@ -15,7 +15,7 @@ import {
   WhatsappIcon,
 } from '../Icons';
 
-export default function SocialShareButtons({ path, title, hashtag }) {
+const SocialShareButtons = ({ path, title, hashtag }) => {
   return (
     <div className="inline-flex items-center justify-center pt-2 space-x-3">
       {/* Twitter */}
@@ -76,4 +76,6 @@ export default function SocialShareButtons({ path, title, hashtag }) {
       </TelegramShareButton>
     </div>
   );
-}
+};
+
+export default SocialShareButtons;

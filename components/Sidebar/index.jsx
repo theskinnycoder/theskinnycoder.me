@@ -1,9 +1,9 @@
-import useClickOutside from '@hooks/useClickOutside';
-import useSideBar from '@hooks/useSideBar';
+import useClickOutside from '@/hooks/useClickOutside';
+import useSideBar from '@/hooks/useSideBar';
 import ActiveLink from '../ActiveLink';
 import { allNavLinks } from '../links';
 
-export default function SideBar() {
+const SideBar = () => {
   const { sideBar, togglesideBar } = useSideBar();
 
   const domNode = useClickOutside(() => {
@@ -33,4 +33,6 @@ export default function SideBar() {
       </ul>
     </aside>
   );
-}
+};
+
+export default SideBar;
