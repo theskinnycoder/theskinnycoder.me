@@ -7,7 +7,7 @@ const Timeline = () => {
   const { observe, inView } = useView();
   return (
     <section
-      className="dark:bg-black lg:min-h-screen min-h-full py-5"
+      className="dark:bg-black lg:min-h-screen min-h-full px-3 py-5"
       id="timeline"
     >
       <h3 className="md:text-5xl dark:text-white text-3xl text-center">

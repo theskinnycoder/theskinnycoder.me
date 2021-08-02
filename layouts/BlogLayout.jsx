@@ -1,5 +1,6 @@
 import useSearch from '@/hooks/useSearch';
 import { isSingular } from '@/utils/helperFunctions';
+import { AnimatePresence, motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
@@ -30,12 +31,16 @@ const BlogLayout = ({
   }, [articles, searchText]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <section className="dark:bg-black dark:text-white flex flex-col items-center justify-start min-h-screen py-10 text-left">
         <h2 className="md:text-4xl text-3xl text-center">
           The <span className="font-bold text-pink-600 uppercase">Blog</span>
         </h2>
-        <h4 className="mt-2 text-xl leading-tight text-center">
+        <h4 className="px-3 mt-2 text-xl leading-tight text-center">
           {kind === 'categories' ? (
             <>
               Showing {searchedArticles?.length}{' '}
@@ -53,8 +58,8 @@ const BlogLayout = ({
             </>
           ) : (
             <>
-              Here is where I post & publish my technical articles, cheatsheets,
-              YouTube supplements & rants...
+              Here is where I post &amp; publish my technical articles,
+              cheatsheets, YouTube supplements &amp; rants...
             </>
           )}
         </h4>
@@ -66,48 +71,91 @@ const BlogLayout = ({
             autoComplete="off"
             placeholder="Search for articles..."
             onChange={(e) => setSearchText(e.target.value)}
-            className="searchbar rounded-sm focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-[#111111] outline-none bg-white focus:ring-4 ring-pink-600 ring-2"
+            className="searchbar focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-[#111111] outline-none bg-white focus:ring-4 ring-pink-600 ring-2"
           />
           {kind !== 'categories' && (
             <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg font-medium">
-              (Showing {searchedArticles.length}{' '}
+              (Showing{' '}
+              <span className="font-bold text-pink-600">
+                {searchedArticles.length}
+              </span>{' '}
               {onlyOne ? 'article' : 'articles'})
             </span>
           )}
         </div>
         <div className="md:px-5 flex items-start justify-center px-0 py-4 mt-10">
           <div className="md:w-1/5 md:flex flex-col items-start justify-center hidden w-0 space-y-3">
-            {categories?.map((category, idx) => (
-              <NextLink href={`/blog/categories/${category.name}`} key={idx}>
-                <a
-                  style={{
-                    backgroundColor: category.color.hex,
-                  }}
-                  className={`hover:tracking-wider p-[3px] font-semibold text-black dark:border-transparent transition-all duration-200 ease-in-out rounded-sm text-sm lg:text-base ${
-                    category.color.hex === '#ffffff' &&
-                    'border-[1px] border-black'
-                  }`}
+            <AnimatePresence>
+              {categories?.map((category, idx) => (
+                <motion.div
                   key={idx}
+                  variants={{
+                    hidden: (idx) => ({ y: -50 * idx, opacity: 0 }),
+                    visible: (idx) => ({
+                      opacity: 1,
+                      y: 0,
+                      transition: { delay: idx * 0.1 },
+                    }),
+                  }}
+                  custom={idx}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  #{category.name}
-                </a>
-              </NextLink>
-            ))}
+                  <NextLink href={`/blog/categories/${category.name}`}>
+                    <a
+                      style={{
+                        backgroundColor: category.color.hex,
+                      }}
+                      className={`hover:tracking-wider p-[3px] font-semibold text-black dark:border-transparent transition-all duration-200 ease-in-out rounded-sm text-sm lg:text-base ${
+                        category.color.hex === '#ffffff' &&
+                        'border-[1px] border-black'
+                      }`}
+                      key={idx}
+                    >
+                      #{category.name}
+                    </a>
+                  </NextLink>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
           <section className="sm:grid-cols-2 md:w-4/5 grid w-full grid-cols-1 gap-5">
             {searchedArticles.length !== 0 ? (
-              searchedArticles.map((article, idx) => (
-                <ArticleItem article={article} key={idx} />
-              ))
+              <AnimatePresence>
+                {searchedArticles.map((article, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={{
+                      hidden: (idx) => ({ y: -50 * idx, opacity: 0 }),
+                      visible: (idx) => ({
+                        opacity: 1,
+                        y: 0,
+                        transition: { delay: idx * 0.1 },
+                      }),
+                    }}
+                    custom={idx}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <ArticleItem article={article} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             ) : (
-              <h3 className="block w-full text-4xl text-center">
+              <motion.h3
+                className="block w-full text-4xl text-center"
+                initial={{ scale: 0.1 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.1 }}
+                transition={{ duration: 0.1 }}
+              >
                 Dude, I didn&apos;t write about that yet...
-              </h3>
+              </motion.h3>
             )}
           </section>
         </div>
       </section>
-    </>
+    </motion.div>
   );
 };
 

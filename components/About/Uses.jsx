@@ -7,7 +7,7 @@ const Uses = () => {
   const { observe, inView } = useView();
   return (
     <section
-      className="dark:text-light dark:bg-black lg:min-h-screen flex items-center justify-center min-h-full py-5"
+      className="dark:text-light dark:bg-black lg:min-h-screen flex items-center justify-center min-h-full px-3 py-5"
       id="gear"
     >
       <div className="container p-3 mx-auto text-center">

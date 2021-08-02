@@ -6,6 +6,7 @@ import {
 } from '@/components/Blog';
 import useRouter from '@/hooks/useRouter';
 import useView from '@/hooks/useView';
+import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 const Comments = dynamic(() => import('@/components/Blog/Comments'), {
@@ -18,7 +19,12 @@ const ArticleLayout = ({ article }) => {
   const { title, excerpt, content, updatedAt, coverpic, categories } = article;
 
   return (
-    <div className="dark:bg-black dark:text-white px-3 pb-10">
+    <motion.div
+      className="dark:bg-black dark:text-white px-3 pb-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <article className="flex flex-col text-center">
         <div className="flex flex-col p-4">
           {/* Title */}
@@ -74,7 +80,7 @@ const ArticleLayout = ({ article }) => {
           <div ref={observe}>{inView && <Comments />}</div>
         </div>
       </article>
-    </div>
+    </motion.div>
   );
 };
 

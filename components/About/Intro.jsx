@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import NextImage from 'next/image';
 import {
   GithubIcon,
@@ -10,7 +11,7 @@ import {
 const Intro = () => {
   return (
     <section
-      className="dark:bg-black dark:text-light lg:min-h-screen flex flex-col items-center justify-center min-h-full py-5 space-y-10 text-left"
+      className="dark:bg-black dark:text-light lg:min-h-screen flex flex-col items-center justify-center min-h-full px-3 py-5 space-y-10 text-left"
       id="about"
     >
       <h1 className="md:text-6xl sm:text-5xl text-4xl text-center">
@@ -73,7 +74,13 @@ const Intro = () => {
             </a>
           </div>
         </section>
-        <div className="md:flex items-center justify-center hidden w-1/4 p-1 bg-pink-600 rounded-full">
+        <motion.div
+          className="md:flex items-center justify-center hidden w-1/4 p-1 bg-pink-600 rounded-full"
+          initial={{ x: 500, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: 1000, opacity: 0 }}
+          transition={{ duration: 0.4, type: 'spring' }}
+        >
           <NextImage
             src="https://avatars.githubusercontent.com/u/64031854?v=4"
             alt="Me"
@@ -81,7 +88,7 @@ const Intro = () => {
             height="250"
             className="rounded-full"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
