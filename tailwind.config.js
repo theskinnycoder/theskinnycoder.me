@@ -21,6 +21,12 @@ module.exports = {
       typography: {
         lg: {
           css: {
+            'ul > li::before': {
+              color: '#D92776',
+            },
+            'ol > li::before': {
+              color: '#D92776',
+            },
             h1: {
               'font-weight': 'bold',
               color: colors.pink[600],
@@ -54,6 +60,12 @@ module.exports = {
         },
         xl: {
           css: {
+            'ul > li::before': {
+              color: '#D92776',
+            },
+            'ol > li::before': {
+              color: '#D92776',
+            },
             h1: {
               'font-weight': 'bold',
               color: colors.pink[600],
@@ -87,6 +99,12 @@ module.exports = {
         },
         DEFAULT: {
           css: {
+            'ul > li::before': {
+              color: '#D92776',
+            },
+            'ol > li::before': {
+              color: '#D92776',
+            },
             pre: {
               'border-radius': '0px',
             },

@@ -11,8 +11,8 @@ const MainLayout = ({ children }) => {
     <>
       <main
         className={`${
-          darkMode ? 'dark bg-black' : ''
-        } font-custom text-black bg-white dark:bg-black dark:text-white tracking-tighter`}
+          darkMode && 'dark bg-black'
+        } selection:bg-pink-300 dark:selection:bg-pink-600 font-custom text-black bg-white dark:bg-black dark:text-white tracking-tighter`}
       >
         <Header />
         <SideBar />

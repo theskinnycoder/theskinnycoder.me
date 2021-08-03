@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 
 const VideoItem = ({ video }) => {
   return (
-    <div className="group hover:-translate-y-1 hover:shadow-2xl dark:bg-pink-600 dark:text-white dark:shadow-none dark:hover:shadow-2xl bg-light dark:ring-1 dark:ring-pink-600 w-10/12 h-full mx-auto text-left transition duration-300 ease-in-out transform rounded-lg rounded-t-none shadow-xl">
+    <div className="group hover:scale-105 hover:shadow-2xl dark:bg-black dark:bg-opacity-95 dark:text-white dark:shadow-none dark:hover:shadow-2xl bg-light dark:ring-2 dark:ring-pink-600 w-10/12 h-full mx-auto text-left transition duration-500 ease-in-out transform shadow-xl">
       <NextLink href={`https://www.youtube.com/watch?v=${video.id.videoId}`}>
         <a target="_blank">
           <article className="flex flex-col">
@@ -14,7 +14,7 @@ const VideoItem = ({ video }) => {
               height={video.snippet.thumbnails.high.height}
               width={video.snippet.thumbnails.high.width}
             />
-            <div className="flex flex-col p-4">
+            <div className="border-light dark:border-pink-600 flex flex-col p-4 border-t-2">
               <h1 className="line-clamp-2 text-2xl font-semibold capitalize">
                 {video.snippet.title}
               </h1>
