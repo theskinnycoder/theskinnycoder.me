@@ -17,7 +17,7 @@ const ThemeSwitch = () => {
           darkMode
             ? 'md:translate-x-9 translate-x-7'
             : 'md:translate-x-1 translate-x-1'
-        } inline-block md:w-6 md:h-6 w-4 h-4 transform bg-white transition ease-in-out duration-200 rounded-full group-hover:ring-4 ring-pink-600`}
+        } inline-block md:w-6 md:h-6 w-4 h-4 transform bg-white transition ease-in-out duration-200 rounded-full group-hover:ring-4 ring-brand`}
       />
       {darkMode ? (
         <SunIcon className="md:w-5 md:h-5 w-4 h-4 transform -translate-x-3 md:-translate-x-4 text-[#FEC500]" />

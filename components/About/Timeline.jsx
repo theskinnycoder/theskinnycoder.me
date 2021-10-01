@@ -11,7 +11,7 @@ const Timeline = () => {
       id="timeline"
     >
       <h3 className="md:text-5xl dark:text-white text-3xl text-center">
-        My <span className="font-semibold text-pink-600">Timeline</span>
+        My <span className="font-semibold text-brand">Timeline</span>
       </h3>
       <div className="container w-full h-full mx-auto">
         <div
@@ -19,7 +19,7 @@ const Timeline = () => {
           ref={observe}
         >
           {/* center-line */}
-          <div className="left-1/2 sm:block absolute hidden h-full border border-pink-600"></div>
+          <div className="left-1/2 sm:block absolute hidden h-full border border-brand"></div>
           {timelineData.map((event, idx) => {
             return (
               inView && (

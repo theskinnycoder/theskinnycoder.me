@@ -17,10 +17,10 @@ const CodeBlock = ({ language, content }) => {
   SyntaxHighlighter.registerLanguage('bash', bash);
 
   return (
-    <div className="max-w-[78vw] md:max-w-5xl mx-auto ring-1 ring-pink-300 dark:ring-pink-600 my-10">
+    <div className="max-w-[78vw] md:max-w-5xl mx-auto ring-1 ring-brand-divide dark:ring-brand my-10">
       {language && (
         <div className="dark:text-white flex items-center justify-between px-4 text-black">
-          <span className="mt-3 font-medium text-pink-600">{language}</span>
+          <span className="text-brand mt-3 font-medium">{language}</span>
           <CopyCode
             content={content}
             isCopied={isCopied}
@@ -43,9 +43,7 @@ const CodeBlock = ({ language, content }) => {
               {...props}
               style={props.style}
               className={`${
-                language
-                  ? 'border-t-[1px] dark:border-pink-600 border-pink-300'
-                  : ''
+                language ? 'border-t-[1px] border-brand-divide' : ''
               }`}
             />
           );
@@ -53,7 +51,7 @@ const CodeBlock = ({ language, content }) => {
         wrapLines={true}
         wrapLongLines={true}
         useInlineStyles={true}
-        className="dark:text-light"
+        className="dark:text-brand-light"
         language={language}
         style={darkMode ? nord : prism}
       >

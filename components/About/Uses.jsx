@@ -7,14 +7,13 @@ const Uses = () => {
   const { observe, inView } = useView();
   return (
     <section
-      className="dark:text-light dark:bg-black lg:min-h-screen flex items-center justify-center min-h-full px-3 py-5"
+      className="dark:text-brand-light dark:bg-black lg:min-h-screen flex items-center justify-center min-h-full px-3 py-5"
       id="gear"
     >
       <div className="container p-3 mx-auto text-center">
         <h3 className="md:text-5xl mb-4 text-3xl">
-          These are the <span className="font-bold text-pink-600">tools</span>{' '}
-          🔨 I <span className="font-bold text-pink-600">use</span> to build
-          stuff...
+          These are the <span className="font-bold text-brand">tools</span> 🔨 I{' '}
+          <span className="font-bold text-brand">use</span> to build stuff...
         </h3>
         <p className="md:text-xl text-lg">
           Good tools will make you a good developer. But the right tools will

@@ -8,7 +8,7 @@ const About = () => {
         name="about"
         description="Here is what tools I use, my developer timeline, my scoial media handles etc."
       />
-      <div className="dark:bg-black flex-col bg-white divide-y divide-pink-300">
+      <div className="dark:bg-black divide-brand-divide flex-col bg-white divide-y">
         <Intro />
         <Uses />
         <Timeline />

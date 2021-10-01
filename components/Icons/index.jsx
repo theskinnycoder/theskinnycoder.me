@@ -10,6 +10,7 @@ export {
   FaYoutube as YoutubeIcon,
 } from 'react-icons/fa';
 export { FiSun as SunIcon } from 'react-icons/fi';
+export { GiCheckMark as TickIcon } from 'react-icons/gi';
 export { HiMenuAlt3 as HamburgerIcon, HiX as CrossIcon } from 'react-icons/hi';
 export { IoLogoVercel as VercelIcon } from 'react-icons/io5';
 export { RiWhatsappFill as WhatsappIcon } from 'react-icons/ri';

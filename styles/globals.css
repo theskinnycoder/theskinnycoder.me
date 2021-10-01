@@ -3,6 +3,31 @@
 @tailwind utilities;
 
 @layer base {
+  .baby {
+    --brand: #db2777;
+    --brand-light: #fdf2f8;
+    --brand-divide: #fbcfe8;
+  }
+  .mint {
+    --brand: #3cae85;
+    --brand-light: #ecfdf5;
+    --brand-divide: #a7f3d0;
+  }
+  .cherry {
+    --brand: #cb042c;
+    --brand-light: #fef2f2;
+    --brand-divide: #fecaca;
+  }
+  .oceanic {
+    --brand: #1c9dd1;
+    --brand-light: #eff6ff;
+    --brand-divide: #bfdbfe;
+  }
+  .honeypot {
+    --brand: #f7b634;
+    --brand-light: #fffbeb;
+    --brand-divide: #fde68a;
+  }
   @font-face {
     font-family: 'JetBrains Mono';
     font-style: normal;
@@ -59,13 +84,20 @@
     font-weight: 800;
     src: url('../fonts/jost-800.woff2') format('woff2');
   }
+}
 
-  .searchbar::placeholder {
-    color: #db2777;
-  }
-  .searchbar::-ms-input-placeholder {
-    color: #db2777;
-  }
+.dark .searchbar::placeholder {
+  color: var(--brand-light);
+}
+.dark .searchbar::-ms-input-placeholder {
+  color: var(--brand-light);
+}
+
+.searchbar::placeholder {
+  color: var(--brand);
+}
+.searchbar::-ms-input-placeholder {
+  color: var(--brand);
 }
 
 .prose code::before {

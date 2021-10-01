@@ -104,7 +104,7 @@ const uses = [
         name: 'TUF FX-504',
         href: 'https://www.amazon.in/15-6-inch-FireCuda-Windows-Graphics-FX504GE-E4599T/dp/B07HV6XFL7/ref=asc_df_B07HV6XFL7/?tag=googleshopdes-21&linkCode=df0&hvadid=397006792738&hvpos=&hvnetw=g&hvrand=3587828681582940213&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9299745&hvtargid=pla-793139552090&psc=1&ext_vrnc=hi',
         icon: (
-          <SiAsus className="mr-1.5 w-auto h-14 text-[#15138C] dark:text-[#3d3adf] group-hover:text-light dark:group-hover:text-black" />
+          <SiAsus className="mr-1.5 w-auto h-14 text-[#15138C] dark:text-[#3d3adf] group-hover:text-brand-light dark:group-hover:text-black" />
         ),
       },
       {

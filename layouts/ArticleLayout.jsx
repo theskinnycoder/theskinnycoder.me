@@ -22,7 +22,7 @@ const ArticleLayout = ({ article }) => {
       <article className="flex flex-col text-center">
         <div className="flex flex-col p-4">
           {/* Title */}
-          <h1 className="md:text-6xl text-4xl font-bold text-pink-600 capitalize">
+          <h1 className="md:text-6xl text-brand text-4xl font-bold capitalize">
             {title}
           </h1>
 
@@ -65,8 +65,6 @@ const ArticleLayout = ({ article }) => {
 
           {/* Cover Pic */}
           <CoverPic pic={coverpic} />
-
-          {/* <AdSense /> */}
 
           {/* The Content */}
           <ContentBlock content={content} />

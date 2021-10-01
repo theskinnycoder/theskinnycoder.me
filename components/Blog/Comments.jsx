@@ -27,7 +27,7 @@ const Comments = () => {
   return (
     <>
       <div className="flex flex-col justify-center w-full mx-auto mt-5 space-y-5">
-        <div className="border-pink-300 border-t-[1px] w-full" />
+        <div className="border-brand border-t-[1px] w-full" />
         <div ref={commentsBox}></div>
       </div>
     </>

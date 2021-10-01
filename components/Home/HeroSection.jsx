@@ -10,11 +10,11 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.7 }}
       >
-        The <span className="font-bold text-pink-600">Skinny</span> Coder
+        The <span className="font-bold text-brand">Skinny</span> Coder
       </motion.h1>
       <h3 className="md:text-5xl mt-12 text-3xl">
         <TypeWriter
-          cursorClassName="text-pink-600"
+          cursorClassName="text-brand"
           text={['Developer', 'YouTuber', 'Tutor']}
           eraseDelay={700}
           eraseSpeed={110}

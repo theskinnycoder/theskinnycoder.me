@@ -11,22 +11,22 @@ import {
 const Intro = () => {
   return (
     <section
-      className="dark:bg-black dark:text-light lg:min-h-screen flex flex-col items-center justify-center min-h-full px-3 py-5 space-y-10 text-left"
+      className="dark:bg-black dark:text-brand-light lg:min-h-screen flex flex-col items-center justify-center min-h-full px-3 py-5 space-y-10 text-left"
       id="about"
     >
       <h1 className="md:text-6xl sm:text-5xl text-4xl text-center">
-        About <span className="font-bold text-pink-600">Me</span>
+        About <span className="text-brand font-bold">Me</span>
       </h1>
       <div className="flex items-center justify-between space-x-5">
         <section className="md:text-left md:w-3/5 flex flex-col justify-center p-2 space-y-4 font-normal text-center">
           <h1 className="md:text-4xl text-2xl">
             Hello, There! This is{' '}
-            <span className="font-bold text-pink-600">Rahul SriRam</span>.
+            <span className="text-brand font-bold">Rahul SriRam</span>.
           </h1>
           <p className="md:text-xl text-base">
             I&apos;m a Fullstack Web Developer who&apos;s addicted to Bournvita
             & my laptop. I live by the motto{' '}
-            <span className="font-semibold text-pink-600">
+            <span className="text-brand font-semibold">
               teach right if it isn&apos;t being taught right
             </span>
             , so I’m excited to share the things I learn with you!
@@ -76,7 +76,7 @@ const Intro = () => {
         </section>
         <AnimatePresence exitBeforeEnter>
           <motion.div
-            className="md:flex items-center justify-center hidden w-1/4 p-1 bg-pink-600 rounded-full"
+            className="md:flex bg-brand items-center justify-center hidden w-1/4 p-1 rounded-full"
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
             exit={{ x: '100vw' }}

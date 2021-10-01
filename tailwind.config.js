@@ -1,4 +1,4 @@
-const { fontFamily, fontSize, colors } = require('tailwindcss/defaultTheme');
+const { fontFamily, fontSize } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -10,31 +10,52 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      textColor: {
+        brand: 'var(--brand)',
+        'brand-light': 'var(--brand-light)',
+        'brand-divide': 'var(--brand-divide)',
+      },
+      backgroundColor: {
+        brand: 'var(--brand)',
+        'brand-light': 'var(--brand-light)',
+        'brand-divide': 'var(--brand-divide)',
+      },
+      borderColor: {
+        brand: 'var(--brand)',
+        'brand-light': 'var(--brand-light)',
+        'brand-divide': 'var(--brand-divide)',
+      },
+      ringColor: {
+        brand: 'var(--brand)',
+        'brand-light': 'var(--brand-light)',
+        'brand-divide': 'var(--brand-divide)',
+      },
+      gradientColorStops: {
+        brand: 'var(--brand)',
+        'brand-light': 'var(--brand-light)',
+        'brand-divide': 'var(--brand-divide)',
+      },
       fontFamily: {
         custom: ['Jost', fontFamily.sans],
         mono: ['JetBrains Mono', fontFamily.mono],
-      },
-      colors: {
-        pink: colors.pink,
-        light: '#FAF5FF',
       },
       typography: {
         lg: {
           css: {
             'ul > li::before': {
-              color: '#D92776',
+              color: 'var(--brand)',
             },
             'ol > li::before': {
-              color: '#D92776',
+              color: 'var(--brand)',
             },
             h1: {
               'font-weight': 'bold',
-              color: colors.pink[600],
+              color: 'var(--brand)',
               'font-size': fontSize['5xl'],
             },
             h2: {
               'font-weight': 'bold',
-              color: colors.pink[600],
+              color: 'var(--brand)',
               'font-size': fontSize['4xl'],
             },
             h3: {
@@ -61,19 +82,19 @@ module.exports = {
         xl: {
           css: {
             'ul > li::before': {
-              color: '#D92776',
+              color: 'var(--brand)',
             },
             'ol > li::before': {
-              color: '#D92776',
+              color: 'var(--brand)',
             },
             h1: {
               'font-weight': 'bold',
-              color: colors.pink[600],
+              color: 'var(--brand)',
               'font-size': fontSize['6xl'],
             },
             h2: {
               'font-weight': 'bold',
-              color: colors.pink[600],
+              color: 'var(--brand)',
               'font-size': fontSize['5xl'],
             },
             h3: {
@@ -100,31 +121,30 @@ module.exports = {
         DEFAULT: {
           css: {
             'ul > li::before': {
-              color: '#D92776',
+              color: 'var(--brand)',
             },
             'ol > li::before': {
-              color: '#D92776',
+              color: 'var(--brand)',
             },
             pre: {
               'border-radius': '0px',
             },
             a: {
-              color: colors.pink[400],
+              color: 'var(--brand)',
               'text-decoration': 'none',
               '&:hover': {
                 'text-decoration': 'underline',
-                color: colors.pink[600],
               },
             },
             hr: {
-              'border-top': `1px solid ${colors.pink[600]}`,
+              'border-top': `1px solid ${'var(--brand)'}`,
             },
             blockquote: {
-              'border-left': `8px solid ${colors.pink[600]}`,
+              'border-left': `8px solid ${'var(--brand)'}`,
               'line-height': 1.6,
               position: 'relative',
               '::before': {
-                color: `${colors.pink[500]}`,
+                color: '#000',
                 'font-family': 'Arial',
                 'font-size': '4rem',
                 position: 'absolute',
@@ -132,14 +152,18 @@ module.exports = {
                 top: '-1rem',
               },
             },
+            'blockquote strong.text-brand-light': {
+              color: '#000',
+            },
+
             h1: {
               'font-weight': 'bold',
-              color: colors.pink[600],
+              color: 'var(--brand)',
               'font-size': fontSize['4xl'],
             },
             h2: {
               'font-weight': 'bold',
-              color: colors.pink[600],
+              color: 'var(--brand)',
               'font-size': fontSize['3xl'],
             },
             h3: {

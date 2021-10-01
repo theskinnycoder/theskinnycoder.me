@@ -105,11 +105,11 @@ export default class CopyCode extends Component {
         >
           <button onClick={this.handlerFire}>
             {isCopied ? (
-              <span className="hover:bg-pink-200 dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded">
+              <span className="hover:bg-brand-divide dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded">
                 Copied!
               </span>
             ) : (
-              <span className="hover:bg-pink-200 dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded">
+              <span className="hover:bg-brand-divide dark:text-white dark:hover:text-black p-1 text-sm font-medium text-black rounded">
                 Copy
               </span>
             )}

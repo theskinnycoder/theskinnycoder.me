@@ -14,10 +14,10 @@ const Header = () => {
   const { barLength } = useProgressBar();
 
   return (
-    <header className="dark:bg-transparent dark:text-white dark:border-b-[1px] dark:border-pink-600 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white dark:backdrop-filter dark:backdrop-blur-3xl dark:backdrop-saturate-50">
+    <header className="dark:bg-black dark:text-white dark:border-b-[1px] dark:border-gray-700 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white">
       {isAnArticle(path) && (
         <div
-          className="max-w-[100vw] fixed inset-x-0 top-0 dark:mb-0 h-1 rounded-sm bg-white bg-gradient-to-r dark:from-purple-500 via-purple-600 to-pink-600 dark:via-indigo-600 from-indigo-500"
+          className="max-w-[100vw] fixed inset-x-0 h-1 rounded-sm bg-white bg-gradient-to-r from-brand via-brand-divide to-brand top-0"
           style={{
             width: `${barLength}%`,
           }}
@@ -26,7 +26,7 @@ const Header = () => {
       <div className="flex items-center justify-between max-w-5xl px-4 mx-auto">
         <h3 className="md:text-2xl text-xl">
           <NextLink href="/">
-            <a className="font-bold text-pink-600 uppercase">TSC</a>
+            <a className="text-brand font-bold uppercase">TSC</a>
           </NextLink>
         </h3>
         <div className="flex items-center">
@@ -37,12 +37,12 @@ const Header = () => {
               <li key={idx} className="group">
                 <ActiveLink
                   href={link.href}
-                  activeClassName="bg-pink-600 text-light rounded"
+                  activeClassName="bg-brand text-black rounded"
                 >
                   <a className="p-2">
                     <span className="relative">
                       {link.name}
-                      <span className="-bottom-1 group-hover:scale-x-100 absolute left-0 w-full h-1 transition duration-300 ease-in-out transform scale-x-0 bg-pink-600 rounded"></span>
+                      <span className="-bottom-1 group-hover:scale-x-100 bg-brand absolute left-0 w-full h-1 transition duration-300 ease-in-out transform scale-x-0 rounded"></span>
                     </span>
                   </a>
                 </ActiveLink>
