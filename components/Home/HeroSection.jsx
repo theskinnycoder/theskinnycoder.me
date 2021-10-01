@@ -8,7 +8,7 @@ const HeroSection = () => {
         className="md:text-8xl text-7xl uppercase"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
+        transition={{ delay: 0.3, duration: 0.7 }}
       >
         The <span className="font-bold text-pink-600">Skinny</span> Coder
       </motion.h1>

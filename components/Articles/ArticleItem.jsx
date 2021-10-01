@@ -1,4 +1,5 @@
 import { formatDistanceToNow } from 'date-fns';
+import { motion } from 'framer-motion';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 
@@ -8,15 +9,15 @@ const ArticleItem = ({ article }) => {
   return (
     <div className="group hover:scale-105 hover:shadow-2xl dark:bg-black dark:bg-opacity-95 dark:text-white dark:shadow-none dark:hover:shadow-2xl bg-light dark:ring-2 dark:ring-pink-600 w-10/12 h-full mx-auto text-left transition duration-500 ease-in-out transform shadow-xl">
       <article className="flex flex-col">
-        <NextLink href={`/blog/${slug}`}>
-          <a>
+        <NextLink href={`/blog/${slug}`} passHref>
+          <motion.a layoutId={coverpic.fileName}>
             <NextImage
               src={`${coverpic.url}`}
               alt={coverpic.fileName}
               width={coverpic.width}
               height={coverpic.height}
             />
-          </a>
+          </motion.a>
         </NextLink>
         <div className="dark:border-pink-600 border-light flex flex-wrap items-center justify-start px-4 pt-4 text-xs text-center border-t-2">
           {categories.map((category, idx) => (

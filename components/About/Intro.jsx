@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import NextImage from 'next/image';
 import {
   GithubIcon,
@@ -74,21 +74,23 @@ const Intro = () => {
             </a>
           </div>
         </section>
-        <motion.div
-          className="md:flex items-center justify-center hidden w-1/4 p-1 bg-pink-600 rounded-full"
-          initial={{ x: 500, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 1000, opacity: 0 }}
-          transition={{ duration: 0.4, type: 'spring' }}
-        >
-          <NextImage
-            src="https://avatars.githubusercontent.com/u/64031854?v=4"
-            alt="Me"
-            width="250"
-            height="250"
-            className="rounded-full"
-          />
-        </motion.div>
+        <AnimatePresence exitBeforeEnter>
+          <motion.div
+            className="md:flex items-center justify-center hidden w-1/4 p-1 bg-pink-600 rounded-full"
+            initial={{ x: '100vw' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100vw' }}
+            transition={{ duration: 1, type: 'spring', bounce: 0.3 }}
+          >
+            <NextImage
+              src="https://avatars.githubusercontent.com/u/64031854?v=4"
+              alt="Me"
+              width="250"
+              height="250"
+              className="rounded-full"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
