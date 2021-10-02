@@ -10,7 +10,7 @@ const ArticleItem = ({ article }) => {
     <div className="group hover:scale-105 hover:shadow-2xl dark:bg-black dark:bg-opacity-95 dark:text-brand-light dark:shadow-none dark:hover:shadow-2xl bg-brand-light dark:ring-2 dark:ring-brand w-10/12 h-full mx-auto text-left transition duration-500 ease-in-out transform shadow-xl">
       <article className="flex flex-col">
         <NextLink href={`/blog/${slug}`} passHref>
-          <motion.a layoutId={coverpic.fileName}>
+          <motion.a layoutId={coverpic.fileName} className="">
             <NextImage
               src={`${coverpic.url}`}
               alt={coverpic.fileName}
@@ -40,7 +40,7 @@ const ArticleItem = ({ article }) => {
         <div className="flex flex-col p-4">
           <NextLink href={`/blog/${slug}`}>
             <a>
-              <h1 className="line-clamp-2 text-2xl font-semibold capitalize">
+              <h1 className="line-clamp-2 hover:text-brand text-2xl font-semibold capitalize">
                 {title}
               </h1>
             </a>

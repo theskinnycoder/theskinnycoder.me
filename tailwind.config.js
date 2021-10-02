@@ -10,6 +10,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        standalone: { raw: '(display-mode: standalone)' },
+      },
       textColor: {
         brand: 'var(--brand)',
         'brand-light': 'var(--brand-light)',

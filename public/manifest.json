@@ -1,0 +1,11 @@
+{
+  "name": "TheSkinnyCoder",
+  "short_name": "TSC",
+  "lang": "en",
+  "dir": "ltr",
+  "description": "theskinnycoder.me is the personal portfolio site of TheSkinnyCoder, a.k.a, Rahul SriRam, who's a developer, YouTuber and an online tutor",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#000",
+  "orientation": "portrait-primary"
+}

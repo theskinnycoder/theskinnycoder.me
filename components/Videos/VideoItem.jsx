@@ -15,7 +15,7 @@ const VideoItem = ({ video }) => {
               width={video.snippet.thumbnails.high.width}
             />
             <div className="border-light dark:border-brand flex flex-col p-4 border-t-2">
-              <h1 className="line-clamp-2 text-2xl font-semibold capitalize">
+              <h1 className="line-clamp-2 hover:text-brand text-2xl font-semibold capitalize">
                 {video.snippet.title}
               </h1>
               <p className="dark:text-brand-light my-2 text-xs font-medium text-gray-600">

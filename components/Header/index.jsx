@@ -14,7 +14,7 @@ const Header = () => {
   const { barLength } = useProgressBar();
 
   return (
-    <header className="dark:bg-black dark:text-white dark:border-b-[1px] dark:border-gray-700 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white">
+    <header className="dark:bg-black dark:text-white dark:border-b-[1px] dark:border-gray-700 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white standalone:h-24">
       {isAnArticle(path) && (
         <div
           className="max-w-[100vw] fixed inset-x-0 h-1 rounded-sm bg-white bg-gradient-to-r from-brand via-brand-divide to-brand top-0"

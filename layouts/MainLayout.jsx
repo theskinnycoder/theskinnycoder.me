@@ -22,23 +22,24 @@ const MainLayout = ({ children }) => {
   };
 
   return (
-    <>
-      <main
-        className={`${
-          darkMode && 'dark bg-black'
-        } selection:bg-brand-300 dark:selection:bg-brand font-custom text-black bg-white dark:bg-black dark:text-white tracking-tighter
+    <main
+      style={{
+        WebkitTapHighlightColor: 'transparent',
+      }}
+      className={`${
+        darkMode && 'dark bg-black'
+      } selection:bg-brand-divide dark:selection:bg-brand font-custom text-black bg-white dark:bg-black dark:text-white tracking-tighter
           ${getThemeClass()}
         `}
-      >
-        <Header />
-        <SideBar />
-        <ScrollToTop />
-        <section className="max-w-5xl px-3 py-5 mx-auto overflow-x-hidden">
-          {children}
-        </section>
-        <Footer />
-      </main>
-    </>
+    >
+      <Header />
+      <SideBar />
+      <ScrollToTop />
+      <section className="max-w-5xl px-3 py-5 mx-auto overflow-x-hidden">
+        {children}
+      </section>
+      <Footer />
+    </main>
   );
 };
 
