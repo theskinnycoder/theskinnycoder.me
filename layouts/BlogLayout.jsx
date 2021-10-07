@@ -15,7 +15,7 @@ const BlogLayout = ({
   name = null,
   color = null,
 }) => {
-  const { searchText, setSearchText } = useSearch();
+  const { searchText, setSearchTextTo } = useSearch();
   const [searchedArticles, setSearchedArticles] = useState(articles);
   const onlyOne = isSingular(searchedArticles);
 
@@ -33,7 +33,7 @@ const BlogLayout = ({
   return (
     <section className="dark:bg-black dark:text-white flex flex-col items-center justify-start min-h-screen py-10 text-left">
       <h2 className="md:text-4xl text-3xl text-center">
-        The <span className="font-bold text-brand uppercase">Blog</span>
+        The <span className="text-brand font-bold uppercase">Blog</span>
       </h2>
       <h4 className="px-3 mt-2 text-xl leading-tight text-center">
         {kind === 'categories' ? (
@@ -66,13 +66,13 @@ const BlogLayout = ({
           value={searchText}
           autoComplete="off"
           placeholder="Search for articles..."
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={(e) => setSearchTextTo(e.target.value)}
           className="searchbar focus:outline-none md:w-3/4 w-10/12 p-3 text-lg font-medium dark:bg-[#111111] outline-none bg-white focus:ring-4 ring-brand ring-2"
         />
         {kind !== 'categories' && (
           <span className="md:inline-block md:ml-4 md:mt-0 block mt-4 ml-0 text-lg font-medium">
             (Showing{' '}
-            <span className="font-bold text-brand">
+            <span className="text-brand font-bold">
               {searchedArticles.length}
             </span>{' '}
             {onlyOne ? 'article' : 'articles'})

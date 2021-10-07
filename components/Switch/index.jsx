@@ -3,12 +3,12 @@ import { Switch } from '@headlessui/react';
 import { MoonIcon, SunIcon } from '../Icons';
 
 const ThemeSwitch = () => {
-  const { darkMode, toggledarkMode } = useDarkMode();
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <Switch
       checked={darkMode}
-      onChange={toggledarkMode}
+      onChange={() => toggleDarkMode()}
       className="focus:outline-none dark:bg-gray-700 md:w-16 md:h-8 group relative inline-flex items-center w-12 h-6 bg-gray-600 rounded-full outline-none"
     >
       <span className="sr-only">Toggle Light/Dark Mode</span>

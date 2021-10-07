@@ -1,9 +1,9 @@
-import useStore from '@/utils/useStore';
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 const useSideBar = () => {
-  const sideBar = useStore((state) => state.sideBar);
-  const togglesideBar = useStore((state) => state.togglesideBar);
-  return { sideBar, togglesideBar };
+  const { sideBar, toggleSideBar } = useContext(GlobalContext);
+  return { sideBar, toggleSideBar };
 };
 
 export default useSideBar;

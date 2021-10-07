@@ -10,11 +10,11 @@ import ThemeSwitch from '../Switch';
 
 const Header = () => {
   const { path } = useRouter();
-  const { sideBar, togglesideBar } = useSideBar();
+  const { sideBar, toggleSideBar } = useSideBar();
   const { barLength } = useProgressBar();
 
   return (
-    <header className="dark:bg-black dark:text-white dark:border-b-[1px] dark:border-gray-700 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white standalone:h-24">
+    <header className="dark:bg-black dark:text-white dark:border-b-[1px] dark:border-gray-700 inset-x-0 top-0 z-10 p-4 md:p-5 font-semibold text-black shadow-2xl sticky bg-white">
       {isAnArticle(path) && (
         <div
           className="max-w-[100vw] fixed inset-x-0 h-1 rounded-sm bg-white bg-gradient-to-r from-brand via-brand-divide to-brand top-0"
@@ -51,7 +51,7 @@ const Header = () => {
           </ul>
           <button
             className="focus:outline-none sm:hidden ml-3.5 outline-none"
-            onClick={togglesideBar}
+            onClick={toggleSideBar}
           >
             {sideBar ? (
               <CrossIcon className="sm:w-8 sm:h-8 w-6 h-6" />

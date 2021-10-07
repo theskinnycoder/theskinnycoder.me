@@ -1,9 +1,9 @@
-import useStore from '@/utils/useStore';
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 const useSearch = () => {
-  const searchText = useStore((state) => state.searchText);
-  const setSearchText = useStore((state) => state.setSearchText);
-  return { searchText, setSearchText };
+  const { searchText, setSearchTextTo } = useContext(GlobalContext);
+  return { searchText, setSearchTextTo };
 };
 
 export default useSearch;

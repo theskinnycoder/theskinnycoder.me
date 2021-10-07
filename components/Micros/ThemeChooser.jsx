@@ -5,12 +5,12 @@ import { TickIcon } from '../Icons';
 import themes from './themes';
 
 const ThemeChooser = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setThemeTo } = useTheme();
   const [selected, setSelected] = useState(theme);
 
   useEffect(() => {
-    setTheme(selected);
-  }, [selected, setTheme]);
+    setThemeTo(selected);
+  }, [selected, setThemeTo]);
 
   return (
     <div className="flex flex-col items-center justify-center space-y-2">

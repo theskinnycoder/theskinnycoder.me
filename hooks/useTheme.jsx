@@ -1,9 +1,9 @@
-import useStore from '@/utils/useStore';
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 const useTheme = () => {
-  const theme = useStore((state) => state.theme);
-  const setTheme = useStore((state) => state.setTheme);
-  return { theme, setTheme };
+  const { theme, setThemeTo } = useContext(GlobalContext);
+  return { theme, setThemeTo };
 };
 
 export default useTheme;

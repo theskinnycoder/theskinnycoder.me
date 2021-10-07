@@ -1,3 +1,4 @@
+import GlobalProvider from '@/contexts/GlobalContext';
 import MainLayout from '@/layouts/MainLayout';
 import '@/styles/globals.css';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
@@ -16,10 +17,12 @@ const MyApp = ({ Component, pageProps, router }) => {
               content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no"
             />
           </Head>
-          <MainLayout>
-            <DefaultSeo {...SEO} />
-            <Component {...pageProps} />
-          </MainLayout>
+          <GlobalProvider>
+            <MainLayout>
+              <DefaultSeo {...SEO} />
+              <Component {...pageProps} />
+            </MainLayout>
+          </GlobalProvider>
         </motion.div>
       </AnimatePresence>
     </AnimateSharedLayout>

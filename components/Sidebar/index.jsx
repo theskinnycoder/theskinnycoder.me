@@ -5,10 +5,10 @@ import { allNavLinks } from '../links';
 import ThemeChooser from '../Micros/ThemeChooser';
 
 const SideBar = () => {
-  const { sideBar, togglesideBar } = useSideBar();
+  const { sideBar, toggleSideBar } = useSideBar();
 
   const domNode = useClickOutside(() => {
-    sideBar && togglesideBar(false);
+    sideBar && toggleSideBar(false);
   });
 
   return (
@@ -26,7 +26,7 @@ const SideBar = () => {
               href={link.href}
               activeClassName="dark:border-black border-l-8 border-white bg-brand text-black"
             >
-              <a onClick={togglesideBar} className="p-1.5">
+              <a onClick={toggleSideBar} className="p-1.5">
                 {link.name}
               </a>
             </ActiveLink>

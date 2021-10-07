@@ -1,9 +1,9 @@
-import useStore from '@/utils/useStore';
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 const useDarkMode = () => {
-  const darkMode = useStore((state) => state.darkMode);
-  const toggledarkMode = useStore((state) => state.toggledarkMode);
-  return { darkMode, toggledarkMode };
+  const { darkMode, toggleDarkMode } = useContext(GlobalContext);
+  return { darkMode, toggleDarkMode };
 };
 
 export default useDarkMode;

@@ -21,7 +21,6 @@ class MyDocument extends Document {
             content="TheSkinnyCoder, a.k.a, Rahul SriRam, iss a developer, YouTuber and an online tutor"
           />
           <meta name="keywords" content="programming" />
-          <meta name="theme-color" content="#000" />
 
           <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
