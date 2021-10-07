@@ -1,19 +1,13 @@
-import { createContext, useCallback, useEffect, useState } from 'react';
+import { createContext, useCallback, useState } from 'react';
 
 export const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
   // Initialize all states
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [theme, setTheme] = useState('mint');
   const [sideBar, setSideBar] = useState(false);
   const [searchText, setSearchText] = useState('');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-  }, [setDarkMode]);
 
   const toggleDarkMode = useCallback(() => {
     setDarkMode(!darkMode);
