@@ -14,6 +14,7 @@ module.exports = {
         brand: 'var(--brand)',
         'brand-light': 'var(--brand-light)',
         'brand-divide': 'var(--brand-divide)',
+        'brand-contrast-text': 'var(--brand-contrast-text)',
       },
       backgroundColor: {
         brand: 'var(--brand)',

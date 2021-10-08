@@ -1,5 +1,9 @@
-import { Intro, Timeline, Uses } from '@/components/About';
-import { PageSEO } from '@/components/SEO';
+import {
+  IntroSection,
+  TimelineSection,
+  UsesSection,
+} from '@/components/pages/about';
+import { PageSEO } from '@/seo';
 
 const About = () => {
   return (
@@ -9,9 +13,9 @@ const About = () => {
         description="Here is what tools I use, my developer timeline, my scoial media handles etc."
       />
       <div className="dark:bg-black divide-brand-divide flex-col bg-white divide-y">
-        <Intro />
-        <Uses />
-        <Timeline />
+        <IntroSection />
+        <UsesSection />
+        <TimelineSection />
       </div>
     </>
   );

@@ -1,5 +1,9 @@
-import { HeroSection, RecentArticles, YouTubeSection } from '@/components/Home';
-import { PageSEO } from '@/components/SEO';
+import {
+  HeroSection,
+  RecentArticlesSection,
+  YouTubeSection,
+} from '@/components/pages/home';
+import { PageSEO } from '@/seo';
 import getData from '@/utils/getData';
 import { GET_ALL_ARTICLES } from '@/utils/queries';
 
@@ -9,7 +13,7 @@ const Home = ({ articles, videos }) => {
       <PageSEO name="home" description="Full-Stack Web Developer" />
       <div className="dark:bg-black divide-brand-divide flex-col bg-white divide-y">
         <HeroSection />
-        <RecentArticles articles={articles} />
+        <RecentArticlesSection articles={articles} />
         <YouTubeSection videos={videos} />
       </div>
     </>

@@ -1,28 +1,33 @@
 const themes = [
   {
     name: 'baby',
-    color: '#be185d',
-    colorLight: '#faf5ff',
+    brandColor: '#be185d',
+    brandDivideColor: '#fbcfe8',
+  },
+  {
+    name: 'monochrome',
+    brandColor: '#000000',
+    brandDivideColor: '#9CA3AF',
   },
   {
     name: 'mint',
-    color: '#3cae85',
-    colorLight: '#ecfdf5',
+    brandColor: '#3cae85',
+    brandDivideColor: '#a7f3d0',
   },
   {
     name: 'cherry',
-    color: '#dc2626',
-    colorLight: '#fef2f2',
+    brandColor: '#dc2626',
+    brandDivideColor: '#fecaca',
   },
   {
     name: 'oceanic',
-    color: '#1c9dd1',
-    colorLight: '#eff6ff',
+    brandColor: '#1c9dd1',
+    brandDivideColor: '#bfdbfe',
   },
   {
     name: 'honeypot',
-    color: '#f7b634',
-    colorLight: '#fffbeb',
+    brandColor: '#f7b634',
+    brandDivideColor: '#fde68a',
   },
 ];
 

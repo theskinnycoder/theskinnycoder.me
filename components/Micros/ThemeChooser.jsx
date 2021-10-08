@@ -1,7 +1,7 @@
-import useTheme from '@/hooks/useTheme';
+import { useTheme } from '@/hooks';
+import { TickIcon } from '@/icons';
 import { RadioGroup } from '@headlessui/react';
 import { useEffect, useState } from 'react';
-import { TickIcon } from '../Icons';
 import themes from './themes';
 
 const ThemeChooser = () => {
@@ -25,15 +25,17 @@ const ThemeChooser = () => {
               key={theme.name}
               value={theme.name}
               style={{
-                backgroundColor: theme.color,
+                backgroundColor: theme.brandColor,
+                border: '2px solid',
+                borderColor: theme.brandDivideColor,
               }}
-              className="hover:scale-125 p-4 duration-200 ease-in-out rounded-full cursor-pointer"
+              className="hover:scale-125 sm:p-4 p-3 duration-300 ease-in-out rounded-full cursor-pointer"
             >
               {({ checked }) => (
                 <>
                   {checked && (
                     <>
-                      <TickIcon className="animate-bounce w-4 h-4 text-black" />
+                      <TickIcon className="animate-bounce sm:w-4 sm:h-4 text-brand-contrast-text w-3 h-3" />
                     </>
                   )}
                 </>

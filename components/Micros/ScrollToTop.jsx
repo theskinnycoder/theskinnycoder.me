@@ -1,6 +1,6 @@
-import useScrollToTop from '@/hooks/useScrollToTop';
+import { useScrollToTop } from '@/hooks';
+import { ArrowUpIcon } from '@/icons';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUpIcon } from '../Icons';
 
 const ScrollToTop = () => {
   const { makeScroll, showScroll } = useScrollToTop();

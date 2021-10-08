@@ -1,5 +1,5 @@
-import { PageSEO } from '@/components/SEO';
 import BlogLayout from '@/layouts/BlogLayout';
+import { PageSEO } from '@/seo';
 import getData from '@/utils/getData';
 import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@/utils/queries';
 

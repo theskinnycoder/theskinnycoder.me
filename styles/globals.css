@@ -7,26 +7,37 @@
     --brand: #db2777;
     --brand-light: #fdf2f8;
     --brand-divide: #fbcfe8;
+    --brand-contrast-text: #ffffff;
   }
   .mint {
     --brand: #3cae85;
     --brand-light: #ecfdf5;
     --brand-divide: #a7f3d0;
+    --brand-contrast-text: #ffffff;
+  }
+  .monochrome {
+    --brand: #6b7280;
+    --brand-light: #ffffff;
+    --brand-divide: #9ca3af;
+    --brand-contrast-text: #ffffff;
   }
   .cherry {
     --brand: #cb042c;
     --brand-light: #fef2f2;
     --brand-divide: #fecaca;
+    --brand-contrast-text: #ffffff;
   }
   .oceanic {
     --brand: #1c9dd1;
     --brand-light: #eff6ff;
     --brand-divide: #bfdbfe;
+    --brand-contrast-text: #ffffff;
   }
   .honeypot {
     --brand: #f7b634;
     --brand-light: #fffbeb;
     --brand-divide: #fde68a;
+    --brand-contrast-text: #000000;
   }
   @font-face {
     font-family: 'JetBrains Mono';

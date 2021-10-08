@@ -1,6 +1,6 @@
-import { ArticleSkeleton } from '@/components/Articles';
-import { ArticleSEO } from '@/components/SEO';
+import { ArticleSkeleton } from '@/components/skeletons';
 import ArticleLayout from '@/layouts/ArticleLayout';
+import { ArticleSEO } from '@/seo';
 import getData from '@/utils/getData';
 import { getAllPostSlugs } from '@/utils/helperFunctions';
 import { GET_SINGLE_ARTICLE } from '@/utils/queries';

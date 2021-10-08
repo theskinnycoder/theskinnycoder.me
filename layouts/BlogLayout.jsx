@@ -1,12 +1,15 @@
-import useSearch from '@/hooks/useSearch';
+import { useSearch } from '@/hooks';
 import { isSingular } from '@/utils/helperFunctions';
 import { AnimatePresence, motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useEffect, useState } from 'react';
-const ArticleItem = dynamic(() => import('@/components/Articles/ArticleItem'), {
-  ssr: false,
-});
+const ArticleItem = dynamic(
+  () => import('@/components/pages/blog/articles/ArticleItem'),
+  {
+    ssr: false,
+  },
+);
 
 const BlogLayout = ({
   kind = 'articles',

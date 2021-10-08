@@ -3,12 +3,12 @@ import {
   CoverPic,
   DateAndTimeTaken,
   SocialShareButtons,
-} from '@/components/Blog';
-import useRouter from '@/hooks/useRouter';
-import useView from '@/hooks/useView';
+} from '@/components/pages/blog';
+import { useRouter, useView } from '@/hooks';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
-const Comments = dynamic(() => import('@/components/Blog/Comments'), {
+
+const Comments = dynamic(() => import('@/components/pages/blog/Comments'), {
   ssr: false,
 });
 

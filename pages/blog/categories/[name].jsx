@@ -1,6 +1,6 @@
-import { ArticleSkeleton } from '@/components/Articles';
-import CategorySEO from '@/components/SEO/CategorySEO';
+import { ArticleSkeleton } from '@/components/skeletons';
 import BlogLayout from '@/layouts/BlogLayout';
+import { CategorySEO } from '@/seo';
 import getData from '@/utils/getData';
 import { getAllArticleCategories } from '@/utils/helperFunctions';
 import {
