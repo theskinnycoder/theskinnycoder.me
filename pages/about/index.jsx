@@ -1,6 +1,6 @@
 import {
   IntroSection,
-  TimelineSection,
+  TimeLineSection,
   UsesSection,
 } from '@/components/pages/about';
 import { PageSEO } from '@/seo';
@@ -15,7 +15,7 @@ const About = () => {
       <div className="dark:bg-black divide-brand-divide flex-col bg-white divide-y">
         <IntroSection />
         <UsesSection />
-        <TimelineSection />
+        <TimeLineSection />
       </div>
     </>
   );
