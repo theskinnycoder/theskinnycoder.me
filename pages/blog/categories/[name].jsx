@@ -1,5 +1,5 @@
 import { ArticleSkeleton } from '@/components/skeletons';
-import BlogLayout from '@/layouts/BlogLayout';
+import { BlogLayout } from '@/layouts';
 import { CategorySEO } from '@/seo';
 import getData from '@/utils/getData';
 import { getAllArticleCategories } from '@/utils/helperFunctions';

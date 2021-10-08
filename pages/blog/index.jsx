@@ -1,4 +1,4 @@
-import BlogLayout from '@/layouts/BlogLayout';
+import { BlogLayout } from '@/layouts';
 import { PageSEO } from '@/seo';
 import getData from '@/utils/getData';
 import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@/utils/queries';

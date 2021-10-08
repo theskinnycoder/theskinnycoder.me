@@ -1,4 +1,4 @@
-import MainLayout from '@/layouts/MainLayout';
+import { MainLayout } from '@/layouts';
 import '@/styles/globals.css';
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import { DefaultSeo } from 'next-seo';
