@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import { GlobalContext } from '../contexts/GlobalContext';
+import useStore from '@/utils/useStore';
 
 const useTheme = () => {
-  const { theme, setThemeTo } = useContext(GlobalContext);
+  const theme = useStore((state) => state.theme);
+  const setThemeTo = useStore((state) => state.setThemeTo);
   return { theme, setThemeTo };
 };
 
