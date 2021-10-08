@@ -1,10 +1,10 @@
 import {
-  FacebookIcon,
-  LinkedinIcon,
+  FacebookFilledIcon,
+  LinkedInFilledIcon,
   RedditIcon,
   TelegramIcon,
-  TwitterIcon,
-  WhatsappIcon,
+  TwitterFilledIcon,
+  WhatsAppIcon,
 } from '@/icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -41,7 +41,7 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
           url={`https://theskinnycoder.me${path}`}
           title={title}
         >
-          <TwitterIcon className="w-6 h-6 rounded text-[#49a1eb] hover:text-opacity-80" />
+          <TwitterFilledIcon className="w-6 h-6 rounded text-[#49a1eb] hover:text-opacity-80" />
         </TwitterShareButton>
 
         {/* FaceBook */}
@@ -51,7 +51,7 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
           quote={title}
           hashtag={hashtag}
         >
-          <FacebookIcon className="w-6 h-6 rounded text-[#3A5998] hover:text-opacity-80" />
+          <FacebookFilledIcon className="w-6 h-6 rounded text-[#3A5998] hover:text-opacity-80" />
         </FacebookShareButton>
 
         {/* Reddit */}
@@ -70,7 +70,7 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
           title={title}
           separator="-"
         >
-          <WhatsappIcon className="w-6 h-6 rounded text-[#22CC65] hover:text-opacity-80" />
+          <WhatsAppIcon className="w-6 h-6 rounded text-[#22CC65] hover:text-opacity-80" />
         </WhatsappShareButton>
 
         {/* LinkedIn */}
@@ -80,7 +80,7 @@ const SocialShareButtons = ({ path, title, hashtag }) => {
           title={title}
           summary="Do check out other articles on this blog!"
         >
-          <LinkedinIcon className="w-6 h-6 rounded text-[#0177B5] hover:text-opacity-80" />
+          <LinkedInFilledIcon className="w-6 h-6 rounded text-[#0177B5] hover:text-opacity-80" />
         </LinkedinShareButton>
 
         {/* Telegram */}

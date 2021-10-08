@@ -1,5 +1,11 @@
 import { ThemeChooser } from '@/components/micros';
-import { CopyrightIcon, NextjsIcon, TailwindIcon, VercelIcon } from '@/icons';
+import {
+  CopyrightIcon,
+  GraphQLIcon,
+  NextjsIcon,
+  TailwindIcon,
+  VercelIcon,
+} from '@/icons';
 import NextLink from 'next/link';
 
 const Footer = () => {
@@ -34,6 +40,12 @@ const Footer = () => {
                 className="hover:-translate-y-1 transition duration-300 ease-in-out transform"
               >
                 <TailwindIcon className="w-6 h-6 text-[#38B2AC]" />
+              </a>
+              <a
+                href="https://graphql.org/"
+                className="hover:-translate-y-1 transition duration-300 ease-in-out transform"
+              >
+                <GraphQLIcon className="w-6 h-6 text-[#E00098]" />
               </a>
               <a
                 href="https://vercel.com/"

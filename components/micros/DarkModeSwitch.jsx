@@ -6,7 +6,7 @@ const DarkModeSwitch = () => {
 
   return (
     <button
-      className="focus:outline-none bg-brand-divide dark:text-black text-brand hover:opacity-90 hover:scale-105 dark:hover:scale-105 p-2 transition duration-150 ease-in-out rounded-lg outline-none opacity-100"
+      className="focus:outline-none bg-brand-divide hover:opacity-90 hover:scale-105 dark:hover:scale-105 p-2 text-black transition duration-150 ease-in-out rounded-lg outline-none opacity-100"
       onClick={toggleDarkMode}
     >
       {darkMode ? (

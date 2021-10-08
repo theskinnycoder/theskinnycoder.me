@@ -1,8 +1,8 @@
 import {
-  GithubIcon,
+  GitHubIcon,
   InstagramIcon,
-  LinkedinFilledIcon,
-  TwitterFilledIcon,
+  LinkedInIcon,
+  TwitterIcon,
   YoutubeIcon,
 } from '@/icons';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -46,7 +46,7 @@ const IntroSection = () => {
               className="hover:-translate-y-1 transition duration-300 ease-in-out transform"
               rel="noreferrer"
             >
-              <TwitterFilledIcon className="text-[#49a1eb] dark:text-[#0d8af0] md:w-14 md:h-14 w-7 h-7" />
+              <TwitterIcon className="text-[#49a1eb] dark:text-[#0d8af0] md:w-14 md:h-14 w-7 h-7" />
             </a>
             <a
               href="https://www.instagram.com/_rahulsriram_/"
@@ -62,7 +62,7 @@ const IntroSection = () => {
               className="hover:-translate-y-1 transition duration-300 ease-in-out transform"
               rel="noreferrer"
             >
-              <GithubIcon className="md:w-14 md:h-14 w-[1.78rem] h-[1.78rem]" />
+              <GitHubIcon className="md:w-14 md:h-14 w-[1.78rem] h-[1.78rem]" />
             </a>
             <a
               href="https://www.linkedin.com/in/rahul-sriram-50a519173/"
@@ -70,7 +70,7 @@ const IntroSection = () => {
               className="hover:-translate-y-1 transition duration-300 ease-in-out transform"
               rel="noreferrer"
             >
-              <LinkedinFilledIcon className="md:w-14 md:h-14 w-[1.78rem] h-[1.78rem] text-[#0A66C2] dark:text-[#429cf7]" />
+              <LinkedInIcon className="md:w-14 md:h-14 w-[1.78rem] h-[1.78rem] text-[#0A66C2] dark:text-[#429cf7]" />
             </a>
           </div>
         </section>

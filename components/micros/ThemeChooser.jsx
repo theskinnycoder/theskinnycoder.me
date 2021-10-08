@@ -26,10 +26,8 @@ const ThemeChooser = () => {
               value={theme.name}
               style={{
                 backgroundColor: theme.brandColor,
-                border: '2px solid',
-                borderColor: theme.brandDivideColor,
               }}
-              className="hover:scale-125 sm:p-4 p-3 duration-300 ease-in-out rounded-full cursor-pointer"
+              className="hover:scale-125 sm:p-4 dark:border-white p-3 duration-300 ease-in-out border-2 border-black rounded-full cursor-pointer"
             >
               {({ checked }) => (
                 <>
