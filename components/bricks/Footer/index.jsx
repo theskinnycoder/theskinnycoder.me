@@ -1,6 +1,6 @@
+import { ThemeChooser } from '@/components/micros';
 import { CopyrightIcon, NextjsIcon, TailwindIcon, VercelIcon } from '@/icons';
 import NextLink from 'next/link';
-import { ThemeChooser } from '../../micros';
 
 const Footer = () => {
   return (

@@ -1,5 +1,5 @@
+import { ActiveLink, ThemeChooser } from '@/components/micros';
 import { useClickOutside, useSideBar } from '@/hooks';
-import { ActiveLink, ThemeChooser } from '../../micros';
 import { allNavLinks } from '../links';
 
 const SideBar = () => {

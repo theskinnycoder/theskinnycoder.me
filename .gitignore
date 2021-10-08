@@ -6,6 +6,7 @@
 .pnp.js
 
 # PWA Auto generated Files
+**/public/sw*
 **/public/sw.js
 **/public/workbox-*.js
 **/public/worker-*.js

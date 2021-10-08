@@ -1,8 +1,8 @@
+import { ActiveLink, DarkModeSwitch } from '@/components/micros';
 import { useProgressBar, useRouter, useSideBar } from '@/hooks';
 import { CrossIcon, HamburgerIcon } from '@/icons';
 import { isAnArticle } from '@/utils/helperFunctions';
 import NextLink from 'next/link';
-import { ActiveLink, DarkModeSwitch } from '../../micros';
 import { navLinks } from '../links';
 
 const Header = () => {
