@@ -4,7 +4,7 @@ import {
   YouTubeSection,
 } from '@/components/pages/home';
 import { PageSEO } from '@/seo';
-import getData from '@/utils/getData';
+import fetcher from '@/utils/fetcher';
 import { GET_ALL_ARTICLES } from '@/utils/queries';
 
 const Home = ({ articles, videos }) => {
@@ -21,11 +21,11 @@ const Home = ({ articles, videos }) => {
 };
 
 export const getStaticProps = async () => {
-  const { articles } = await getData({
+  const { articles } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES,
   });
-  const { items: videos } = await getData({
+  const { items: videos } = await fetcher({
     url: `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&channelId=${process.env.YOUTUBE_CHANNEL_ID}&part=snippet,id&type=video&order=date&maxResults=4`,
   });
 

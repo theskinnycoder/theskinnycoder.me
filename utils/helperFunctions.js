@@ -1,4 +1,4 @@
-import getData from './getData';
+import fetcher from './fetcher';
 import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from './queries';
 
 export const capitalize = (text) =>
@@ -8,15 +8,13 @@ export const capitalize = (text) =>
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
 
-export const getRandomInRange = (min, max) => Math.random() * (max - min) + min;
-
 export const isSingular = (arr) => arr.length === 1;
 
 export const isAnArticle = (path) =>
   path.includes('blog/') && !path.includes('categories');
 
 export const getAllPostSlugs = async () => {
-  const { articles } = await getData({
+  const { articles } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES,
   });
@@ -25,7 +23,7 @@ export const getAllPostSlugs = async () => {
 };
 
 export const getAllArticleCategories = async () => {
-  const { categories } = await getData({
+  const { categories } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_CATEGORIES,
   });

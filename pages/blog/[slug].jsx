@@ -1,7 +1,7 @@
 import { ArticleSkeleton } from '@/components/skeletons';
 import { ArticleLayout } from '@/layouts';
 import { ArticleSEO } from '@/seo';
-import getData from '@/utils/getData';
+import fetcher from '@/utils/fetcher';
 import { getAllPostSlugs } from '@/utils/helperFunctions';
 import { GET_SINGLE_ARTICLE } from '@/utils/queries';
 
@@ -29,7 +29,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { article } = await getData({
+  const { article } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_SINGLE_ARTICLE,
     variables: { slug: params.slug },

@@ -1,7 +1,7 @@
 import { ArticleSkeleton } from '@/components/skeletons';
 import { BlogLayout } from '@/layouts';
 import { CategorySEO } from '@/seo';
-import getData from '@/utils/getData';
+import fetcher from '@/utils/fetcher';
 import { getAllArticleCategories } from '@/utils/helperFunctions';
 import {
   GET_ALL_ARTICLES_BY_CATEGORY,
@@ -41,13 +41,13 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { category: currentCategory } = await getData({
+  const { category: currentCategory } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES_BY_CATEGORY,
     variables: { name: params.name },
   });
 
-  const { categories } = await getData({
+  const { categories } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_CATEGORIES,
   });

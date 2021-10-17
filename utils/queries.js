@@ -1,4 +1,6 @@
-export const GET_ALL_ARTICLES = `
+const gql = String.raw;
+
+export const GET_ALL_ARTICLES = gql`
   query GetAllArticles {
     articles {
       title
@@ -21,9 +23,9 @@ export const GET_ALL_ARTICLES = `
   }
 `;
 
-export const GET_ALL_ARTICLES_BY_CATEGORY = `
+export const GET_ALL_ARTICLES_BY_CATEGORY = gql`
   query GetAllArticlesByCategory($name: String!) {
-    category(where: {name: $name}) {
+    category(where: { name: $name }) {
       name
       color {
         hex
@@ -50,7 +52,7 @@ export const GET_ALL_ARTICLES_BY_CATEGORY = `
   }
 `;
 
-export const GET_ALL_CATEGORIES = `
+export const GET_ALL_CATEGORIES = gql`
   query GetAllCategories {
     categories {
       name
@@ -61,9 +63,9 @@ export const GET_ALL_CATEGORIES = `
   }
 `;
 
-export const GET_SINGLE_ARTICLE = `
+export const GET_SINGLE_ARTICLE = gql`
   query GetSingleArticle($slug: String!) {
-    article(where: {slug: $slug}) {
+    article(where: { slug: $slug }) {
       title
       excerpt
       content

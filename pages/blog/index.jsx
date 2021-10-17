@@ -1,6 +1,6 @@
 import { BlogLayout } from '@/layouts';
 import { PageSEO } from '@/seo';
-import getData from '@/utils/getData';
+import fetcher from '@/utils/fetcher';
 import { GET_ALL_ARTICLES, GET_ALL_CATEGORIES } from '@/utils/queries';
 
 const Blog = ({ articles, categories }) => {
@@ -16,12 +16,12 @@ const Blog = ({ articles, categories }) => {
 };
 
 export const getStaticProps = async () => {
-  const { articles } = await getData({
+  const { articles } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_ARTICLES,
   });
 
-  const { categories } = await getData({
+  const { categories } = await fetcher({
     url: process.env.GRAPHCMS_END_POINT,
     query: GET_ALL_CATEGORIES,
   });
